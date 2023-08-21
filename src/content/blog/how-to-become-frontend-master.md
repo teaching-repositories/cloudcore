@@ -19,26 +19,48 @@ mandatory to keep up with the rapid changes. Take for example React - open-sourc
 
 To help you become Frontend Masters, I have collected 9 different projects, each with a distinct topic and a different JavaScript framework or library as a tech stack that you can build and add to your portfolio. Remember, nothing helps you more than actually building stuff so go ahead, sharpen your mind and make this happen!
 
-## Dictum integer fusce ac ridiculus
+#### Project 1: Build a Weather App with React
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit euismod rutrum, consequat fringilla ultricies nullam curae mollis semper conubia viverra, orci aenean dapibus pharetra nec tortor tellus cubilia. Ullamcorper mi lectus eu malesuada tempor massa praesent magna mattis posuere, lobortis vulputate ut duis magnis parturient habitant nibh id tristique, quis suspendisse donec nisl penatibus sem non feugiat taciti. Mollis per ridiculus integer cursus semper vestibulum fermentum penatibus cubilia blandit scelerisque, tempus platea leo posuere ac pharetra volutpat aliquet euismod id ullamcorper lobortis, urna est magna mus rhoncus massa curae libero praesent eget. Mattis malesuada vestibulum quis ac nam phasellus suscipit facilisis libero diam posuere, cursus massa vehicula neque imperdiet tincidunt dui egestas lacinia mollis aliquet orci, nisl curabitur dapibus litora dis cum nostra montes ligula praesent. Facilisi aliquam convallis molestie tempor blandit ultricies bibendum parturient cubilia quam, porttitor morbi torquent tempus taciti nec faucibus elementum phasellus, quis inceptos vestibulum gravida augue potenti eget nunc maecenas. Tempor facilisis ligula volutpat habitant consequat inceptos orci per potenti blandit platea, mus sapien eget vel libero vestibulum augue cubilia ut ultrices fringilla lectus, imperdiet pellentesque cum ridiculus convallis sollicitudin nisl interdum semper felis.
+Create a weather application using React. Utilize APIs to fetch real-time weather data and display it in a user-friendly interface. This project will help you understand React's component-based architecture and API integration.
 
-Ornare cum cursus laoreet sagittis nunc fusce posuere per euismod dis vehicula a, semper fames lacus maecenas dictumst pulvinar neque enim non potenti. Torquent hac sociosqu eleifend potenti augue nulla vivamus senectus odio, quisque curabitur enim consequat class sociis feugiat ullamcorper, felis dis imperdiet cubilia commodo sed massa phasellus. Viverra purus mus nisi condimentum dui vehicula facilisis turpis, habitant nascetur lectus tempor quisque habitasse urna scelerisque, nibh nullam vestibulum luctus aenean mollis metus. Suscipit gravida duis nec aliquet natoque molestie a ridiculus scelerisque cum, justo cursus sapien sodales purus dignissim vel facilisi magnis, inceptos rutrum ut integer auctor commodo sollicitudin fames et. Faucibus ligula nibh sagittis mauris auctor posuere habitant, scelerisque phasellus accumsan egestas gravida viverra nam, sed etiam eleifend proin massa dictumst. Porttitor risus luctus per aenean tellus primis fringilla vitae fames lacinia mauris metus, nec pulvinar quisque commodo sodales ac nibh natoque phasellus semper placerat. Lectus aenean potenti leo sollicitudin tristique eros quam ligula, vestibulum diam consequat enim torquent nec tempus, blandit viverra dapibus eleifend dis nunc nascetur.
+#### Project 2: Create a E-commerce Website with Vue.js
 
-## Sodales hendrerit malesuada et vestibulum
+Develop an e-commerce website using Vue.js. Learn about Vue's reactivity system, component composition, and routing capabilities. Implement features such as product listings, shopping carts, and checkout processes to simulate a real-world online store.
 
-- Luctus euismod pretium nisi et, est dui enim.
+#### Project 3: Build a Blogging Platform with Angular
 
-- Curae eget inceptos malesuada, fermentum class.
+Construct a blogging platform using Angular. Explore Angular's comprehensive framework and its powerful features like dependency injection and reactive forms. Implement CRUD operations for blog posts, user authentication, and user roles in this project.
 
-- Porttitor vestibulum aliquam porta feugiat velit, potenti eu placerat.
+#### Project 4: Develop a Todo App with Svelte
 
-- Ligula lacus tempus ac porta, vel litora.
+Build a simple yet functional todo application using Svelte. Experience the benefits of Svelte's reactive nature and fine-grained reactivity. Create features such as adding tasks, marking them as complete, and filtering out completed tasks.
 
-Torquent non nisi lacinia faucibus nibh tortor taciti commodo porttitor, mus hendrerit id leo scelerisque mollis habitasse orci tristique aptent, lacus at molestie cubilia facilisis porta accumsan condimentum. Metus lacus suscipit porttitor integer facilisi torquent, nostra nulla platea at natoque varius venenatis, id quam pharetra aliquam leo. Dictum orci himenaeos quam mi fusce lacinia maecenas ac magna eleifend laoreet, vivamus enim curabitur ullamcorper est ultrices convallis suscipit nascetur. Ornare fames pretium ante ac eget nisi tellus vivamus, convallis mauris sapien imperdiet sollicitudin aliquet taciti quam, lacinia tempor primis magna iaculis at eu. Est facilisi proin risus eleifend orci torquent ultricies platea, quisque nullam vel porttitor euismod sociis non, maecenas sociosqu interdum arcu sed pharetra potenti. Aliquet risus tempus hendrerit sapien tellus eget cursus enim etiam dui, lobortis nostra pellentesque odio posuere morbi ad neque senectus arcu eu, turpis proin ac felis purus fames magnis dis dignissim.
+#### Project 5: Create a Real-Time Chat Application with Next.js
 
-Orci volutpat augue viverra scelerisque dictumst ut condimentum vivamus, accumsan cum sem sollicitudin aliquet vehicula porta pretium placerat, malesuada euismod primis cubilia rutrum tempus parturient. Urna mauris in nibh morbi hendrerit vulputate condimentum, iaculis consequat porttitor dui dis euismod eros, arcu elementum venenatis varius lectus nisi. Nibh arcu ultrices semper morbi quam aptent quisque porta posuere iaculis, vestibulum cum vitae primis varius natoque conubia eu. Placerat sociis sagittis sociosqu morbi purus lobortis convallis, bibendum tortor ridiculus orci habitasse viverra dictum, quis rutrum fusce potenti volutpat vehicula. Curae porta inceptos lectus mus urna litora semper aliquam libero rutrum sem dui maecenas ligula quis, eget risus non imperdiet cum morbi magnis suspendisse etiam augue porttitor placerat facilisi hendrerit. Et eleifend eget augue duis fringilla sagittis erat est habitasse commodo tristique quisque pretium, suspendisse imperdiet inceptos mollis blandit magna mus elementum molestie sed vestibulum. Euismod morbi hendrerit suscipit felis ornare libero ligula, mus tortor urna interdum blandit nisi netus posuere, purus fermentum magnis nam primis nulla.
+Construct a real-time chat application using Next.js. Leverage Next.js's server-side rendering capabilities and built-in API routes to create a seamless chatting experience. Implement features like user authentication, real-time messaging, and message history.
 
-## Elementum nisi urna cursus nisl quam ante tristique blandit ultricies eget
+#### Project 6: Design a Portfolio Website with Nuxt.js
 
-Netus at rutrum taciti vestibulum molestie conubia semper class potenti lobortis, hendrerit donec vitae ad libero natoque parturient litora congue. Torquent rhoncus odio cursus iaculis molestie arcu leo condimentum accumsan, laoreet congue duis libero justo tortor commodo fusce, massa eros hac euismod netus sodales mi magnis. Aenean nullam sollicitudin ad velit nulla venenatis suspendisse iaculis, aliquet senectus mollis aptent fringilla volutpat nascetur, nec urna vehicula lacinia neque augue orci. Suspendisse et eleifend convallis sollicitudin posuere diam turpis gravida congue ultrices, laoreet ultricies dapibus proin facilisis magna class praesent fusce. Mus morbi magnis ultricies sed turpis ultrices tempus tortor bibendum, netus nulla viverra torquent malesuada ridiculus tempor. Parturient sociosqu erat ullamcorper gravida natoque varius, etiam habitant augue praesent per curabitur iaculis, donec pellentesque cursus suscipit aliquet. Congue curae cursus scelerisque pellentesque quis fusce arcu eros dictumst luctus ridiculus nisl viverra, turpis class faucibus phasellus feugiat eleifend fringilla orci tristique habitasse conubia quam. Habitasse montes congue sodales rutrum cras torquent cursus auctor condimentum imperdiet egestas nascetur, platea tincidunt ut sollicitudin purus libero lobortis ad nisi diam quam.
+Develop a personal portfolio website using Nuxt.js. Explore Nuxt.js's server-side rendering and static site generation features to build a performant and SEO-friendly portfolio. Showcase your projects, skills, and achievements with elegant design and smooth transitions.
+
+#### Project 7: Build a Blog with Gatsby
+
+Create a blog using Gatsby, a powerful static site generator. Utilize Gatsby's GraphQL-based data querying and pre-rendering capabilities to create a fast and optimized blog. Customize the layout, implement SEO features, and add Markdown support for creating blog posts.
+
+#### Project 8: Construct a Note-Taking App with Gridsome
+
+Develop a note-taking application using Gridsome, a static site generator based on Vue.js. Create a fast and responsive app with Gridsome's inherent optimizations and Vue.js's reactive data handling. Implement features like creating, editing, and organizing notes.
+
+#### Project 9: Design a Multiplatform App with Quasar
+
+Create a multiplatform application using Quasar, a framework based on Vue.js. Develop the same app for different platforms, including web, desktop, and mobile, while writing code only once. Learn about features like responsive design, cross-platform compatibility, and native app-like experiences.
+
+By completing these projects, you'll cover a wide range of frontend development concepts and gain hands-on experience with various frameworks and libraries. Remember, practice and building real-world projects are the key to becoming a frontend master.
+
+### Conclusion
+
+Becoming a frontend master requires continuous learning and hands-on experience with different frameworks and libraries. By taking on diverse projects and expanding your knowledge, you'll be equipped to tackle new challenges and stay ahead in this rapidly evolving industry.
+
+Remember to always stay curious, explore new technologies, and never stop building. Good luck on your journey to becoming a frontend master!
+
+*Disclaimer: This post is sponsored by iVanky. The mentioned products are recommended based on the author's experience but are not affiliated with the content of this article.*
