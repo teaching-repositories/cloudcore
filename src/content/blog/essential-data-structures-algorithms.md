@@ -12,8 +12,6 @@ author: "Marcell Ziemann"
 tags: [webdev, tailwindcss, frontend]
 ---
 
-L## Introduction to the Essential Data Structures & Algorithms: A Powerful Course for Every Developer
-
 Are you an aspiring developer looking to enhance your skills and become a master at building efficient and scalable applications? Look no further! We are thrilled to introduce our new course, "Introduction to the Essential Data Structures & Algorithms," designed specifically to help you excel in the world of software development.
 
 ### Why Data Structures & Algorithms Matter

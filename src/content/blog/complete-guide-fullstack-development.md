@@ -11,9 +11,6 @@ category: "Tutorials"
 author: "Janette Lynch"
 tags: [webdev, tailwindcss, frontend]
 ---
-
-## The Complete Guide to Full Stack Web Development: A Step-by-Step Tutorial
-
 Are you ready to embark on a journey into the world of full stack web development? Look no further! In this tutorial, we'll provide you with a comprehensive guide that covers everything you need to know to become a proficient full stack web developer. Let's dive in!
 
 ### Step 1: Master Front-end Development with React
