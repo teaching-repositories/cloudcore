@@ -1,9 +1,6 @@
 ---
-title: Breach Investigation and Notification
-categories:
-      - "Incident Response"
-      - "Privacy"
-      - "Regulatory Compliance"
+title: "Breach Investigation and Notification"
+categories: ["Incident Response", "Privacy", "Regulatory Compliance"]
 ---
 
 To provide guidance for breach notification when impressive or unauthorised
