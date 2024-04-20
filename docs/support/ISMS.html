@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - CloudCore Networks Information Security Management System</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ciso-responsibilities" id="toc-ciso-responsibilities" class="nav-link active" data-scroll-target="#ciso-responsibilities">CISO Responsibilities</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#scope-and-context" id="toc-scope-and-context" class="nav-link" data-scroll-target="#scope-and-context">Scope and Context</a></li>
+  <li><a href="#risk-assessment" id="toc-risk-assessment" class="nav-link" data-scroll-target="#risk-assessment">Risk Assessment</a></li>
+  <li><a href="#risk-treatment" id="toc-risk-treatment" class="nav-link" data-scroll-target="#risk-treatment">Risk Treatment</a></li>
+  <li><a href="#information-security-objectives" id="toc-information-security-objectives" class="nav-link" data-scroll-target="#information-security-objectives">Information Security Objectives</a></li>
+  <li><a href="#security-policies-and-procedures" id="toc-security-policies-and-procedures" class="nav-link" data-scroll-target="#security-policies-and-procedures">Security Policies and Procedures**</a></li>
+  <li><a href="#training-and-awareness" id="toc-training-and-awareness" class="nav-link" data-scroll-target="#training-and-awareness">Training and Awareness</a></li>
+  <li><a href="#incident-management" id="toc-incident-management" class="nav-link" data-scroll-target="#incident-management">Incident Management</a></li>
+  <li><a href="#regular-audits-and-review" id="toc-regular-audits-and-review" class="nav-link" data-scroll-target="#regular-audits-and-review">Regular Audits and Review</a></li>
+  <li><a href="#continuous-improvement" id="toc-continuous-improvement" class="nav-link" data-scroll-target="#continuous-improvement">Continuous Improvement</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CloudCore Networks Information Security Management System</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CloudCore Networks is a cloud hosting and managed IT services provider founded in 2010 and headquartered in Perth, Western Australia.</p>
+<p>The company operates 3 data centers in Australia and hosts applications and IT infrastructure for over 500 business customers. CloudCore has around 200 employees and contractors across its data centers and corporate office. The IT team manages server hardware, networking, data backups, security controls and 24/7 monitoring for client infrastructure hosted in the CloudCore data centers. CloudCore’s executive leadership includes:</p>
+<ul>
+<li>CEO: Sara Thompson</li>
+<li>CFO: Michael Chen</li>
+<li>CIO: Jessica Singh</li>
+<li>CISO: Mark Gonsales</li>
+</ul>
+<p>The company has increased its customer base by 25% annually for the past 3 years. Key solutions include public/private cloud hosting, disaster recovery, data backup and virtual desktop services. CloudCore handles sensitive customer data including financial records, healthcare data, intellectual property, PII and corporate emails. Protection of client data and systems is a high priority to maintain trust and compliance obligations.”</p>
+<section id="ciso-responsibilities" class="level2">
+<h2 class="anchored" data-anchor-id="ciso-responsibilities">CISO Responsibilities</h2>
+<ol type="1">
+<li><p><strong>Setting Security Policies and Procedures:</strong> The CISO is responsible for creating, implementing, and managing the organisation’s security policies and procedures that are aligned with ISO 27001 standards. These include policies for data access, usage, storage, and transmission. These policies must be detailed, clear, and enforceable.</p></li>
+<li><p><strong>Risk Assessment:</strong> Conducting a comprehensive risk assessment is crucial in the ISO 27001 process. The CISO must identify all assets, threats, vulnerabilities, impacts, and the likelihood of occurrence to calculate the risk. They must also provide appropriate mitigation strategies.</p></li>
+<li><p><strong>Security Awareness Training:</strong> The CISO must ensure that all staff are aware of the security policies and trained in security best practices. They must conduct regular training sessions and drills to ensure that the staff can identify security threats and understand their responsibilities to prevent security breaches.</p></li>
+<li><p><strong>Regular Audits:</strong> Conducting regular audits is essential to measure the effectiveness of security controls. The CISO must ensure that audits are carried out at regular intervals and any non-compliance found during audits is addressed promptly.</p></li>
+<li><p><strong>Incident Management:</strong> The CISO needs to establish and manage the incident response process. This involves creating an incident response team, developing a response plan, testing the plan, and conducting a post-incident review to identify areas for improvement.</p></li>
+<li><p><strong>Continuous Improvement:</strong> The CISO should ensure that the ISMS is continuously improved through the use of metrics, audits, management reviews, and other feedback mechanisms. This means keeping up-to-date with the latest threats, vulnerabilities, and best practices in the field of information security.</p></li>
+<li><p><strong>Liaison with External Parties:</strong> The CISO should also act as a point of contact during the ISO 27001 certification audit. They need to ensure that the external auditors have all the necessary information and can freely perform their tasks.</p></li>
+<li><p><strong>Management Reviews:</strong> The CISO needs to present reviews to the top management, showcasing the performance of the ISMS, its effectiveness, and any changes in the risk environment or business operations.</p></li>
+<li><p><strong>Ensuring Legal and Contractual Compliance:</strong> The CISO must ensure that the company complies with all relevant legal, regulatory, and contractual requirements. This includes data protection laws, cybersecurity laws, and any specific contractual obligations with clients or third parties.</p></li>
+</ol>
+<p>By adhering to these duties, the CISO plays a crucial role in ensuring that the organisation can meet the requirements of the ISO 27001 standard, thus demonstrating to clients and partners its commitment to information security.</p>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<ol type="1">
+<li><p><strong>Scope and Context:</strong> The ISMS starts by defining its scope, which could be the entire organisation or specific areas. The context would include understanding the organisation, its strategic direction, stakeholders, legal and regulatory requirements, and the role of information security in achieving business objectives. CloudCore Networks would establish its ISMS to cover all its data centers and corporate offices, considering the nature of the sensitive customer data they manage.</p></li>
+<li><p><strong>Risk Assessment:</strong> This involves identifying the assets, threats, vulnerabilities, impacts, and the likelihood of occurrence to calculate the risk. CloudCore Networks would need to assess all its IT systems, hardware, software, and human factors that might pose a risk to the security of its data and services.</p></li>
+<li><p><strong>Risk Treatment:</strong> Once risks are assessed, a risk treatment plan is designed. This would include implementing the appropriate security controls to mitigate these risks, based on the organisation’s risk acceptance level and the resources available.</p></li>
+<li><p><strong>Information Security Objectives:</strong> These are set based on the outcomes from the risk assessment and treatment processes, and they should be consistent with the organisation’s overall strategic objectives.</p></li>
+<li><p><strong>Security Policies and Procedures:</strong> CloudCore Networks would need to develop comprehensive security policies and procedures, encompassing areas like access control, data encryption, network security, incident response, disaster recovery, and user education.</p></li>
+<li><p><strong>Training and Awareness:</strong> Regular training sessions and awareness programs need to be conducted to ensure all employees understand their roles and responsibilities in protecting the company’s and customer’s data.</p></li>
+<li><p><strong>Incident Management:</strong> The ISMS should include an effective incident management process to ensure swift response and recovery in the event of a security breach.</p></li>
+<li><p><strong>Regular Audits and Review:</strong> CloudCore Networks would need to conduct regular internal audits and management reviews to ensure that the ISMS is performing as expected and to identify areas for improvement.</p></li>
+<li><p><strong>Continuous Improvement:</strong> The ISMS should incorporate a process for continuous improvement, updating security measures based on new threats, changes in the organisation, and feedback from audits and incidents.</p></li>
+</ol>
+<p>Remember, the development and implementation of an ISMS is an ongoing process, it involves a continuous cycle of planning, implementing, monitoring, reviewing, and improving the organisation’s information security.</p>
+</section>
+<section id="scope-and-context" class="level2">
+<h2 class="anchored" data-anchor-id="scope-and-context">Scope and Context</h2>
+<p><strong>Scope:</strong></p>
+<p>The scope of CloudCore Networks’ ISMS encompasses the entirety of the organisation’s operations, including all data centers, the corporate office, and remote work environments. This would include the management of server hardware, networking, data backups, security controls, and 24/7 monitoring for client infrastructure hosted in the CloudCore data centers.</p>
+<p>The ISMS would cover all business units, including the IT team, customer support, sales, marketing, and management. It would apply to all employees and contractors, whether they are working on-site or remotely.</p>
+<p>Furthermore, the scope extends to all information assets, including but not limited to:</p>
+<ul>
+<li>Customer data, such as financial records, healthcare data, intellectual property, personally identifiable information (PII), and corporate emails.</li>
+<li>Internal data and proprietary company information.</li>
+<li>Physical assets such as server hardware and network devices.</li>
+<li>Software systems, including proprietary applications, databases, and third-party software.</li>
+<li>Human resources - the knowledge and actions of staff can have a significant impact on information security.</li>
+</ul>
+<p><strong>Context:</strong></p>
+<p>Understanding the context involves evaluating the internal and external factors that can influence the performance of CloudCore Networks’ ISMS.</p>
+<p><em>Internal Context</em>: The company’s strategic direction is to maintain its leadership in cloud hosting and managed IT services by continually improving its services and maintaining the security and privacy of customer data. The organisational culture is focused on technology innovation, customer service, and information security. The sise and complexity of the organisation, having multiple data centers across the US and over 200 employees and contractors, add to the complexity of the ISMS.</p>
+<p><em>External Context</em>: CloudCore Networks, being based in Perth, Australia, operates under Australian laws and regulations regarding data protection. This includes the Privacy Act 1988 and its Australian Privacy Principles (APPs), which govern how personal information is handled. If CloudCore Networks handles any health-related information, it must also comply with the Health Records Act 2001. Additionally, if the company has clients in Europe, it would need to comply with the General Data Protection Regulation (GDPR).</p>
+<p>The company also operates in a competitive global market for cloud hosting and managed IT services, adding external business pressures. As with all businesses in the IT sector, CloudCore Networks faces an evolving threat landscape with potential cybersecurity threats from a variety of sources.</p>
+<p><em>Stakeholders</em>: The primary stakeholders for CloudCore Networks’ ISMS are its customers, employees, and shareholders. Customers trust CloudCore Networks to host their applications and protect their sensitive data, employees need a secure environment to work efficiently, and shareholders expect the company to manage risks and ensure business continuity. Additionally, regulatory bodies, potential customers, and the general public can also be considered as stakeholders for the ISMS.</p>
+<p>By defining the scope and context, CloudCore Networks can ensure that its ISMS is fit for purpose, protecting all relevant information assets, and aligned with the company’s strategic direction and the needs of its stakeholders.</p>
+</section>
+<section id="risk-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="risk-assessment">Risk Assessment</h2>
+<p>Risk Assessment is a structured and systematic process to identify, analyse, and evaluate the risks associated with the potential misuse, loss, damage, or exposure of the organisation’s assets. For CloudCore Networks, the risk assessment process would involve several steps:</p>
+<p><strong>1. Asset Identification:</strong> The first step involves identifying all information assets that could be affected by potential threats. In the case of CloudCore Networks, assets would include:</p>
+<ul>
+<li>Physical Assets: Data centers, server hardware, network equipment, workstations, laptops, and mobile devices.</li>
+<li>Digital Assets: Customer data (financial records, healthcare data, IP, PII, and corporate emails), proprietary company data, databases, software applications, system logs, configuration files, backup files.</li>
+<li>Human Assets: Employees and contractors who handle, manage, or have access to the company’s information assets.</li>
+<li>Intangible Assets: CloudCore Networks’ reputation, brand value, customer trust.</li>
+</ul>
+<p><strong>2. Threat Identification:</strong> The next step is to identify the potential threats to each of these assets. Threats could be:</p>
+<ul>
+<li>Natural disasters: Fires, floods, earthquakes which could impact physical infrastructure.</li>
+<li>Cyber threats: Malware, phishing attacks, hacking attempts, DDoS attacks, insider threats.</li>
+<li>Human error: Accidental data deletion, misconfiguration of systems, improper handling of sensitive data.</li>
+<li>Legal and regulatory: Non-compliance to data protection laws such as Australian Privacy Principles (APPs) or GDPR for European customers.</li>
+</ul>
+<p><strong>3. Vulnerability Assessment:</strong> This step involves identifying the vulnerabilities in the system that could be exploited by potential threats. Vulnerabilities might be outdated software, weak encryption, insecure network protocols, lack of user awareness, or lack of regular security audits.</p>
+<p><strong>4. Risk Evaluation:</strong> Once assets, threats, and vulnerabilities are identified, CloudCore Networks would need to evaluate the risk. This involves calculating the potential impact and likelihood of each risk.</p>
+<p>Impact could be assessed in terms of financial loss, reputation damage, or operational disruption. Likelihood is determined based on the current security controls, the frequency of the threat occurrence in the industry, and the organisation’s history of security incidents.</p>
+<p>For example, a DDoS attack on CloudCore’s servers might have a high impact, causing disruption to their services and significant reputation damage. If their network security controls are not robust, and given the frequency of DDoS attacks in the industry, the likelihood could be high.</p>
+<p><strong>5. Risk Prioritisation:</strong> After the risks have been evaluated, they are prioritised based on their impact and likelihood. High impact and high likelihood risks would be prioritised for immediate treatment.</p>
+<p>The risk assessment would be an ongoing process, repeated at regular intervals, or when significant changes occur in the business or the external environment. The risk landscape is constantly evolving, especially in the IT industry, and CloudCore Networks must keep its risk assessment updated to maintain the effectiveness of its ISMS.</p>
+<p>The outcome of the risk assessment would provide a clear understanding of the organisation’s risk exposure and form the basis for the subsequent Risk Treatment process, where appropriate security controls are selected and implemented.</p>
+</section>
+<section id="risk-treatment" class="level2">
+<h2 class="anchored" data-anchor-id="risk-treatment">Risk Treatment</h2>
+<p>Risk Treatment is the process of selecting and implementing measures to modify risk. Risk treatment invariably involves balancing the costs of implementing the control against the losses that would be expected if the control is not in place. The ultimate aim is to reduce the risks to an acceptable level considering the organisational context and risk appetite.</p>
+<p>In the case of CloudCore Networks, the risk treatment process would involve the following steps:</p>
+<p><strong>1. Selection of Risk Treatment Options:</strong> There are generally four ways to deal with risks:</p>
+<ul>
+<li><p><strong>Risk Acceptance:</strong> Where the risk is deemed to be low, or the cost of implementing controls outweighs the potential damage, the risk may be accepted. This does not eliminate the risk but is an acknowledgement of it. An example could be a minor software vulnerability in a non-critical system with no sensitive data.</p></li>
+<li><p><strong>Risk Avoidance:</strong> This involves not performing an activity that could carry risk. For instance, if a third-party software is identified as a serious threat to the network, CloudCore Networks might avoid using it altogether.</p></li>
+<li><p><strong>Risk Mitigation:</strong> This involves implementing controls to minimise the impact or likelihood of the risk. This could be implementing strong firewalls and DDoS protection measures to reduce the risk of cyber attacks, or regular employee training to reduce the risk of human error.</p></li>
+<li><p><strong>Risk Transfer:</strong> This means handing over the risk to a third party, typically an insurer. CloudCore Networks could have insurance to cover the financial impact of certain types of data breaches or physical damages.</p></li>
+</ul>
+<p><strong>2. Implementation of Controls:</strong> Based on the selected treatment options, appropriate controls are implemented. These controls would be selected from the ISO 27001 Annex A, a comprehensive list of best-practice controls for information security, or other relevant control sets.</p>
+<p>Controls can be:</p>
+<ul>
+<li><strong>Preventive:</strong> Measures that prevent a risk from occurring, such as strong access controls and data encryption.</li>
+<li><strong>Detective:</strong> Measures that identify when a risk event has occurred or is occurring, like intrusion detection systems or regular security audits.</li>
+<li><strong>Corrective:</strong> Measures that recover operations after a risk event, like backup and restore procedures or disaster recovery plans.</li>
+</ul>
+<p>In the case of CloudCore Networks, we use a combination of these controls. For example, to treat the risk of DDoS attacks, they could use preventive controls like firewalls and DDoS protection services, detective controls like network monitoring tools, and corrective controls like incident response and disaster recovery plans.</p>
+<p><strong>3. Documentation:</strong> All risk treatment information should be documented in a Risk Treatment Plan. This includes the details of the risks, selected treatment options, assigned responsibilities, proposed actions, priorities, and deadlines. The documentation would provide a clear roadmap for managing the identified risks and maintaining accountability.</p>
+<p><strong>4. Monitoring and Review:</strong> After the controls are implemented, their effectiveness should be monitored and reviewed regularly. For instance, CloudCore Networks could conduct periodic testing or auditing of its controls, like penetration testing for cyber threats or fire drills for physical threats.</p>
+<p><strong>5. Residual Risk Assessment:</strong> After the risk treatment process, there may still be some level of risk remaining, known as residual risk. This risk should be evaluated and compared against the organisation’s risk acceptance criteria to decide if additional controls are necessary or if the residual risk can be accepted.</p>
+<p>Risk treatment is a crucial component of the ISMS and a continuous process that evolves with the changing risk landscape and business context. CloudCore Networks would need to ensure that its risk treatment process is robust, adaptable, and aligned with its business objectives and risk appetite.</p>
+</section>
+<section id="information-security-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="information-security-objectives">Information Security Objectives</h2>
+<p>Information Security Objectives define what the organisation intends to achieve with its Information Security Management System (ISMS). These objectives must be aligned with the business’s overall strategic goals and be measurable, achievable, relevant, and time-bound.</p>
+<p>In the case of CloudCore Networks, the Information Security Objectives include:</p>
+<p><strong>1. Ensuring Confidentiality, Integrity, and Availability (CIA) of Information:</strong> As a cloud hosting and managed IT service provider, CloudCore Networks handles a wide range of sensitive customer data. The company needs to ensure the confidentiality of this data to prevent unauthorised access or disclosure, maintain the integrity of the data to prevent unauthorised modification or destruction, and guarantee its availability to prevent disruption to the services.</p>
+<p><strong>2. Compliance with Legal and Regulatory Requirements:</strong> Being based in Perth, Australia, CloudCore Networks needs to comply with the Australian Privacy Principles (APPs) and the Health Records Act 2001. Moreover, if they serve customers in Europe, they need to comply with the GDPR. One of the objectives would be to ensure ongoing compliance with these and any other applicable legal, regulatory, and contractual requirements.</p>
+<p><strong>3. Continual Improvement of the ISMS:</strong> CloudCore Networks should strive for continual improvement of its ISMS to keep up with the evolving threat landscape and business context. This could include improving security controls, processes, or competencies based on the findings from audits, incidents, or changes in the environment.</p>
+<p><strong>4. Strengthening Incident Response Capability:</strong> The company should aim to strengthen its capability to respond to information security incidents. This could involve enhancing incident detection mechanisms, reducing the time taken to respond to incidents, or improving the effectiveness of incident recovery procedures.</p>
+<p><strong>5. Enhancing Employee Awareness and Training:</strong> Given that human error can be a significant security risk, CloudCore Networks should aim to enhance employee awareness about information security. This could involve increasing the coverage or effectiveness of security awareness training or improving the compliance with security policies and procedures.</p>
+<p><strong>6. Reducing the Number of Security Incidents:</strong> An objective could be to reduce the number or severity of security incidents, which could be measured by monitoring incident reports over time.</p>
+<p><strong>7. Maintaining Customer Trust:</strong> As a service provider, maintaining customer trust is crucial for CloudCore Networks. An objective could be to maintain or enhance the level of customer trust, which could be measured through customer surveys or feedback.</p>
+<p>Each objective should be associated with one or more key performance indicators (KPIs) to measure its achievement. For instance, the objective of reducing the number of security incidents could be measured with the KPI of the number of incidents reported per quarter. The KPIs should be reviewed regularly, and the results should be used to evaluate the effectiveness of the ISMS and guide its continual improvement.</p>
+<p>The setting of Information Security Objectives is a strategic process that requires a clear understanding of the organisation’s business goals, risk environment, and stakeholder expectations. The objectives provide a clear direction for the ISMS and a basis for measuring and improving its performance.</p>
+<p>The “Security Policies and Procedures” chapter of the ISMS is a crucial one as it outlines the rules, practices, and guidelines the organisation must follow to protect its information assets. While it can indeed include a list and description of all your policies and procedures, it also serves to communicate the organisation’s stance on information security to all relevant parties.</p>
+<p>Here are the key elements:</p>
+<p><strong>1. Purpose of the Policies and Procedures:</strong> This section articulates the need for the security policies and procedures, their role in achieving the organisation’s security objectives, and the consequences of not adhering to them.</p>
+<p><strong>2. Scope:</strong> This defines who the policies and procedures apply to. This would typically include all employees and contractors, but it could also extend to third parties like suppliers or customers, depending on the nature of the organisation’s operations and risks.</p>
+<p><strong>3. Roles and Responsibilities:</strong> This outlines who is responsible for implementing, maintaining, and enforcing each policy and procedure. Typically, this would include roles like the CISO, IT managers, system administrators, and all users of the information systems.</p>
+<p><strong>4. List and Description of Policies and Procedures:</strong> This is where you list all your policies and procedures, along with a brief description of each. It could include policies like the Acceptable Use Policy, Access Control Policy, Data Classification Policy, Incident Response Procedure, etc. Each policy and procedure should be documented in detail separately, but in this chapter, you just need to provide an overview of what each one covers.</p>
+<p><strong>5. Compliance Requirements:</strong> This section describes how the policies and procedures meet the organisation’s legal, regulatory, and contractual obligations, as well as any industry standards or best practices they follow.</p>
+<p><strong>6. Review and Update Process:</strong> This outlines the process for reviewing and updating the policies and procedures. This should be done regularly, or when significant changes occur in the business or the risk environment.</p>
+<p><strong>7. Training and Awareness:</strong> This describes how the organisation ensures that all relevant parties are aware of and understand the policies and procedures. This could involve regular training sessions, reminders, or tests.</p>
+<p>The “Security Policies and Procedures” chapter serves to establish a solid foundation for your ISMS by providing clear guidelines on how information security is managed in your organisation. It’s important to ensure that all your policies and procedures are aligned with your risk treatment plan and help you achieve your information security objectives.</p>
+</section>
+<section id="security-policies-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="security-policies-and-procedures">Security Policies and Procedures**</h2>
+<p><strong>1. Purpose</strong></p>
+<p>The security policies and procedures are the cornerstone of CloudCore Networks’ commitment to securing the confidentiality, integrity, and availability of our client’s data. They provide a framework of standards and best practices that our employees and contractors must follow to ensure the protection of the data and infrastructure we are entrusted with. Non-compliance with these policies can lead to security breaches and legal liabilities, harming our company’s reputation and bottom line.</p>
+<p><strong>2. Scope</strong></p>
+<p>The policies and procedures apply to all employees, contractors, and any third parties who have access to CloudCore Networks’ systems and data. This includes our data center staff, IT team, executive leadership, and external consultants or suppliers.</p>
+<p><strong>3. Roles and Responsibilities</strong></p>
+<p>The Chief Information Security Officer (CISO), Mark Gonsales, is responsible for the overall management of our security policies and procedures. The IT team is responsible for implementing the technical controls outlined in the policies. The HR department is responsible for ensuring all employees and contractors receive necessary security training. All users of our systems are responsible for adhering to the policies and reporting any suspected security incidents.</p>
+<p><strong>4. List and Description of Policies and Procedures</strong></p>
+<p>Here is a list of our key policies and procedures:</p>
+<ul>
+<li><p><strong>Acceptable Use Policy:</strong> Specifies what behaviors are considered acceptable when using our systems and data. It includes rules about internet use, email use, and the handling of confidential data.</p></li>
+<li><p><strong>Access Control Policy:</strong> Details the controls we have in place to restrict access to our systems and data. This includes user authentication, authorisation, and password management procedures.</p></li>
+<li><p><strong>Data Classification Policy:</strong> Defines how we classify our data based on its sensitivity and the controls required for each classification level.</p></li>
+<li><p><strong>Incident Response Procedure:</strong> Outlines the steps to follow when a security incident occurs, including incident reporting, investigation, containment, recovery, and follow-up.</p></li>
+<li><p><strong>Disaster Recovery and Business Continuity Plan:</strong> Provides a plan of action for restoring our operations in the event of a major incident like a natural disaster or cyber attack.</p></li>
+<li><p><strong>Encryption Policy:</strong> Defines when and how encryption should be used to protect our data, both in transit and at rest.</p></li>
+<li><p><strong>Vendor Management Policy:</strong> Specifies the security requirements for third parties who have access to our systems or data.</p></li>
+<li><p><strong>Security Awareness and Training Policy:</strong> Outlines our approach to ensuring all employees and contractors understand their security responsibilities.</p></li>
+</ul>
+<p><strong>5. Compliance Requirements</strong></p>
+<p>Our policies and procedures have been designed to comply with the Australian Privacy Principles (APPs), the Health Records Act 2001, and the ISO 27001 standard. If we serve customers in other countries, we also ensure compliance with their respective data protection laws, such as the GDPR for European customers.</p>
+<p><strong>6. Review and Update Process</strong></p>
+<p>Our policies and procedures are reviewed at least annually or whenever significant changes occur in our business operations, technology, or the legal and regulatory environment. The CISO is responsible for initiating the review process and proposing any necessary updates, which are then approved by the executive leadership.</p>
+<p><strong>7. Training and Awareness</strong></p>
+<p>We provide regular security awareness training to all employees and contractors to ensure they understand our policies and procedures. The training covers the key aspects of our policies, common security threats and how to avoid them, and the process for reporting suspected security incidents. We also test the effectiveness of our training through simulated phishing attacks and periodic compliance audits.</p>
+<p>Through these policies and procedures, CloudCore Networks seeks to create a robust security culture where every individual understands their role in protecting our company’s and our client’s data.</p>
+</section>
+<section id="training-and-awareness" class="level2">
+<h2 class="anchored" data-anchor-id="training-and-awareness">Training and Awareness</h2>
+<p><strong>1. Purpose</strong></p>
+<p>The purpose of the Training and Awareness program is to ensure that all employees, contractors, and third-party vendors are aware of their roles and responsibilities in protecting CloudCore Networks’ information assets. By increasing awareness and knowledge about potential threats and vulnerabilities, we can significantly decrease the likelihood of successful cyber-attacks and data breaches.</p>
+<p><strong>2. Scope</strong></p>
+<p>The Training and Awareness program applies to all personnel within CloudCore Networks, including full-time employees, part-time employees, contractors, interns, and third-party vendors with access to the company’s data and information systems.</p>
+<p><strong>3. Roles and Responsibilities</strong></p>
+<p>The CISO, Mark Gonsales, is responsible for overseeing the development and execution of the Training and Awareness program. The HR department is tasked with coordinating training schedules, tracking participation, and maintaining training records. The IT team is responsible for developing training content, conducting training sessions, and assessing the effectiveness of the training.</p>
+<p><strong>4. Security Awareness Training</strong></p>
+<p>All new employees and contractors are required to complete security awareness training as part of their onboarding process. The training covers key areas such as:</p>
+<ul>
+<li>Understanding our security policies and procedures</li>
+<li>Recognising and responding to phishing and other common cyber threats</li>
+<li>Properly handling sensitive data according to our data classification policy</li>
+<li>Using strong passwords and multi-factor authentication</li>
+<li>Reporting suspected security incidents</li>
+</ul>
+<p>After the initial training, ongoing awareness activities are conducted throughout the year. These include:</p>
+<ul>
+<li><strong>Monthly Security Newsletters:</strong> These cover recent security incidents in the industry, changes in our policies or procedures, and tips for maintaining good security hygiene.</li>
+<li><strong>Quarterly Training Refreshers:</strong> These sessions refresh knowledge of our security policies and updates on the latest cyber threats and defense strategies. emails to test employees’ ability to recognise and report phishing attempts.</li>
+<li><strong>Simulated Phishing Attacks:</strong> We periodically send simulated phishing</li>
+</ul>
+<p><strong>5. Specialised Training</strong></p>
+<p>In addition to the general security awareness training, we provide specialised training for roles with specific security responsibilities. For example:</p>
+<ul>
+<li>The IT team receives training on secure coding practices, network security, and incident response.</li>
+<li>The HR department is trained on secure handling of employee data and recognising insider threats.</li>
+<li>The executive leadership is briefed on their role in supporting the ISMS and managing information risk.</li>
+</ul>
+<p><strong>6. Third-party Vendor Training</strong></p>
+<p>Third-party vendors with access to our systems or data are required to demonstrate that they have completed equivalent security training. We also provide them with training on our specific security policies and procedures.</p>
+<p><strong>7. Training Evaluation and Improvement</strong></p>
+<p>The effectiveness of the training and awareness program is evaluated through:</p>
+<ul>
+<li>Tests at the end of each training session</li>
+<li>Tracking the number of reported security incidents</li>
+<li>Observing the results of simulated phishing attacks</li>
+<li>Employee feedback surveys</li>
+</ul>
+<p>The results of these evaluations are used to continuously improve the program, ensuring it remains relevant and effective as our business and the threat landscape evolve.</p>
+<p>By investing in security training and awareness, CloudCore Networks seeks to build a strong security culture where every individual understands their role in protecting our assets and contributes to our security objectives.</p>
+</section>
+<section id="incident-management" class="level2">
+<h2 class="anchored" data-anchor-id="incident-management">Incident Management</h2>
+<p><strong>1. Purpose</strong></p>
+<p>The purpose of Incident Management is to establish a systematic, consistent, and repeatable process for handling information security incidents at CloudCore Networks. This process ensures that incidents are detected and reported promptly, investigated thoroughly, and dealt with effectively to minimise harm and prevent recurrence.</p>
+<p><strong>2. Scope</strong></p>
+<p>incidents that could impact the confidentiality, integrity, or availability of The Incident Management process applies to all types of information security CloudCore Networks’ systems or data. This includes cyber attacks such as malware infections, hacking attempts, or data breaches, as well as non-technical incidents such as physical theft of equipment or inadvertent disclosure of sensitive information.</p>
+<p><strong>3. Roles and Responsibilities</strong></p>
+<p>The CISO, Mark Gonsales, is responsible for the overall management of the Incident Management process. The IT team is responsible for detecting, investigating, and responding to incidents. All employees and contractors are responsible for reporting any suspected incidents as quickly as possible.</p>
+<p><strong>4. Incident Detection and Reporting</strong></p>
+<p>Incident detection is primarily handled by our IT team, using a combination of intrusion detection systems, log monitoring, and regular security audits. However, all employees and contractors are trained to recognise potential security incidents and are required to report them immediately using our secure incident reporting tool.</p>
+<p><strong>5. Incident Assessment and Classification</strong></p>
+<p>Upon receiving an incident report, the IT team assesses the incident to determine its severity and potential impact. Incidents are classified as low, medium, or high severity, based on factors such as the sensitivity of the affected data, the extent of the system compromise, and the potential damage to our reputation or operations.</p>
+<p><strong>6. Incident Response</strong></p>
+<p>Our response to an incident depends on its classification. For high severity incidents, a cross-functional Incident Response Team, led by the CISO, is convened to manage the situation. The team’s tasks include:</p>
+<ul>
+<li>Containment: Taking immediate steps to prevent further damage or data loss. This might involve disconnecting affected systems from the network or changing access credentials.</li>
+<li>Investigation: Determining the cause of the incident, the extent of the damage, and the perpetrator if possible. This might involve forensic analysis of system logs or coordination with law enforcement agencies.</li>
+<li>Recovery: Restoring affected systems to normal operation, ensuring they are free from any threats, and confirming the security of our data.</li>
+<li>Communication: Keeping stakeholders informed about the incident and our response, in accordance with our legal and contractual obligations. This might involve notifying affected customers, regulators, or the media.</li>
+<li>Review: After the incident has been resolved, the team conducts a review to learn from the incident and improve our defenses. This includes updating our risk assessment, revising our policies or procedures, and providing additional training as needed.</li>
+</ul>
+<p><strong>7. Incident Tracking and Documentation</strong></p>
+<p>All incidents and our response to them are documented in an Incident Management Log. This log is reviewed regularly to identify trends or patterns and adjust our preventive measures accordingly.</p>
+<p><strong>8. Incident Management Training</strong></p>
+<p>All employees and contractors receive training on our Incident Management process as part of their security awareness training. The IT team and the Incident Response Team receive additional, specialised training on incident detection, investigation, and response techniques.</p>
+<p>The Incident Management process is a crucial part of CloudCore Networks’ commitment to protecting our clients’ data and maintaining their trust. By preparing for incidents and handling them effectively when they occur, we can reduce their impact and learn from them to strengthen our defenses.</p>
+</section>
+<section id="regular-audits-and-review" class="level2">
+<h2 class="anchored" data-anchor-id="regular-audits-and-review">Regular Audits and Review</h2>
+<p><strong>1. Purpose</strong></p>
+<p>The purpose of Regular Audits and Reviews is to regularly evaluate the effectiveness and efficiency of CloudCore Networks’ Information Security Management System (ISMS) to identify areas of improvement and to ensure compliance with ISO 27001 standards and other applicable regulations.</p>
+<p><strong>2. Scope</strong></p>
+<p>The audit and review processes apply to all elements of the ISMS, including risk management, security policies and procedures, security controls, training programs, incident response and management, and continuity plans.</p>
+<p><strong>3. Roles and Responsibilities</strong></p>
+<p>The CISO, Mark Gonsales, is responsible for planning and overseeing the audit and review processes. The Internal Audit Team, an independent team within CloudCore Networks, is responsible for conducting internal audits. External auditors are hired to perform annual third-party audits.</p>
+<p><strong>4. Internal Audits</strong></p>
+<p>Internal audits are conducted semi-annually by the Internal Audit Team. These audits assess both the operational effectiveness of our security controls and the compliance of our practices with our documented policies and procedures. Areas covered in the internal audits include but are not limited to:</p>
+<ul>
+<li>Access controls</li>
+<li>Network security controls</li>
+<li>Incident response and management</li>
+<li>Security awareness and training</li>
+<li>Data protection and privacy</li>
+<li>Compliance with applicable laws and regulations</li>
+</ul>
+<p>The Internal Audit Team presents its findings to the CISO, along with recommendations for improvement. These findings are reviewed, and necessary changes are implemented.</p>
+<p><strong>5. Third-Party Audits</strong></p>
+<p>CloudCore Networks also contracts an external auditor annually to conduct a comprehensive review of our ISMS. This ensures an unbiased evaluation and verifies our compliance with ISO 27001 and other relevant standards. The results of these audits are presented to the executive leadership and used to guide strategic decisions about our information security program.</p>
+<p><strong>6. Management Reviews</strong></p>
+<p>The CISO conducts a formal Management Review of the ISMS annually, taking into account the results of the internal and external audits, changes in our business or the threat landscape, feedback from employees and customers, and any incidents or near misses. The review focuses on the effectiveness of the ISMS and identifies opportunities for continual improvement.</p>
+<p><strong>7. Continual Improvement</strong></p>
+<p>Based on the findings of the audits and management reviews, the CISO develops an ISMS Improvement Plan. This plan outlines specific actions to address any identified gaps or weaknesses, improve the effectiveness of our controls, and enhance our overall security posture.</p>
+<p><strong>8. Audit and Review Training</strong></p>
+<p>All members of the Internal Audit Team are required to have relevant auditing qualifications and receive ongoing training to stay current with auditing practices and information security trends.</p>
+<p>The Regular Audits and Review process is fundamental to maintaining and improving the ISMS of CloudCore Networks. By actively seeking out areas of improvement, we can ensure our defenses evolve with the changing threat landscape and continue to effectively protect our clients’ data and our systems.</p>
+</section>
+<section id="continuous-improvement" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-improvement">Continuous Improvement</h2>
+<p><strong>1. Purpose</strong></p>
+<p>The purpose of the Continuous Improvement process is to ensure that CloudCore Networks’ ISMS does not remain static but evolves and improves over time. It allows us to adapt to changes in our business environment, technological advancements, emerging threats, and regulatory landscape to ensure optimal and robust information security.</p>
+<p><strong>2. Scope</strong></p>
+<p>Continuous improvement encompasses all aspects of the ISMS including policies, procedures, practices, controls, and the overall performance of the ISMS. It involves making iterative improvements over time as well as significant changes or upgrades when necessary.</p>
+<p><strong>3. Roles and Responsibilities</strong></p>
+<p>The CISO, Mark Gonsales, oversees the continuous improvement process, while every team member within CloudCore Networks contributes to the process through their respective roles.</p>
+<p><strong>4. Improvement Inputs</strong></p>
+<p>Several sources of information feed into the continuous improvement process:</p>
+<ul>
+<li><strong>Audit findings:</strong> Both internal and external audits provide valuable insights into the performance of our ISMS and areas where we can improve.</li>
+<li><strong>Management reviews:</strong> These high-level reviews may identify strategic changes that need to be made to our ISMS.</li>
+<li><strong>Incident reports:</strong> Analysis of security incidents and near misses can reveal vulnerabilities that need to be addressed.</li>
+<li><strong>Employee feedback:</strong> Employees often have practical suggestions for improving our security procedures and controls.</li>
+<li><strong>Customer feedback:</strong> Feedback from our customers can help us better align our ISMS with their needs and expectations.</li>
+<li><strong>Regulatory changes:</strong> Updates to laws or regulations may require us to make changes to our ISMS.</li>
+<li><strong>Technology changes:</strong> New technologies or changes to our IT infrastructure can present opportunities for improving our security controls.</li>
+</ul>
+<p><strong>5. Improvement Actions</strong></p>
+<p>Based on these inputs, the CISO, in collaboration with the IT team and other relevant stakeholders, develops a plan of action to improve the ISMS. This might involve:</p>
+<ul>
+<li>Updating policies and procedures</li>
+<li>Implementing new or improved security controls</li>
+<li>Conducting additional training</li>
+<li>Investing in new security technologies</li>
+</ul>
+<p>Each improvement action is assigned a responsible person, a deadline, and a set of success criteria. The improvement actions are tracked and their effectiveness is assessed to ensure they are producing the desired results.</p>
+<p><strong>6. Monitoring and Measurement</strong></p>
+<p>To gauge the effectiveness of the improvement efforts, key performance indicators (KPIs) are used. These can include metrics such as the number of incidents, audit findings, training participation rates, and system uptime. These KPIs are regularly reviewed and reported to ensure the ISMS is moving in the desired direction.</p>
+<p><strong>7. Iterative Process</strong></p>
+<p>Continuous Improvement is an ongoing, iterative process. After the implementation of improvements, another cycle of measurement, feedback, and adjustment begins. This keeps the ISMS continually adapting and evolving.</p>
+<p>In conclusion, continuous improvement is the key to maintaining an effective and robust ISMS. It enables CloudCore Networks to stay proactive in the face of an ever-evolving cybersecurity landscape, ensuring that our customers’ data remains secure and our business resilient.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

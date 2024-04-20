@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - Security Architecture and Operating Model</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#cloudcore-security-principles" id="toc-cloudcore-security-principles" class="nav-link" data-scroll-target="#cloudcore-security-principles">CloudCore Security Principles</a></li>
+  <li><a href="#security-architecture" id="toc-security-architecture" class="nav-link" data-scroll-target="#security-architecture">Security Architecture</a></li>
+  <li><a href="#metrics-measurements-and-continuous-monitoring" id="toc-metrics-measurements-and-continuous-monitoring" class="nav-link" data-scroll-target="#metrics-measurements-and-continuous-monitoring">Metrics, Measurements and Continuous Monitoring</a></li>
+  <li><a href="#quality-of-service" id="toc-quality-of-service" class="nav-link" data-scroll-target="#quality-of-service">Quality of Service</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Security Architecture and Operating Model</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In the digital age, cyber attacks are inevitable. At CloudCore, we are taking a “zero trust”, “minimal infrastructure” approach to managing risk and information security. This document describes our guiding principles and aspirations in managing risk and the building blocks of our security model.</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li>CloudCore’s security program and operations should be designed and implemented with the following objectives and best practices:</li>
+</ol>
+<ul>
+<li>data-centric, cloud-first</li>
+<li>assume compromise therefore never trust, always verify</li>
+<li>apply controls using least-privilege and defence-in-depth principles</li>
+<li>avoid single point of compromise</li>
+<li>automate whenever possible, the simpler the better, less is more</li>
+<li>prompt self management and reward good behaviours</li>
+</ul>
+<ol start="2" type="a">
+<li>Security shall remain a top priority in all aspects of CloudCore’s business operations and product development.</li>
+</ol>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="cloudcore-security-principles" class="level3">
+<h3 class="anchored" data-anchor-id="cloudcore-security-principles">CloudCore Security Principles</h3>
+<section id="data-centric-model-zero-trust-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="data-centric-model-zero-trust-architecture">(1) Data-centric model; zero-trust architecture</h4>
+<p>“Zero Trust” is a data-centric security design that puts micro-perimeters around specific data or assets so that more granular rules can be enforced. It remedies the deficiencies with perimeter-centric strategies and the legacy devices and technologies used to implement them. It does this by promoting “never trust, always verify” as its guiding principle. This differs substantially from conventional security models which operate on the basis of “trust but verify.”</p>
+<p>In particular, with Zero Trust there is no default trust for any entity — including users, devices, applications, and packets—regardless of what it is and its location on or relative to the corporate network. In addition, verifying that authorised entities are always doing only what they’re allowed to do is no longer optional; it’s now mandatory.</p>
+<p>!!! Summary</p>
+<pre><code>* No internal network. (Almost) 100% cloud.
+* Fully segregated with Granular policy enforcements.
+* Individually secured devices. No production access by default.</code></pre>
+</section>
+<section id="air-gapped-environments-meet-short-lived-processes" class="level4">
+<h4 class="anchored" data-anchor-id="air-gapped-environments-meet-short-lived-processes">(2) “Air-Gapped” environments meet short-lived processes</h4>
+<p>We extend the zero-trust security model with a “Minimal Infrastructure” approach, where we use “Anything-as-a-Service” whenever possible, to harness the full power of the cloud. Cloud services allow us to contain and control access at a much more granular level, compared to operating on-premise infrastructure. Via access to the extensive APIs provided by the cloud services, we would be able to more easily integrate and automate security operations. Additionally, minimising infrastructure significantly reduces always-on attack surfaces. Services that are not used are turned off, instead of being idly available which opens itself up to attacks. Together with Zero Trust, this security model and architecture enables a high degree of flexibility for end-user computing while maintaining the highest level of security assurance.</p>
+<p>!!! Summary</p>
+<pre><code>* No direct administrative or broad network connectivity into production.
+* Processes are short-lived and killed after use.
+* Minimal persistent attack surface making it virtually impenetrable.</code></pre>
+</section>
+<section id="least-privilege-temporary-access" class="level4">
+<h4 class="anchored" data-anchor-id="least-privilege-temporary-access">(3) Least-privilege temporary access</h4>
+<p>Cyber attacks are inevitable. When it comes to preparing for potential attacks, CloudCore security operations take the approach that assumes a compromise can happen at any time, to any device, with little to no indicators. This is also an extension of the “zero trust” model. When building security operations, we carefully perform risk analysis and threat model, to identify potential single point of compromise and to avoid having the “keys to the kingdom”.</p>
+<p>In other words, compromise of any single system or user or credential, should not easily lead to a broad or full compromise of the entire infrastructure or operations. For example, if an attacker gains access to a admin credential (e.g. Active Directory domain), it should not directly lead to the compromise of all systems and data in the environment.</p>
+<p>!!! Summary</p>
+<pre><code>* Need-based access control for both employees and computing services.
+* Access to critical systems and resources are closed by default, granted on demand.
+* Protected by strong multi-factor authentication.
+* No “keys to the kingdom”; no single points of compromise.
+* "Secrets" (such as SSH Keys) must remain secret at all times.</code></pre>
+</section>
+<section id="immutable-builds-and-deploys" class="level4">
+<h4 class="anchored" data-anchor-id="immutable-builds-and-deploys">(4) Immutable builds and deploys</h4>
+<p>The CloudCore platform leverages a micro-service architecture. This means that the system has been decomposed into numerous small components that can be built and deployed individually. Before these components get deployed to our <em>production</em> environments, we thoroughly test and validate the changes in our <em>lower</em> environments which are completely isolated from production. This allows us to test upcoming changes while ensuring there is no impact to our customers.</p>
+<p>As a particular build of a component progresses through our environments, it is important that the build does not change thus we ensure that each build is immutable. Once an <em>immutable build</em> has been validated in our <em>lower</em> (non-production) environments, we then deploy it to our <em>production</em> environment where the change will be available to CloudCore customers and end-users.</p>
+<p>Changes to our infrastructure (database schema changes, storage buckets, load balances, DNS entries, etc.) are also described in our source code and deployed to our environments just like the applications. This architectural approach to managing infrastructure is referred to as <em>infrastructure as code</em> and is a key requirement for fully automated deployments with minimal human touch.</p>
+<p>!!! Summary</p>
+<pre><code>* Infrastructure as code with active protection.
+* Automated security scans and full traceability from code commit to production.
+* “Hands-free” deployment ensures each build is free from human error or malicious contamination.</code></pre>
+</section>
+<section id="end-to-end-data-protection-and-privacy" class="level4">
+<h4 class="anchored" data-anchor-id="end-to-end-data-protection-and-privacy">(5) End-to-end data protection and privacy</h4>
+<p>It is of the utmost importance that CloudCore provides for confidentiality (privacy), integrity and availability of its customer’s data. Your data is protected with end-to-end encryption, combined with strong access control and key management. We also prohibit our internal employees to access customer data directly in production. So your data remains safe and private at all times. We will never use or share your data without your prior consent.</p>
+<p>We are proud to offer our customers data storage peace of mind with a money-back guarantee. We guarantee your private data stored on our platform is always safe and protected from cyberattacks such as ransomware, and we will reimburse you for certain losses of such data due to unauthorised activity in eligible accounts that resulted through no fault of your own.</p>
+<p>!!! Summary</p>
+<pre><code>* Data is safe both at rest and in transit, using strong encryption, access control and key management.
+* No internal user access is allowed to customer data in production.</code></pre>
+</section>
+<section id="strong-yet-flexible-user-access" class="level4">
+<h4 class="anchored" data-anchor-id="strong-yet-flexible-user-access">(6) Strong yet flexible user access</h4>
+<p>We all know by now that “Passw0rd” makes a terrible password. Access control is so important we must get it right. That’s why we leverage tried-and-true technology such as SAML, OAuth, multi-factor authentication, and fine-grained authorisation to provide strong yet intuitive access options, both for our internal staff to access business resources and for our customers to access CloudCore platform and services.</p>
+<p>!!! Summary</p>
+<pre><code>* OAuth 2.0, OpenID Connect, SAML for customer authentication and single sign-on.
+* Multi-factor authentication.
+* Fine-grain attribute-based or role-based authorisation.</code></pre>
+</section>
+<section id="watch-everything-even-the-watchers" class="level4">
+<h4 class="anchored" data-anchor-id="watch-everything-even-the-watchers">(7) Watch everything, even the watchers</h4>
+<p>You can’t protect what you can’t see.</p>
+<p>As the famous strategist, Sun Tsu, once said, “Know thy self, know thy enemy. A thousand battles, a thousand victories.” It all starts with knowing ourselves. This applies to the infrastructure, environments, operations, users, systems, resources, and most importantly, data. It is important to inventory all assets, document all operations, identify all weaknesses, and visualise/understand all events.</p>
+<p>This includes conducting various risk analysis, threat modeling, vulnerability assessments, application scanning, and penetration testing. Not only that, this requires security operations to keep an eye on everything, and someone should also “watch the watchers”.</p>
+<p>At first, this would require significant manual effort and may seem impossible to keep up-to-date. Our goal is to automate security operations, so that this can be achieved programmatically as our operations evolve to become more complex.</p>
+<p>Additionally, CloudCore security team will actively monitor threat intelligence in the community, with feeds and information sharing platform such as NH-ISAC to stay abreast of the attacker activities and methodologies.</p>
+<p>!!! Summary</p>
+<pre><code>* All environments are monitored; All events are logged; All alerts are analysed; All assets are tracked.
+* No privileged access without prior approval or full auditing.
+* We deploy monitoring redundancy to “watch the watchers”.</code></pre>
+</section>
+<section id="centralised-and-automated-operations" class="level4">
+<h4 class="anchored" data-anchor-id="centralised-and-automated-operations">(8) Centralised and automated operations</h4>
+<p>As much as possible, CloudCore security will translate policy and compliance requirements into reusable code for easy implementation and maintenance. This allows us to truly be able to enforce policy and compliance in a fast and scalable way, rather than relying solely on written policies and intermittent manual audits. For example, end-point device policies may be translated into Chef InSpec code and compliance may be enforced through the agent. Access Control policies for production environments are translated into AWS IAM JSON policies and implemented via Terraform code.</p>
+<p>Automation makes it truly possible to centralise security operations, including not only event aggregation and correlation, but also the orchestration and management of previously siloed security controls and remediation efforts.</p>
+<p>!!! Summary</p>
+<pre><code>* API-driven cloud-native security fabric that
+    - centrally monitors security events,
+    - visualises risk management,
+    - automates compliance audits, and
+    - orchestrates near real-time remediation.</code></pre>
+</section>
+<section id="usable-security" class="level4">
+<h4 class="anchored" data-anchor-id="usable-security">(9) Usable security</h4>
+<p>Security benefits from transparency, and should operate as an open-book. This allows the entire organisation to take responsibility for and accountability of adopting security best practices. Similar to code reviews and pull requests in the development process, CloudCore security team makes security standards and practices available to all employees for feedback prior to adoption.</p>
+<p>We emphasise on the usability and practicality of security. A security solution or process is not effective, if it is not being used, no matter how good it may be. Having impractical security would only generate noise, provide a false sense of security, and incur unnecessary cost. Nothing is perfect, but we embrace an agile mindset to test and try, and to continuously improve.</p>
+<p>!!! Summary</p>
+<pre><code>* All employees receive security awareness training not annually, but monthly.
+* Simple policies, processes, and procedures.
+* No “Shadow IT”.
+* DevSecOps with common goals and an integrated team.
+* Processes that encourage self management and reward good behaviour.</code></pre>
+</section>
+<section id="regulatory-compliant-and-hacker-verified" class="level4">
+<h4 class="anchored" data-anchor-id="regulatory-compliant-and-hacker-verified">(10) Regulatory compliant and hacker verified</h4>
+<p>Security != Compliance. We cannot have one without the other.</p>
+<p>!!! Summary</p>
+<pre><code>* Regulatory Compliant;
+* Independently assessed and certified;
+* Hacker verified.</code></pre>
+</section>
+</section>
+<section id="security-architecture" class="level3">
+<h3 class="anchored" data-anchor-id="security-architecture">Security Architecture</h3>
+<p>CloudCore developed a security architecture on top of its three main infrastructure environments - Cloud (AWS), DevOps, and workforce collaboration / end-user computing.</p>
+<section id="architecture-diagrams" class="level4">
+<h4 class="anchored" data-anchor-id="architecture-diagrams">Architecture Diagrams</h4>
+<p>Detailed architecture diagrams of the in-scope networks, endpoints, applications as well as the security operations are developed and maintained by JupiterOne.</p>
+</section>
+<section id="cloud-architecture" class="level4">
+<h4 class="anchored" data-anchor-id="cloud-architecture">Cloud Architecture</h4>
+<section id="cloud-native" class="level5">
+<h5 class="anchored" data-anchor-id="cloud-native">Cloud Native</h5>
+<ul>
+<li>Designed for the cloud using true multi-tenant architecture</li>
+<li>Auto scaling across multiple data centers in multiple regions around the world</li>
+<li>CloudCore services deployed inside private subnets of Virtual Private Cloud (VPC)</li>
+<li>Comprehensive security and compliance via AWS certifications</li>
+<li>Ongoing security testing by AWS and AWS customers</li>
+</ul>
+</section>
+<section id="customer-benefits" class="level5">
+<h5 class="anchored" data-anchor-id="customer-benefits">Customer Benefits</h5>
+<ul>
+<li>Infrastructure is tailored to our customer’s goals and usage patterns</li>
+<li>“Shared use” model reduces cost</li>
+<li>Nearly infinite compute and data capacity via AWS cloud provider</li>
+<li>Customers can focus on solving business problems and not worry about infrastructure</li>
+<li>Automatic backup and recovery</li>
+<li>Continuous improvements via change control process</li>
+<li>Faster adoption of new technology</li>
+</ul>
+</section>
+<section id="evolution-of-cloud-computing" class="level5">
+<h5 class="anchored" data-anchor-id="evolution-of-cloud-computing">Evolution of Cloud Computing</h5>
+<ol type="1">
+<li><p>Baremetal</p>
+<ul>
+<li>A computer in someone else’s data center</li>
+</ul></li>
+<li><p>Virtual Machine</p>
+<ul>
+<li>A portion of a computer in someone else’s data center</li>
+<li>In AWS, a Virtual Machine is created from Amason Machine Image (AMI)</li>
+</ul></li>
+<li><p>Container</p>
+<ul>
+<li>A package of essential application libraries and code but not the core OS libraries - Simpler to scale a docker image because - No duplication of core OS processes (networking, filesystem, etc) - Typically a Docker container</li>
+</ul></li>
+<li><p>Function</p>
+<ul>
+<li>Just the application code that runs in a pre-built container</li>
+</ul></li>
+</ol>
+<p>CloudCore strives to leverage functions as the primary building blocks for our platform because:</p>
+<ul>
+<li>functions deploy more quickly than containers and virtual machines</li>
+<li>AWS automatically scales Lambda functions based on the number of incoming invocations</li>
+<li>they are short-lived processes which minimises attack surface</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="metrics-measurements-and-continuous-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="metrics-measurements-and-continuous-monitoring">Metrics, Measurements and Continuous Monitoring</h3>
+<p>A set of metrics / KPIs have been defined to assist in the measuring, reporting and optimising the security program and the controls in place.</p>
+<p>A security scorecard is produced every with updates to key metrics of the CloudCore information security program, to measure its adoption and effectiveness.</p>
+<p>The reports and scorecards are maintained by and can be accessed at JupiterOne.</p>
+</section>
+<section id="quality-of-service" class="level3">
+<h3 class="anchored" data-anchor-id="quality-of-service">Quality of Service</h3>
+<p>CloudCore strives to provide a high quality of service to all of its customers. This is accomplished through a security architecture that encompasses all of CloudCore’s operations and provides high data confidentiality, integrity, and availability.</p>
+<p>An overview of CloudCore’s architecture can be found in <a href="cp-model-architecture.md">Security Architecture</a>. CloudCore uses a highly scalable cloud architecture to provide system quality at all times.</p>
+<p>All systems are monitored and measured in real time as described in <a href="cp-bcdr-app.md">Application Service Event Recovery</a>.</p>
+<p>CloudCore uses DevOps methodology as described in <a href="cp-sdlc-dev.md">Software Development Process</a> to ensure a smooth delivery process of all systems and applications.</p>
+<p>Status for external facing, customer applications and systems is published at .</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

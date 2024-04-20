@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - Roles, Responsibilities and Training</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#assignment-of-roles-and-the-security-committee" id="toc-assignment-of-roles-and-the-security-committee" class="nav-link" data-scroll-target="#assignment-of-roles-and-the-security-committee">Assignment of Roles and the Security Committee</a></li>
+  <li><a href="#policy-and-compliance-training" id="toc-policy-and-compliance-training" class="nav-link" data-scroll-target="#policy-and-compliance-training">Policy and Compliance Training</a></li>
+  <li><a href="#ongoing-awareness-training" id="toc-ongoing-awareness-training" class="nav-link" data-scroll-target="#ongoing-awareness-training">Ongoing Awareness Training</a></li>
+  <li><a href="#hipaa-awareness-training" id="toc-hipaa-awareness-training" class="nav-link" data-scroll-target="#hipaa-awareness-training">HIPAA Awareness Training</a></li>
+  <li><a href="#internal-business-communications" id="toc-internal-business-communications" class="nav-link" data-scroll-target="#internal-business-communications">Internal Business Communications</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Roles, Responsibilities and Training</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Security and compliance is everyone’s responsibility. CloudCore is committed to ensuring all workforce members actively address security and compliance in their roles. Statistically, cybersecurity breaches typically start with compromise of end-user computing devices, social engineering, human error or insider threat. Therefore, users are the first line of defence and yet usually the weakest link. As such, training is imperative to assuring an understanding of current best practices, the different types and sensitivities of data, and the sanctions associated with non-compliance.</p>
+<p>In this and all related policy documents, the term “employees” and “workforce members” may be used interchangeably to include all full-time and part-time employees in all job roles, contractors and subcontractors, volunteers, interns, managers and executives at CloudCore.</p>
+<p>The Security Officer, in collaboration with the Privacy Officer, is responsible for facilitating the development, testing, implementation, training, and oversight of all activities pertaining to CloudCore’s efforts to be compliant with the applicable security and compliance regulations and industry best practices. The intent of the Security Officer Responsibilities is to maintain the confidentiality, integrity, and availability of critical and sensitive data. The Security and Privacy Officer is appointed by and reports to the Board of Directors and/or the CEO.</p>
+<p>CloudCore has appointed Sec Urity as the Security Officer and Pri Vact as the Privacy Officer.</p>
+<p>An official <strong>Security Committee</strong> has been formed, chaired by the Security Officer, and represented by the select members of the senior leadership team ().</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li><p>A Security and Privacy Officer [164.308(a)(2)] must be appointed to assist in maintaining and enforcing safeguards towards security, compliance, and privacy.</p></li>
+<li><p>Security and compliance is the responsibility of all workforce members (including employees, contractors, interns, and managers/executives). All workforce members are required to:</p></li>
+</ol>
+<ul>
+<li><p>Complete all required security trainings, including annual regulatory compliance training, security awareness, and any additional role-based security training as part of the ongoing security awareness program and as required by job role.</p></li>
+<li><p>Complete annual HIPAA awareness training</p></li>
+<li><p>Follow all security requirements set forth in CloudCore security policy and procedures, including but is not limited to access control policies and procedures and acceptable use policy for end-user computing.</p></li>
+<li><p>See something, say something: follow the incident reporting procedure to report all suspicious activities to the security team.</p></li>
+</ul>
+<ol start="3" type="a">
+<li><p>All workforce members are required to report non-compliance of CloudCore’s policies and procedures to the Security Officer or designee. Individuals that report violations in good faith may not be subjected to intimidation, threats, coercion, discrimination against, or any other retaliatory action as a consequence.</p></li>
+<li><p>All workforce members are required to cooperate with federal, state and local law enforcement activities and legal investigations. It is strictly prohibited to interfere with investigations through willful misrepresentation, omission of facts, or by the use of threats against any person.</p></li>
+<li><p>Workforce members found to be in violation of this policy will be subject to sanctions.</p></li>
+<li><p>Segregation of Duties shall be maintained when applicable to ensure proper checks and balances and minimise conflict of interests. This helps reduces the possibility of fraud and insider threat considerably, and eliminates single points of compromise to critical systems.</p></li>
+</ol>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="assignment-of-roles-and-the-security-committee" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-of-roles-and-the-security-committee">Assignment of Roles and the Security Committee</h3>
+<p>CloudCore has appointed Sec Urity as the Security Officer and Pri Vact as the Privacy Officer.</p>
+<p>The security committee is chaired by the Security Officer, and represented by the select members of the senior leadership team, including , in addition to the Security and Privacy Officer.</p>
+<section id="general-responsibilities-of-the-security-and-privacy-officer" class="level4">
+<h4 class="anchored" data-anchor-id="general-responsibilities-of-the-security-and-privacy-officer">General Responsibilities of the Security and Privacy Officer</h4>
+<p>The authority and accountability for CloudCore’s information security program and privacy program is delegated to the Security and Privacy Officer. The Security Officer and the security team are required to perform or delegate the following responsibilities:</p>
+<ul>
+<li>Build and maintain security and privacy program to satisfy regulatory and contractual requirements.</li>
+<li>Establish, document, distribute and update security policies, standards and procedures.</li>
+<li>Oversee, enforce and document all activities necessary to maintain compliance and verifies the activities are in alignment with the requirements;</li>
+<li>Monitor, analyse, distribute and escalate security alerts and information.</li>
+<li>Develop and maintain security incident response and escalation procedures to ensure timely and effective handling of all situations.</li>
+<li>Administer user accounts, including additions, deletions, and modifications.</li>
+<li>Monitor and control all access to critical systems and data.</li>
+<li>Perform risk assessment, remediation, and ongoing risk management.</li>
+<li>Provide regular security awareness and compliance training, as well as periodic security updates and reminder communications for all workforce members.</li>
+<li>Maintains a program that incentivises right behaviours, supports timely and proper reporting and investigation of violations, implements effective and practical mitigation, and applies fair sanctions when necessary.</li>
+<li>Assist in the administration and oversight of business associate agreements.</li>
+<li>Facilitate audits to validate compliance efforts throughout the organisation.</li>
+<li>Work with the COO/CFO to ensure that any security objectives have appropriate consideration during the budgeting process.</li>
+</ul>
+</section>
+<section id="workforce-supervision-responsibilities" class="level4">
+<h4 class="anchored" data-anchor-id="workforce-supervision-responsibilities">Workforce Supervision Responsibilities</h4>
+<p>Although the Security Officer is responsible for implementing and overseeing all activities related to maintaining compliance, it is everyone’s responsibility (i.e.&nbsp;team leaders, supervisors, managers, co-workers, etc.) to supervise all workforce members and any other user of CloudCore’s systems, applications, servers, workstations, etc. that contain sensitive data.</p>
+<ol type="1">
+<li>Monitor workstations and applications for unauthorised use, tampering, and theft and report non-compliance according to the Security Incident Response policy.</li>
+<li>Assist the Security and Privacy Officers to ensure appropriate role-based access is provided to all users.</li>
+<li>Take all reasonable steps to hire, retain, and promote workforce members and provide access to users who comply with the Security regulation and CloudCore’s security policies and procedures.</li>
+</ol>
+</section>
+<section id="segregation-of-duties" class="level4">
+<h4 class="anchored" data-anchor-id="segregation-of-duties">Segregation of Duties</h4>
+<p>CloudCore has dedicated team/personnel assigned the job function of security and compliance. Segregation of duties are achieved via a combination of assignment of roles and responsibilities to different personnel, and automation enforcement for software-defined processes.</p>
+<p>Checks and balances are ensured via such segregation of duties and related review/approval processes. When applicable, reviews and approvals must be obtained from designated personnel separate from the individual performing the work.</p>
+</section>
+</section>
+<section id="policy-and-compliance-training" class="level3">
+<h3 class="anchored" data-anchor-id="policy-and-compliance-training">Policy and Compliance Training</h3>
+<ol type="1">
+<li><p>The Security &amp; Privacy Officer facilitates the training of all workforce members as follows:</p>
+<ol type="1">
+<li>New workforce members within their first month of employment;</li>
+<li>Existing workforce members annually;</li>
+<li>Existing workforce members whose functions are affected by a material change in the policies and procedures, within a month after the material change becomes effective;</li>
+<li>Existing workforce members as needed due to changes in security and risk posture of CloudCore.</li>
+</ol></li>
+<li><p>Documentation of the training session materials and attendees is retained for a minimum of seven years.</p></li>
+<li><p>The training session focuses on, but is not limited to, the following subjects defined in CloudCore’s security policies and procedures:</p>
+<ol type="1">
+<li>SOC 2 Security Principals and Controls;</li>
+<li>HIPAA Privacy, Security, and Breach notification rules;</li>
+<li>Risk Management procedures and documentation;</li>
+<li>Auditing. CloudCore may monitor access and activities of all users;</li>
+<li>Workstations may only be used to perform assigned job responsibilities;</li>
+<li>Users may not download software onto CloudCore’s workstations and/or systems without prior approval from the Security Officer;</li>
+<li>Users are required to report malicious software to the Security Officer immediately;</li>
+<li>Users are required to report unauthorised attempts, uses of, and theft of CloudCore’s systems and/or workstations;</li>
+<li>Users are required to report unauthorised access to facilities</li>
+<li>Users are required to report noted log-in discrepancies (i.e. application states users last log-in was on a date user was on vacation);</li>
+<li>Users may not alter sensitive data maintained in a database, unless authorised to do so by a CloudCore Customer;</li>
+<li>Users are required to understand their role in CloudCore’s contingency plan;</li>
+<li>Users may not share their user names nor passwords with anyone;</li>
+<li>Requirements for users to create and change passwords;</li>
+<li>Users must set all applications that contain or transmit sensitive data to automatically log off after 15 minutes of inactivity;</li>
+<li>Supervisors are required to report terminations of workforce members and other outside users;</li>
+<li>Supervisors are required to report a change in a users title, role, department, and/or location;</li>
+<li>Procedures to backup sensitive data;</li>
+<li>Procedures to move and record movement of hardware and electronic media containing sensitive data;</li>
+<li>Procedures to dispose of discs, CDs, hard drives, and other media containing sensitive data;</li>
+<li>Procedures to re-use electronic media containing sensitive data;</li>
+<li>Secrets management (such as SSH key) and sensitive document encryption procedures.</li>
+</ol></li>
+</ol>
+</section>
+<section id="ongoing-awareness-training" class="level3">
+<h3 class="anchored" data-anchor-id="ongoing-awareness-training">Ongoing Awareness Training</h3>
+<p>CloudCore leverages KnowBe4 to deliver innovative, fun and engaging security awareness contents to all employees monthly. This security awareness training shall include modules on</p>
+<ul>
+<li>phishing,</li>
+<li>social engineering,</li>
+<li>proper internet use (social media, email, clicking, etc),</li>
+<li>access control (proper passwords, 2FA, screen locking, etc),</li>
+<li>mobile device security,</li>
+<li>data protection, and</li>
+<li>system security (anti-malware, patches, secure configuration, etc).</li>
+</ul>
+<p>Progress is tracked individually for each employee and reported on KnowBe4’s cloud-managed learning platform.</p>
+</section>
+<section id="hipaa-awareness-training" class="level3">
+<h3 class="anchored" data-anchor-id="hipaa-awareness-training">HIPAA Awareness Training</h3>
+<p>CloudCore requires all employees to take a HIPAA awareness training within 30 days of onboarding and annually thereafter. The training record is captured within the HR record and/or the learning system KnowBe4.</p>
+</section>
+<section id="internal-business-communications" class="level3">
+<h3 class="anchored" data-anchor-id="internal-business-communications">Internal Business Communications</h3>
+<section id="company-wide-updates" class="level4">
+<h4 class="anchored" data-anchor-id="company-wide-updates">Company-wide updates</h4>
+<p>CloudCore holds a company-wide roundtable at least quarterly to communicate updates across all aspects of business operations, performance and objectives.</p>
+<p>Senior management sends out additional company-wide announcements as appropriate through pre-established internal communication channels such as email or messaging (e.g.&nbsp;Slack #general channel).</p>
+</section>
+<section id="departmental-team-andor-project-status-updates" class="level4">
+<h4 class="anchored" data-anchor-id="departmental-team-andor-project-status-updates">Departmental, team and/or project status updates</h4>
+<p>Regular performance and status updates are communicated by each department, functional team, and/or designated individuals through pre-established channels.</p>
+<p>Additionally, each project team maintains team updates at their own committed cadence and channel – for example, daily development standups/scrum or weekly team meetings.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

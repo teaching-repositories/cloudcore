@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - HR and Personnel Security</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a></li>
+  <li><a href="#hr-management-and-reporting" id="toc-hr-management-and-reporting" class="nav-link" data-scroll-target="#hr-management-and-reporting">HR Management and Reporting</a>
+  <ul class="collapse">
+  <li><a href="#organisation-structure" id="toc-organisation-structure" class="nav-link" data-scroll-target="#organisation-structure">Organisation Structure</a></li>
+  <li><a href="#job-functions-and-descriptions" id="toc-job-functions-and-descriptions" class="nav-link" data-scroll-target="#job-functions-and-descriptions">Job Functions and Descriptions</a></li>
+  <li><a href="#performance-reviews-and-feedback" id="toc-performance-reviews-and-feedback" class="nav-link" data-scroll-target="#performance-reviews-and-feedback">Performance Reviews and Feedback</a></li>
+  <li><a href="#acceptable-use-of-end-user-computing" id="toc-acceptable-use-of-end-user-computing" class="nav-link" data-scroll-target="#acceptable-use-of-end-user-computing">Acceptable Use of End-user Computing</a></li>
+  <li><a href="#employee-screening-procedures" id="toc-employee-screening-procedures" class="nav-link" data-scroll-target="#employee-screening-procedures">Employee Screening Procedures</a></li>
+  <li><a href="#employee-onboarding-procedures" id="toc-employee-onboarding-procedures" class="nav-link" data-scroll-target="#employee-onboarding-procedures">Employee Onboarding Procedures</a></li>
+  <li><a href="#employee-exitingtermination-procedures" id="toc-employee-exitingtermination-procedures" class="nav-link" data-scroll-target="#employee-exitingtermination-procedures">Employee Exiting/Termination Procedures</a></li>
+  <li><a href="#employee-issue-escalation" id="toc-employee-issue-escalation" class="nav-link" data-scroll-target="#employee-issue-escalation">Employee Issue Escalation</a></li>
+  <li><a href="#whistleblower-policy-and-process" id="toc-whistleblower-policy-and-process" class="nav-link" data-scroll-target="#whistleblower-policy-and-process">Whistleblower Policy and Process</a></li>
+  </ul></li>
+  <li><a href="#employee-performance-review-process" id="toc-employee-performance-review-process" class="nav-link" data-scroll-target="#employee-performance-review-process">Employee Performance Review Process</a></li>
+  <li><a href="#employee-incentives-and-rewards" id="toc-employee-incentives-and-rewards" class="nav-link" data-scroll-target="#employee-incentives-and-rewards">Employee Incentives and Rewards</a></li>
+  <li><a href="#continuous-education-and-skills-development" id="toc-continuous-education-and-skills-development" class="nav-link" data-scroll-target="#continuous-education-and-skills-development">Continuous Education and Skills Development</a>
+  <ul class="collapse">
+  <li><a href="#non-compliance-investigation-and-sanctions" id="toc-non-compliance-investigation-and-sanctions" class="nav-link" data-scroll-target="#non-compliance-investigation-and-sanctions">Non-Compliance Investigation and Sanctions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HR and Personnel Security</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CloudCore is committed to ensuring all workforce members actively address security and compliance in their roles at CloudCore. We encourage self management and reward the right behaviours. This policy specifies acceptable use of end-user computing devices and technology. Additionally, training is imperative to assuring an understanding of current best practices, the different types and sensitivities of data, and the sanctions associated with non-compliance.</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>In addition to the roles and responsibilities stated <a href="../../docs/policies/rar.html">earlier</a>, CloudCore policy requires all workforce members to comply with the Acceptable Use Policy for End-use Computing and HR Security Policy.</p>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li><p>Background verification checks on all candidates for employees and contractors should be carried out in accordance with relevant laws, regulations, and ethics, and proportional to the business requirements, the classification of the information to be accessed, and the perceived risk.</p></li>
+<li><p>Employees, contractors and third party users must agree and sign the terms and conditions of their employment contract, and comply with acceptable use.</p></li>
+<li><p>Employees will go through an onboarding process that familiarises them with the environments, systems, security requirements, and procedures CloudCore has in place. Employees will also have ongoing security awareness training that is audited.</p></li>
+<li><p>Employee offboarding will include reiterating any duties and responsibilities still valid after terminations, verifying that access to any CloudCore systems has been removed, as well as ensuring that all company owned assets are returned.</p></li>
+<li><p>CloudCore and its employees will take reasonable measures to ensure no sensitive data is transmitted via digital communications such as email or posted on social media outlets.</p></li>
+<li><p>CloudCore will maintain a list of prohibited activities that will be part of onboarding procedures and have training available if/when the list of those activities changes.</p></li>
+<li><p>A fair disciplinary process will be utilised for employees are suspected of committing breaches of security. Multiple factors will be considered when deciding the response such as whether or not this was a first offense, training, business contracts, etc. CloudCore reserves the right to terminate employees in the case of serious cases of misconduct.</p></li>
+</ol>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+</section>
+<section id="hr-management-and-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="hr-management-and-reporting">HR Management and Reporting</h2>
+<p>CloudCore uses to manage its workforce personnel records.</p>
+<section id="organisation-structure" class="level3">
+<h3 class="anchored" data-anchor-id="organisation-structure">Organisation Structure</h3>
+<p>A reporting structure has been established that aligns with the organisation’s business lines and/or individual’s functional roles. The organisational chart is available to all employees via the and/or posted on the internal web portal.</p>
+</section>
+<section id="job-functions-and-descriptions" class="level3">
+<h3 class="anchored" data-anchor-id="job-functions-and-descriptions">Job Functions and Descriptions</h3>
+<p>Position / Job descriptions are documented and updated as needed that define the skills, responsibilities, and knowledge levels required for certain jobs.</p>
+</section>
+<section id="performance-reviews-and-feedback" class="level3">
+<h3 class="anchored" data-anchor-id="performance-reviews-and-feedback">Performance Reviews and Feedback</h3>
+<p>Employees receive regular feedback and acknowledgement from their manager and peers. Formal performance reviews are conducted annually using EaseCentral. Performance measures, incentives, and other rewards are established by management according to responsibilities at all levels, reflecting appropriate dimensions of performance and expected standards of conduct.</p>
+</section>
+<section id="acceptable-use-of-end-user-computing" class="level3">
+<h3 class="anchored" data-anchor-id="acceptable-use-of-end-user-computing">Acceptable Use of End-user Computing</h3>
+<p>CloudCore requires all workforce members to comply with the following acceptable use requirements and procedures, such that:</p>
+<ol type="a">
+<li><p>Per CloudCore <a href="../../docs/policies/model.html">security architecture</a>, all workforce members are primarily considered as remote users and therefore must follow all system access controls and procedures for remote access.</p></li>
+<li><p>Use of CloudCore computing systems is subject to monitoring by CloudCore IT and/or Security team.</p></li>
+<li><p>Employees may not leave computing devices (including laptops and smart devices) used for business purpose, including company-provided and BYOD devices, unattended in public.</p></li>
+<li><p>Device encryption must be enabled for all mobile devices accessing company data, such as whole-disk encryption for all laptops.</p></li>
+<li><p>Use only legal, <a href="approved-software.md">approved software</a> with a valid license installed through a <a href="approved-software.md">pre-approved application store</a>. Do not use personal software for business purposes and vice versa.</p></li>
+<li><p>Encrypt all email messages containing sensitive or confidential data.</p></li>
+<li><p>Employees may not post any sensitive or confidential data in public forums or chat rooms. If a posting is needed to obtain technical support, data must be sanitised to remove any sensitive or confidential information prior to posting.</p></li>
+<li><p>Anti-malware or equivalent protection and monitoring must be installed and enabled on all endpoint systems that may be affected by malware, including workstations, laptops and servers.</p></li>
+<li><p>All data storage devices and media must be managed according to the CloudCore Data Classification specifications and Data Handling procedures.</p></li>
+<li><p>It is strictly forbidden to download or store any sensitive data on end-user computing devices, including laptops, workstations and mobile devices.</p></li>
+<li><p>Mobile devices are not allowed to connect directly to CloudCore production environments.</p></li>
+</ol>
+</section>
+<section id="employee-screening-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="employee-screening-procedures">Employee Screening Procedures</h3>
+<p>CloudCore publishes job descriptions for available positions and conducts interviews to assess a candidates technical skills as well as culture fit prior to hiring.</p>
+<p>Background checks of an employee or contractor is performed by HR/operations and/or the hiring team prior to the start date of employment.</p>
+</section>
+<section id="employee-onboarding-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="employee-onboarding-procedures">Employee Onboarding Procedures</h3>
+<p>A master checklist for employee onboarding is maintained by HR/Facilities.<br>
+It is published in the HR system or the HR folder on <a href="#">CloudCore’s internal file sharing site</a>.</p>
+<p>The HR Representative / Facility Manager is responsible to create an Issue in the HR &amp; Facilities project to initiate and track the onboarding process. The onboarding process should include the following IT/Security items:</p>
+<ol type="1">
+<li><p>Training.</p>
+<ul>
+<li>New workforce member is provided training on CloudCore security policy, acceptable use policy, and given access to the Employee Handbook.</li>
+<li>HIPAA awareness training is provided to new workforce member.</li>
+<li>Records of training and policy acceptance is kept in the HR system (currently EaseCentral).</li>
+<li>The training and acceptance must be completed within 30 days of employment.</li>
+</ul></li>
+<li><p>Access.</p>
+<ul>
+<li>Standard access is provisioned according to the job role and approval as specified in the HR onboarding ticket.</li>
+<li>Non-standard access requires additional approval following the access request procedures.</li>
+<li>Request for modifications of access for any CloudCore employee can be made using the procedures outlined in the <a href="../../docs/policies/access.html">Access Establishment and Modification policy and procedures</a>.</li>
+</ul></li>
+<li><p>System configuration.</p>
+<ul>
+<li>The end-user computing device (e.g.&nbsp;workstation or laptop) may be provisioned by IT to install necessary software, malware protection, security agents, and setting system configurations.</li>
+<li>Users in a technical role, such as Development, may choose to self configure their system. In this case, the user is given configuration guidelines defined by IT and Security. The system must have the required security configuration and endpoint agents installed for monitoring and to ensure compliance.</li>
+</ul></li>
+</ol>
+</section>
+<section id="employee-exitingtermination-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="employee-exitingtermination-procedures">Employee Exiting/Termination Procedures</h3>
+<p>A master checklist for employee existing/termination is maintained by HR/Facilities. It is published in the HR system or the HR folder on <a href="#">CloudCore’s internal file sharing site</a>.</p>
+<ol type="1">
+<li><p>The Human Resources Department (or other designated department), users, and their supervisors (HR) are required to notify Security upon completion and/or termination of access needs and facilitating completion of the “Termination Checklist”.</p></li>
+<li><p>HR are required to notify Security to terminate a user’s access rights if there is evidence or reason to believe the following (these incidents are also reported on an incident report and is filed with the Privacy Officer):</p>
+<ul>
+<li>The user has been using their access rights inappropriately;</li>
+<li>A user’s password has been compromised (a new password may be provided to the user if the user is not identified as the individual compromising the original password);</li>
+<li>An unauthorised individual is utilising a user’s User Login ID and password (a new password may be provided to the user if the user is not identified as providing the unauthorised individual with the User Login ID and password).</li>
+</ul></li>
+<li><p>Security will terminate users’ access rights immediately upon notification, and will coordinate with the appropriate CloudCore employees to terminate access to any non-production systems managed by those employees.</p></li>
+<li><p>Security audits and may terminate access of users that have not logged into organisation’s information systems/applications for an extended period of time.</p></li>
+</ol>
+</section>
+<section id="employee-issue-escalation" class="level3">
+<h3 class="anchored" data-anchor-id="employee-issue-escalation">Employee Issue Escalation</h3>
+<p>CloudCore workforce members are to escalate issues using the procedures outlined in the Employee Quick Reference. Issues that are brought to the Escalation Team are assigned an owner. The membership of the Escalation Team is maintained by the Chief Executive Officer or his delegate.</p>
+<p>Security incidents, particularly those involving sensitive data, are handled using the process described in <a href="../../docs/policies/ir.html">Incident Response</a>. If the incident involves a breach of sensitive data, the Security Officer will manage the incident using the process described in <a href="../../docs/policies/breach.html">Breach Notification</a>. Refer to <a href="../../docs/policies/ir.html">Incident Response</a> for a list of sample items that can trigger CloudCore’s incident response procedures; if you are unsure whether the issue is a security incident, contact the Security team immediately.</p>
+<p>It is the duty of the incident owner to follow the process outlined below:</p>
+<ol type="1">
+<li>Create an Issue in the Security Project.</li>
+<li>The Issue is investigated, documented, and, when a conclusion or remediation is reached, it is moved to Review.</li>
+<li>The Issue is reviewed by another member of the Escalation Team. If the Issue is rejected, it goes back for further evaluation and review.</li>
+<li>If the Issue is approved, it is marked as Done, adding any pertinent notes required.</li>
+<li>The workforce member that initiated the process is notified of the outcome via email.</li>
+</ol>
+</section>
+<section id="whistleblower-policy-and-process" class="level3">
+<h3 class="anchored" data-anchor-id="whistleblower-policy-and-process">Whistleblower Policy and Process</h3>
+<p>The CloudCore requires all workforce members to observe high standards of business and personal ethics in the conduct of their duties and responsibilities. All workforce members must practice honesty and integrity in fulfilling their responsibilities and comply with all applicable laws and regulations.</p>
+<ol type="a">
+<li>Reporting Responsibility. Each workforce member is required and encouraged to report serious concerns so that CloudCore can address and correct inappropriate internal conduct and actions. This includes</li>
+</ol>
+<ul>
+<li>questionable or improper accounting or auditing matters,</li>
+<li>violations and suspected violations of company policies or ethics, or</li>
+<li>suspected violations of law or regulations that govern CloudCore’s operations</li>
+</ul>
+<ol start="2" type="a">
+<li><p>Acting in Good Faith. Anyone filing a written complaint concerning a violation or suspected violation must be acting in good faith and have reasonable grounds for believing the information disclosed indicates a violation. Any allegations that prove not to be substantiated and which prove to have been made maliciously or knowingly to be false will be viewed as a serious disciplinary offense.</p></li>
+<li><p>Confidentiality. Insofar as possible, the confidentiality of the whistleblower will be maintained. However, identity may have to be disclosed to conduct a thorough investigation, to comply with the law, and to provide accused individuals their legal rights of defence.</p></li>
+<li><p>No Retaliation. Workforce members, in good faith, reporting a concern under the Whistleblower Policy shall NOT be subject to retaliation or adverse employment consequences. Moreover, any workforce member who retaliates against someone who has reported a concern in good faith is subject to disciplinary actions up to and including termination of employment.</p></li>
+<li><p>Reporting. Reports of concerns may be filed directly with the company CEO, COO, and/or the Compliance Officer. Additional reporting procedure details can be found in the employee handbook.</p></li>
+</ol>
+</section>
+</section>
+<section id="employee-performance-review-process" class="level2">
+<h2 class="anchored" data-anchor-id="employee-performance-review-process">Employee Performance Review Process</h2>
+<p>Formal performance reviews are conducted annually using Small Improvements.</p>
+<ul>
+<li>360 feedback is collected from team members working directly with the employee</li>
+<li>Employee provides their own self assessment for both performance outcome and behaviour</li>
+<li>Manager reviews employee self-assessment and peer feedback, and documents the final review and rating</li>
+<li>The final review and rating is reviewed and signed by both the employee and their manager</li>
+</ul>
+</section>
+<section id="employee-incentives-and-rewards" class="level2">
+<h2 class="anchored" data-anchor-id="employee-incentives-and-rewards">Employee Incentives and Rewards</h2>
+<p>CloudCore encourages employees to go above and beyond to contribute to the business objectives and help their peers and customers. Employees are recognised and rewarded for positive behaviour on a regular basis via peer recognition, appreciation, feedback, and rewards using Motivosity.</p>
+</section>
+<section id="continuous-education-and-skills-development" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-education-and-skills-development">Continuous Education and Skills Development</h2>
+<p>CloudCore provides employees the opportunity to attend conferences, trade shows, and/or ongoing training/studies relevant to their job function and business objectives.</p>
+<section id="non-compliance-investigation-and-sanctions" class="level3">
+<h3 class="anchored" data-anchor-id="non-compliance-investigation-and-sanctions">Non-Compliance Investigation and Sanctions</h3>
+<p>Workforce members shall report non-compliance of CloudCore’s policies and procedures to the Security Officer or other individual as assigned by the Security Officer. Individuals that report violations in good faith may not be subjected to intimidation, threats, coercion, discrimination against, or any other retaliatory action as a consequence.</p>
+<ol type="1">
+<li><p>The Security Officer promptly facilitates a thorough investigation of all reported violations of CloudCore’s security policies and procedures. The Security Officer may request the assistance from others.</p>
+<ul>
+<li>Complete an audit trail/log to identify and verify the violation and sequence of events.</li>
+<li>Interview any individual that may be aware of or involved in the incident.</li>
+<li>All individuals are required to cooperate with the investigation process and provide factual information to those conducting the investigation.</li>
+<li>Provide individuals suspected of non-compliance of the Security rule and/or CloudCore’s policies and procedures the opportunity to explain their actions.</li>
+<li>The investigator thoroughly documents the investigation as the investigation occurs. This documentation must include a list of all employees involved in the violation.</li>
+</ul></li>
+<li><p>Violation of any security policy or procedure by workforce members may result in corrective disciplinary action, up to and including termination of employment. Violation of this policy and procedures by others, including business associates, customers, and partners may result in termination of the relationship and/or associated privileges. Violation may also result in civil and criminal penalties as determined by federal and state laws and regulations.</p>
+<ul>
+<li>A fair disciplinary process will be utilised for employees are suspected of committing breaches of security. Multiple factors will be considered when deciding the response such as whether or not this was a first offense, training, business contracts, etc.</li>
+<li>CloudCore reserves the right to terminate employees in the case of serious cases of misconduct.</li>
+<li>A violation resulting in a breach of confidentiality (i.e.&nbsp;release of sensitive data to an unauthorised individual), change of the data integrity, or inability to access data by other users, requires immediate termination of the workforce member from CloudCore.</li>
+</ul></li>
+<li><p>The Security Officer facilitates taking appropriate steps to prevent recurrence of the violation (when possible and feasible).</p></li>
+<li><p>In the case of an insider threat, the Security Officer and Privacy Officer are to set up a team to investigate and mitigate the risk of insider malicious activity. CloudCore workforce members are encouraged to come forward with information about insider threats, and can do so anonymously.</p></li>
+<li><p>The Security Officer maintains all documentation of the investigation, sanctions provided, and actions taken to prevent reoccurrence for a minimum of seven years after the conclusion of the investigation.</p></li>
+<li><p>When the Security Officer identifies a violation and begins a formal sanction process, they will notify the appropriate management or supervisors within 24 hours. That notification will include 1) identifying the individual sanctioned, 2) the reason for the sanction, and 3) specific procedures for service or account restriction / revocation or other disciplinary actions as required.</p></li>
+</ol>
+<p><a href="ref/sanction-notice.pdf">Warning Notice Template</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

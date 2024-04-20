@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - Access</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a>
+  <ul class="collapse">
+  <li><a href="#access-authorisation-and-termination" id="toc-access-authorisation-and-termination" class="nav-link" data-scroll-target="#access-authorisation-and-termination">Access Authorisation and Termination</a></li>
+  <li><a href="#shared-secrets-management" id="toc-shared-secrets-management" class="nav-link" data-scroll-target="#shared-secrets-management">Shared Secrets Management</a></li>
+  <li><a href="#privileged-access-management" id="toc-privileged-access-management" class="nav-link" data-scroll-target="#privileged-access-management">Privileged Access Management</a></li>
+  </ul></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#standards-for-access-provisioning" id="toc-standards-for-access-provisioning" class="nav-link" data-scroll-target="#standards-for-access-provisioning">Standards for Access Provisioning</a></li>
+  <li><a href="#password-management" id="toc-password-management" class="nav-link" data-scroll-target="#password-management">Password Management</a></li>
+  <li><a href="#single-sign-on" id="toc-single-sign-on" class="nav-link" data-scroll-target="#single-sign-on">Single Sign On</a></li>
+  <li><a href="#multi-factor-authentication" id="toc-multi-factor-authentication" class="nav-link" data-scroll-target="#multi-factor-authentication">Multi-factor Authentication</a></li>
+  <li><a href="#role-based-access-control-rbac" id="toc-role-based-access-control-rbac" class="nav-link" data-scroll-target="#role-based-access-control-rbac">Role Based Access Control (RBAC)</a></li>
+  <li><a href="#temporary-access-to-aws-accounts-and-resources" id="toc-temporary-access-to-aws-accounts-and-resources" class="nav-link" data-scroll-target="#temporary-access-to-aws-accounts-and-resources">Temporary Access to AWS Accounts and Resources</a></li>
+  <li><a href="#remote-access-vpn" id="toc-remote-access-vpn" class="nav-link" data-scroll-target="#remote-access-vpn">Remote Access / VPN</a></li>
+  <li><a href="#access-to-phiephi" id="toc-access-to-phiephi" class="nav-link" data-scroll-target="#access-to-phiephi">Access to PHI/ePHI</a></li>
+  <li><a href="#platform-customer-access-to-systems" id="toc-platform-customer-access-to-systems" class="nav-link" data-scroll-target="#platform-customer-access-to-systems">Platform Customer Access to Systems</a></li>
+  <li><a href="#access-establishment-modification-and-termination" id="toc-access-establishment-modification-and-termination" class="nav-link" data-scroll-target="#access-establishment-modification-and-termination">Access Establishment, Modification and Termination</a></li>
+  <li><a href="#access-reviews" id="toc-access-reviews" class="nav-link" data-scroll-target="#access-reviews">Access Reviews</a></li>
+  <li><a href="#privileged-access" id="toc-privileged-access" class="nav-link" data-scroll-target="#privileged-access">Privileged Access</a></li>
+  <li><a href="#service-accounts" id="toc-service-accounts" class="nav-link" data-scroll-target="#service-accounts">Service Accounts</a></li>
+  <li><a href="#employee-workstation-endpoints-access-and-usage" id="toc-employee-workstation-endpoints-access-and-usage" class="nav-link" data-scroll-target="#employee-workstation-endpoints-access-and-usage">Employee Workstation / Endpoints Access and Usage</a></li>
+  <li><a href="#office-network-and-wireless-access" id="toc-office-network-and-wireless-access" class="nav-link" data-scroll-target="#office-network-and-wireless-access">Office Network and Wireless Access</a></li>
+  <li><a href="#production-access-and-secrets-management" id="toc-production-access-and-secrets-management" class="nav-link" data-scroll-target="#production-access-and-secrets-management">Production Access and Secrets Management</a></li>
+  <li><a href="#production-data-access" id="toc-production-data-access" class="nav-link" data-scroll-target="#production-data-access">Production Data Access</a></li>
+  <li><a href="#password-reset-and-other-helpdesk-requests" id="toc-password-reset-and-other-helpdesk-requests" class="nav-link" data-scroll-target="#password-reset-and-other-helpdesk-requests">Password Reset and other Helpdesk Requests</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Access</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Access to CloudCore systems and application is limited for all users, including but not limited to workforce members, volunteers, business associates, contracted providers, consultants, and any other entity, is allowable only on a minimum necessary basis. All users are responsible for reporting an incident of unauthorised user or access of the organisation’s information systems. These safeguards have been established to address the HIPAA Security regulations and industry best practices.</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that</p>
+<ol type="a">
+<li><p>Access to all computing resources, including servers, end-user computing devices, network equipment, services and applications, must be protected by strong authentication, authorisation, and auditing.</p></li>
+<li><p>Interactive user access must be associated to an account or login unique to each user.</p></li>
+<li><p>All credentials, including user passwords, service accounts, and access keys, must meet the length, complexity, age, and rotation requirements defined in CloudCore security standards.</p></li>
+<li><p>Use strong password and multi-factor authentication (MFA) whenever possible to authenticate to all computing resources (including both devices and applications).</p></li>
+<li><p>MFA is required to access any critical system or resource, including but not limited to resources in CloudCore production environments.</p></li>
+<li><p>Unused accounts, passwords, access keys must be removed within 30 days.</p></li>
+<li><p>A unique access key or service account must be used for different application or user access.</p></li>
+<li><p>Authenticated sessions must time out after a defined period of inactivity.</p></li>
+</ol>
+<section id="access-authorisation-and-termination" class="level3">
+<h3 class="anchored" data-anchor-id="access-authorisation-and-termination">Access Authorisation and Termination</h3>
+<p>CloudCore policy requires that</p>
+<ol type="a">
+<li><p>Access authorisation shall be implemented using role-based access control (RBAC) or similar mechanism.</p></li>
+<li><p>Standard access based on a user’s job role may be pre-provisioned during employee onboarding. All subsequent access requests to computing resources must be approved by the requestor’s manager, prior to granting and provisioning of access.</p></li>
+<li><p>Access to critical resources, such as production environments, must be approved by the security team in addition to the requestor’s manager.</p></li>
+<li><p>Access must be reviewed on a regular basis and revoked if no longer needed.</p></li>
+<li><p>Upon termination of employment, all system access must be revoked and user accounts terminated within 24 hours or one business day, whichever is shorter.</p></li>
+<li><p>All system access must be reviewed at least annually and whenever a user’s job role changes.</p></li>
+</ol>
+</section>
+<section id="shared-secrets-management" class="level3">
+<h3 class="anchored" data-anchor-id="shared-secrets-management">Shared Secrets Management</h3>
+<p>CloudCore policy requires that</p>
+<ol type="a">
+<li><p>Use of shared credentials/secrets must be minimised and approved on an exception basis.</p></li>
+<li><p>If required by business operations, secrets/credentials must be shared securely and stored in encrypted vaults that meet the CloudCore data encryption standards.</p></li>
+<li><p>Usage of a shared secret to access a critical system or resource must be supported by a complimenting solution to uniquely identify the user.</p></li>
+</ol>
+</section>
+<section id="privileged-access-management" class="level3">
+<h3 class="anchored" data-anchor-id="privileged-access-management">Privileged Access Management</h3>
+<p>CloudCore policy requires that</p>
+<ol type="a">
+<li>Users must not log in directly to systems as a privileged user.</li>
+</ol>
+<ul>
+<li>A privileged user is someone who has administrative access to critical systems, such as a Active Directory Domain Administrator, root user to a Linux/Unix system, and Administrator or Root User to an AWS account.</li>
+</ul>
+<ol start="2" type="a">
+<li><p>Privilege access must only be gained through a proxy, or equivalent, that supports strong authentication (such as MFA) using a unique individual account with full auditing of user activities.</p></li>
+<li><p>Direct administrative access to production systems must be kept to an absolute minimum.</p></li>
+</ol>
+</section>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="standards-for-access-provisioning" class="level3">
+<h3 class="anchored" data-anchor-id="standards-for-access-provisioning">Standards for Access Provisioning</h3>
+<section id="workforce-clearance" class="level4">
+<h4 class="anchored" data-anchor-id="workforce-clearance">Workforce Clearance</h4>
+<ol type="1">
+<li>The level of security assigned to a user to the organisation’s information systems is based on the minimum necessary amount of data access required to carry out legitimate job responsibilities assigned to a user’s job classification and/or to a user needing access to carry out treatment, payment, or healthcare operations.</li>
+<li>All access requests are treated on a “least-privilege” principle.</li>
+<li>CloudCore maintains a minimum necessary approach to access to Customer data. As such, CloudCore, including all workforce members, does not readily have access to any ePHI.</li>
+</ol>
+</section>
+<section id="access-authorisation" class="level4">
+<h4 class="anchored" data-anchor-id="access-authorisation">Access Authorisation</h4>
+<ol type="1">
+<li>Role based access categories for each CloudCore system and application are pre-approved by the Security Officer.</li>
+<li>CloudCore utilises hardware-defined and/or software-defined boundaries to segment data, prevent unauthorised access, and monitor traffic for denial of service attacks.</li>
+</ol>
+</section>
+<section id="person-or-entity-authentication" class="level4">
+<h4 class="anchored" data-anchor-id="person-or-entity-authentication">Person or Entity Authentication</h4>
+<ol type="1">
+<li>Each workforce member has and uses a unique user ID and password that identifies him/her as the user of the information system.</li>
+<li>Each Customer and Partner has and uses a unique user ID and password or OpenID Connect that identifies him/her as the user of the information system. This is enforced through the use of <strong>AWS Cognito</strong>.</li>
+<li>All customer support interactions must be verified before CloudCore support personnel will satisfy any request having information security implications.</li>
+</ol>
+</section>
+<section id="unique-user-identification" class="level4">
+<h4 class="anchored" data-anchor-id="unique-user-identification">Unique User Identification</h4>
+<ol type="1">
+<li>Access to the CloudCore Platform systems and applications is controlled by requiring unique User Login IDs and passwords for each individual user and developer.</li>
+<li>Passwords requirements mandate strong password controls (see below).</li>
+<li>Passwords are not displayed at any time and are not transmitted or stored in plain text.</li>
+<li>Default accounts on all production systems and environments, including root, are disabled/locked.</li>
+<li>Shared accounts are not allowed within CloudCore systems or networks.</li>
+</ol>
+</section>
+<section id="automatic-logon-and-logoff" class="level4">
+<h4 class="anchored" data-anchor-id="automatic-logon-and-logoff">Automatic Logon and Logoff</h4>
+<ol type="1">
+<li><p>Automated log-on configurations that store user passwords or bypass password entry are not permitted for use with CloudCore workstations or production systems.</p>
+<ul>
+<li>Automatic log-on may only be permitted for low-risk systems such as conference room PCs connecting to a Zoom Room.</li>
+<li>Such systems are configured on separate network VLANs.</li>
+</ul></li>
+<li><p>Users are required to make information systems inaccessible by any other individual when unattended by the users (ex. by using a password protected screen saver or logging off the system).</p></li>
+<li><p>Information systems automatically lock users such as enabling password-protected screensaver after 2 minutes or less of inactivity.</p></li>
+<li><p>Information systems automatically enter standby or log users off the systems after 30 minutes or less of inactivity.</p></li>
+<li><p>The Security Officer must pre-approves any exception to automatic log off requirements.</p></li>
+</ol>
+</section>
+</section>
+<section id="password-management" class="level3">
+<h3 class="anchored" data-anchor-id="password-management">Password Management</h3>
+<ol type="1">
+<li><p>User IDs and passwords are used to control access to CloudCore systems and may not be disclosed to anyone for any reason.</p></li>
+<li><p>Users may not allow anyone, for any reason, to have access to any information system using another user’s unique user ID and password.</p></li>
+<li><p>On all production systems and applications in the CloudCore environment, password configurations are set to require:</p>
+<ul>
+<li>a minimum length of 12 characters;</li>
+<li>a mix of upper case characters, lower case characters, and numbers or special characters;</li>
+<li>a 60-day password expiration, or 60-day password expiration for administrative accounts;<br>
+</li>
+<li>prevention of password reuse using a history of the last 24 passwords;</li>
+<li>where supported, modifying at least 6 characters when changing passwords;</li>
+<li>account lockout after 5 invalid attempts.</li>
+</ul>
+<p>!!! check “Exceptions”</p>
+<pre><code> Password expiration may be set to a greater interval if an account is always protected by MFA. 
+ Currently, Okta SSO password rotation interval is set to 60 days.</code></pre></li>
+<li><p>All system and application passwords must be stored and transmitted securely.</p>
+<ul>
+<li>Where possible, passwords should be stored in a hashed format using a salted cryptographic hash function (SHA-256 or stronger NIST compliant standard).</li>
+<li>Passwords that must be stored in non-hashed format must be encrypted at rest pursuant to the requirements in <a href="../../docs/policies/data-protection.html">Data Protection</a>.</li>
+<li>Transmitted passwords must be encrypted in flight pursuant to the requirements in <a href="../../docs/policies/data-protection.html">Data Protection</a>.</li>
+</ul></li>
+<li><p>Each information system automatically requires users to change passwords at a pre-determined interval as determined by the system owner and/or Security, based on the criticality and sensitivity of the data contained within the network, system, application, and/or database.</p></li>
+<li><p>Passwords are inactivated immediately upon an employee’s termination (refer to the <a href="../../docs/policies/hr.html">Employee Termination Procedures in HR policy</a>).</p></li>
+<li><p>All default system, application, and Vendor/Partner-provided passwords are changed before deployment to production.</p></li>
+<li><p>Upon initial login, users must change any passwords that were automatically generated for them.</p></li>
+<li><p>Password change methods must use a confirmation method to correct for user input errors.</p></li>
+<li><p>All passwords used in configuration scripts are secured and encrypted.</p></li>
+<li><p>If a user believes their user ID has been compromised, they are required to immediately report the incident to the <a href="mailto:security@cloudcore.serveur.au">Security team</a>.</p></li>
+<li><p>In cases where a user has forgotten their password, password reset procedures provided by the IdP shall be followed. The exact process depends on the system or application. If help is needed, users shall contact <a href="mailto:itsupport@cloudcore.serveur.au">IT Support</a> or <a href="mailto:security@cloudcore.serveur.au">Security</a></p></li>
+<li><p>An approved password manager is used for to store or share non-critical business application passwords that are not integrated with our primary IdP through SSO.</p>
+<ul>
+<li>The password manager locally encrypts the password vault with the user’s master password before synchronising to the cloud.</li>
+<li>The master password must follow the password requirements listed above.</li>
+<li>MFA must enabled in the password manager configuration.</li>
+<li>Enrolment of the password manager is configured as an application in Okta.</li>
+</ul></li>
+<li><p>An automated process/tool is implemented to ensure compromised passwords or common dictionary words are not used as passwords. This is currently implemented in Okta.</p></li>
+</ol>
+</section>
+<section id="single-sign-on" class="level3">
+<h3 class="anchored" data-anchor-id="single-sign-on">Single Sign On</h3>
+<ul>
+<li><p>CloudCore selected Okta as its primary Identity Provider (IdP) to control user access to systems and business applications.</p></li>
+<li><p>Single sign-on (SSO) should be used whenever possible instead of local authentication. This centralised approach improves user experience and simplifies access management.</p></li>
+<li><p>SSO is configured via industry standard SAML protocol between the IdP (Okta) and the target application.</p></li>
+<li><p>CloudCore will not configure SSO to target applications unless they score a “B” rating or higher on the <a href="https://www.ssllabs.com/">Qualys SSL Labs</a> benchmark.</p></li>
+<li><p>Security team is responsible for the administration of the IdP / SSO system, including user and access provisioning. Security team may delegate administrative privilege to a subset of the system, such as a specific application.</p></li>
+</ul>
+</section>
+<section id="multi-factor-authentication" class="level3">
+<h3 class="anchored" data-anchor-id="multi-factor-authentication">Multi-factor Authentication</h3>
+<p>Multi-factor authentication (MFA) is a standard control used by CloudCore to provide strong access control to critical systems and applications, and should be enabled whenever possible.</p>
+<p>CloudCore implements Okta for MFA.</p>
+<p>!!! important</p>
+<pre><code>**Approved MFA methods include:**
+
+- Push notification delivered through the Okta mobile app (default and preferred for end-user access)
+- Hardware MFA token (required for the root user of AWS accounts)
+- A unique cryptographic certificate tied to a device
+- Time-based One-Time Password (TOTP) delivered through a mobile app, such as Google Authenticator
+- One-time passcode delivered through SMS text message (if it is the only supported option)
+- Secure physical facility (if the system or application can only be accessed at that location)</code></pre>
+</section>
+<section id="role-based-access-control-rbac" class="level3">
+<h3 class="anchored" data-anchor-id="role-based-access-control-rbac">Role Based Access Control (RBAC)</h3>
+<p>By default, user access is granted based on the user’s job function / role. For example:</p>
+<ul>
+<li>Developer</li>
+<li>Security</li>
+<li>IT</li>
+<li>Administrative</li>
+<li>Marketing / Sales</li>
+</ul>
+<p>This is defined as <strong>user groups</strong> in .</p>
+<p>Access to sensitive data and production customer data is highly restricted and further defined in its own section.</p>
+</section>
+<section id="temporary-access-to-aws-accounts-and-resources" class="level3">
+<h3 class="anchored" data-anchor-id="temporary-access-to-aws-accounts-and-resources">Temporary Access to AWS Accounts and Resources</h3>
+<p>Access to CloudCore AWS accounts are permissible through temporary credentials / sessions only. No persistent users, passwords or access keys are allowed in AWS IAM configurations for end-user access, either to the AWS console or AWS CLI. This is achieved with the following processes:</p>
+<p><strong>AWS Console Access</strong></p>
+<ul>
+<li><p>An organisation master account (<code>CloudCore-master</code>) in AWS is configured with IAM roles such as Developer and Security.</p></li>
+<li><p>SAML SSO and trust relationship is established between the roles in <code>CloudCore-master</code> and an “AWS application” provisioned in Okta.</p></li>
+<li><p>Users are assigned their corresponding roles through application and role assignment in Okta.</p></li>
+<li><p>Via SSO, Users authenticate through Okta by using their Okta username, password, and MFA.</p></li>
+<li><p>Upon successful authentication and MFA validation, users are logged into <code>CloudCore-master</code> using AWS Assume Role capability.</p></li>
+<li><p>The roles in <code>CloudCore-master</code> by default has highly restricted access. For example, the <code>Developer</code> role does not have access to any services and resources in the master account.</p></li>
+<li><p>The user is required to Assume a Role in a sub-account, connected via cross-account trust policy defined at account bootstrap or through an approved change management process. For example, a Developer can assume the <code>Administrator</code> role in <code>CloudCore-dev</code>, which is the sandboxed development environment in a separate AWS account.</p></li>
+<li><p>Assume Role access to a production AWS account is highly restricted.</p>
+<ul>
+<li>Developers can only assume the <code>Developer</code> role in production which only has access to read CloudWatch logs, XRay system traces/service maps, CloudWatch metrics, resource group inventories, and CloudWatch dashboards.</li>
+<li>Security can only assume the <code>Auditor</code> role in production which has the default Auditor IAM policy managed by AWS. This policy allows read-only access to account and resource configurations, but does not allow read access to any data such as S3 objects.</li>
+</ul></li>
+</ul>
+<p><strong>AWS CLI/SDK Access</strong></p>
+<ul>
+<li><a href="https://github.com/oktadeveloper/okta-aws-cli-assume-role">Okta AWS-CLI Tool</a> is used to obtain temporary credentials (access keys) for developers to connect to AWS using the CLI or SDK.</li>
+<li>By running the Okta AWS-CLI Tool, developers are prompted to authenticate to Okta using their Okta credentials and MFA token/app.</li>
+<li>Upon successful authentication and MFA validation, a temporary access key and session token is inserted into the local configuration file (e.g. <code>~/.aws/credentials</code> and <code>~/.aws/config</code>).</li>
+<li>This temporary credentials expires after one hour and a new temporary credential must be obtained for access.</li>
+<li>Through this method, developers are granted the same permission as they would by assuming the <code>Developer</code> role through AWS console.</li>
+<li>Additional details are documented on the <a href="">Development Wiki</a>.</li>
+</ul>
+<p><strong>IAM Safety</strong></p>
+<ul>
+<li>CloudCore implements <strong>Dome9</strong> to monitor and protect its AWS environments. Dome9 provides an additional layer of defence on top of native IAM policies called <strong>IAM Safety</strong>.</li>
+<li>IAM Safety works by defining a set of risky actions, such as adding/remove IAM users to an <strong>Explicit Deny</strong> policy. The policy is attached to an IAM Group, and protected Users and/or Roles are assigned to this Group.</li>
+<li>Because explicit deny rules always take precedence in AWS IAM policy, this effectively restricts access and prohibits execution of the risky actions as defined in the policy, even if the user/role may have administrative privilege.</li>
+<li>Original access can be temporarily restored through the Dome9 web console or its mobile app.</li>
+<li>Privilege Roles, such as Security role in master account and Administrator role in production account, are protected by IAM Safety.</li>
+<li>Additional details can be found on <a href="https://dome9-security.atlassian.net/wiki/spaces/DG/pages/2981893/IAM+Safety+Overview">Dome9’s product documentation</a>.</li>
+</ul>
+<p><strong>Troubleshooting / Support Access</strong></p>
+<p>In normal operations, troubleshooting is performed with log analysis in Sumo Logic, outside of the production environments in AWS. A separate Support role is created for temporary troubleshooting and support access when log access is insufficient to determine the cause. Support access should be minimised and is designed to involve manual approval and provision process.</p>
+<ul>
+<li>The Support role by default is NOT assigned to anyone.</li>
+<li>The Support role is configured with Read level access to the services used by CloudCore platform services and applications. It does NOT have permission to make any configuration changes and does NOT have access to production data.</li>
+<li>A PRODCM ticket is used to request temporary support access and must be approved by Head of Engineering and Security.</li>
+<li>Upon approval of the support access PRODCM ticket, Security grants the requestor temporary access to by assigning the Support role to that particular individual user in Okta.</li>
+<li>The Support role is protected by Dome9 with IAM Safety and it must be explicitly allowed by the Security team for it to assume the Support role in the target production environment.</li>
+<li>By default, temporary Support access is limited to one hour. This can be extended by the Security team.</li>
+<li>The role assignment is removed from Okta immediately after the support session and Dome9 IAM Safety is re-enabled.</li>
+</ul>
+<p><strong>Dual Control for Root Access</strong></p>
+<p>CloudCore implements a Dual Control / Split Knowledge process to protect the Root user access to our AWS accounts. The process works as follow:</p>
+<ul>
+<li><p>Security Lead has access to the root account credentials.</p>
+<ul>
+<li>The credentials are stored encrypted in the master account.</li>
+<li>Security Lead obtains temporary access to the master account following the process listed above (MFA is required).</li>
+<li>Security Lead must assume a role with permission to access the credential (e.g.&nbsp;Administrator), which is protected by an additional layer of IAM Safety.</li>
+</ul></li>
+<li><p>Engineering Lead has access to the Hardware Tokens associated with the root users.</p>
+<ul>
+<li>The tokens are stored in secured facility with restricted badge reader access.</li>
+<li>The token serial is mapped per account and documented in <a href="">CloudCore Engineering Wiki</a>.</li>
+</ul></li>
+</ul>
+<p>When root access is required for business or operational needs, a Issue is created that requires the Security Lead and Engineering Lead to jointly perform the action.</p>
+</section>
+<section id="remote-access-vpn" class="level3">
+<h3 class="anchored" data-anchor-id="remote-access-vpn">Remote Access / VPN</h3>
+<ul>
+<li><p>VPN remote access to non-production and non-privileged environments in AWS are permissible and implemented using <strong>Pritunl</strong>.</p></li>
+<li><p>VPN remote access to master and production accounts are prohibited.</p></li>
+<li><p>VPN remote access to CloudCore office network(s) is configured via <strong>Pritunl</strong>, and should be used whenever connecting from public networks.</p></li>
+</ul>
+</section>
+<section id="access-to-phiephi" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-phiephi">Access to PHI/ePHI</h3>
+<ol type="1">
+<li>Access to ePHI is permitted to genomics science staff, or staff that otherwise has a business need to access.</li>
+<li>Access to any on-premise server that contains ePHI is restricted and monitored. <em>Currently CloudCore has no on-premise server that stores or processes ePHI.</em></li>
+<li>Access to ePHI in CloudCore’s production environments in the cloud is strictly prohibited. Access is protected via multiple layers of security controls such as IAM policies, restricted IAM roles, VPC configuration, S3 bucket policy, external monitoring, etc.</li>
+<li>Users may not download ePHI to any workstations or end-user computing devices.</li>
+</ol>
+</section>
+<section id="platform-customer-access-to-systems" class="level3">
+<h3 class="anchored" data-anchor-id="platform-customer-access-to-systems">Platform Customer Access to Systems</h3>
+<p>CloudCore does not allow direct system access by customers. Access is only available through the Web UI or API interface, with valid authentication and authorisation detailed in the Product Security, Architecture, and Security pages of the engineering wiki.</p>
+</section>
+<section id="access-establishment-modification-and-termination" class="level3">
+<h3 class="anchored" data-anchor-id="access-establishment-modification-and-termination">Access Establishment, Modification and Termination</h3>
+<ol type="1">
+<li><p>Requests for access to CloudCore Platform systems and applications is made formally using the following process:</p>
+<ol type="1">
+<li><p>An access request is created in through either the new employee onboarding request or a specific access request from CloudCore Internal Support site.</p></li>
+<li><p>The Security team will grant standard access to per job role as part of new employee onboarding. A standard set of accounts that are default for all employees are created as part of the onboarding process. This includes</p>
+<ul>
+<li>User account for local system/laptop</li>
+<li>Okta user in the Everyone group, and additional group based on role such as Development, IT, Security</li>
+<li>Office365 account for access to Outlook email, SharePoint, etc.</li>
+<li>Ataata account for security awareness training</li>
+<li>HR accounts for paperwork, benefits management, payroll, expense reporting, etc.</li>
+<li>access for submitting support requests</li>
+<li>Additional role based access (e.g.&nbsp;and access for a developer)</li>
+</ul></li>
+<li><p>Standard access may be provisioned at any time by account owners/administrators at any time during or after onboarding with approval of account owners and/or manager.</p></li>
+<li><p>If additional access is needed in addition to the above, a separate access request (through ) is required and the requester must include a description and justification as part of the access request.</p></li>
+<li><p>Once the review is completed, the Security team approves or rejects the Issue. If the Issue is rejected, it goes back for further review and documentation.</p></li>
+<li><p>If the review is approved, IT or Security team provisions access, then marks the Issue as Done, adding any pertinent notes required.</p>
+<ul>
+<li>New accounts will be created with a temporary secure password that meets all password requirements, which must be changed on the initial login.</li>
+<li>All password exchanges must occur over an authenticated channel.</li>
+<li>For on-premise systems, access grants are accomplished by adding the appropriate user account to the corresponding LDAP/AD group.</li>
+<li>For cloud accounts, access grants are provisioned in Okta or using the access control mechanisms built into those services/applications.</li>
+<li>Account management for non-production systems may be delegated to a CloudCore employee at the discretion of the Security Officer.</li>
+</ul></li>
+</ol></li>
+<li><p>Special access, including access to production environments, is not granted until receipt, review, and approval by the CloudCore Security Officer.</p></li>
+<li><p>The request for access is retained for future reference.</p></li>
+<li><p>Temporary accounts are not used unless absolutely necessary for business purposes.</p>
+<ul>
+<li>Accounts are reviewed every 90 days to ensure temporary accounts are not left unnecessarily.</li>
+<li>Accounts that are inactive for over 90 days are removed.</li>
+</ul></li>
+<li><p>In the case of non-personal information, such as generic educational content, identification and authentication may not be required.</p></li>
+</ol>
+<section id="access-termination" class="level4">
+<h4 class="anchored" data-anchor-id="access-termination">Access Termination</h4>
+<p>IT Manager or Security team receives access termination requests in one of the following conditions and processes it accordingly:</p>
+<ul>
+<li>Employee existing/termination, as defined by the process in <a href="../../docs/policies/hr.html">HR &amp; Employee Security</a>;</li>
+<li>Employee access to a system is no longer required as a result of job role change or similar event, in which case a access termination request may be submitted by the employee or his/her manager via the Internal Help portal or an email request to Security team;</li>
+<li>As the result of a Access Review, as defined in <a href="../../docs/policies/system-audit.html">System Auditing</a>.</li>
+<li>Non-standard access is revoked by default after 30 days of inactivity, unless an exception/extension is requested and approved.</li>
+</ul>
+</section>
+</section>
+<section id="access-reviews" class="level3">
+<h3 class="anchored" data-anchor-id="access-reviews">Access Reviews</h3>
+<ul>
+<li>All access to CloudCore systems and services are reviewed and updated following the procedures specified in <a href="../../docs/policies/system-audit.html">System Auditing</a> to ensure proper authorisations are in place commensurate with job functions.</li>
+<li>In cases of increased risk or known attempted unauthorised access, immediate steps are taken by the Security and Privacy Officer to limit access and reduce risk of unauthorised access.</li>
+</ul>
+</section>
+<section id="privileged-access" class="level3">
+<h3 class="anchored" data-anchor-id="privileged-access">Privileged Access</h3>
+<p>Privileged users must first access systems using standard, unique user accounts before elevating the privilege or switching to privileged users and performing privileged tasks. Examples include:</p>
+<ul>
+<li><code>sudo</code> in Linux/macOS</li>
+<li><code>Run as Administrator</code> in Windows</li>
+<li><code>Assume role</code> in AWS</li>
+</ul>
+</section>
+<section id="service-accounts" class="level3">
+<h3 class="anchored" data-anchor-id="service-accounts">Service Accounts</h3>
+<ul>
+<li><p>All application to application communication using service accounts is restricted and not permitted unless absolutely needed. Automated tools are used to limit account access across applications and systems.</p></li>
+<li><p>Services that are part of CloudCore platform leverage AWS IAM policy configurations and/or OAuth for authorisation.</p></li>
+<li><p>Generic accounts are not allowed on CloudCore systems.</p></li>
+<li><p>Direct system to system, system to application, and application to application authentication and authorisation are limited and controlled to restrict access.</p></li>
+<li><p>In AWS, service accounts are implemented in the form of IAM Roles, and their access defined by the corresponding IAM policies. The creation of these IAM roles and policies is implemented as code, which follows the secure development, review and production change approval process.</p></li>
+<li><p>An inventory of all Service accounts is maintained by AWS IAM and Terraform and reviewed periodically.</p></li>
+</ul>
+</section>
+<section id="employee-workstation-endpoints-access-and-usage" class="level3">
+<h3 class="anchored" data-anchor-id="employee-workstation-endpoints-access-and-usage">Employee Workstation / Endpoints Access and Usage</h3>
+<p>All workstations at CloudCore are company owned, using one the following approved hardware vendors and operating systems:</p>
+<ul>
+<li>Apple, Dell, or Lenovo</li>
+<li>macOS, Linux (Ubuntu or Debian), or Windows 10</li>
+</ul>
+<ol type="1">
+<li>Workstations may not be used to engage in any activity that is illegal or is in violation of organisation’s policies.</li>
+<li>Access may not be used for transmitting, retrieving, or storage of any communications of a discriminatory or harassing nature or materials that are obscene or “X-rated”. Harassment of any kind is prohibited. No messages with derogatory or inflammatory remarks about an individual’s race, age, disability, religion, national origin, physical attributes, sexual preference, or health condition shall be transmitted or maintained. No abusive, hostile, profane, or offensive language is to be transmitted through organisation’s system.</li>
+<li>Information systems/applications also may not be used for any other purpose that is illegal, unethical, or against company policies or contrary to organisation’s best interests. Messages containing information related to a lawsuit or investigation may not be sent without prior approval.</li>
+<li>Solicitation of non-company business, or any use of organisation’s information systems/applications for personal gain is prohibited.</li>
+<li>Users may not misrepresent, obscure, suppress, or replace another user’s identity in transmitted or stored messages.</li>
+<li>Workstation hard drives will be encrypted using FileVault (macOS), BitLocker (Windows) or equivalent.</li>
+<li>All workstations must have host firewalls enabled to prevent unauthorised access unless explicitly granted.</li>
+<li>All workstations must have endpoint security software installed and actively running, if supported by the operating system.</li>
+</ol>
+</section>
+<section id="office-network-and-wireless-access" class="level3">
+<h3 class="anchored" data-anchor-id="office-network-and-wireless-access">Office Network and Wireless Access</h3>
+<ol type="1">
+<li><p>CloudCore production systems are not accessible directly over wireless channels.</p></li>
+<li><p>Wireless access is disabled on all production systems.</p></li>
+<li><p>When accessing production systems via remote wireless connections, the same system access policies and procedures apply to wireless as all other connections, including wired.</p></li>
+<li><p>Wireless networks managed within CloudCore non-production facilities (offices, etc.) are secured with the following configurations:</p>
+<ul>
+<li>All data in transit over wireless is encrypted using WPA2 encryption;</li>
+<li>Passwords are not currently on a rotation schedule because the office environments are considered insecure.<br>
+</li>
+<li>Passwords are changed immediately should a suspicious activity or indicator of compromise is detected.</li>
+<li>Guest wireless access is on a separate SSID configured with different password and traffic VLAN.</li>
+<li>Wireless access is managed by the IT Manager.</li>
+<li>Wireless access points connected to the network are automatically scanned; rogue access points identified are immediately removed.</li>
+</ul></li>
+</ol>
+</section>
+<section id="production-access-and-secrets-management" class="level3">
+<h3 class="anchored" data-anchor-id="production-access-and-secrets-management">Production Access and Secrets Management</h3>
+<p>CloudCore leverages a combination of <a href="https://support.cloudbees.com/hc/en-us/articles/203802500-Injecting-Secrets-into--Build-Jobs">credentials store</a>, <a href="https://github.com/fugue/credstash">credstash</a>, and <a href="https://aws.amason.com/blogs/mt/the-right-way-to-store-secrets-using-parameter-store/">Amason EC2 Systems Manager Parameter Store</a> to securely store production secrets. Secrets are always encrypted; access to secrets is always controlled and audited.</p>
+<p>Details and usage are documented on the CloudCore Engineering Wiki.</p>
+</section>
+<section id="production-data-access" class="level3">
+<h3 class="anchored" data-anchor-id="production-data-access">Production Data Access</h3>
+<p>The following requirements and controls are in place for accessing production data by internal personnel:</p>
+<ul>
+<li><p>There is no pre-provisioned, persisted “internal” access to production data stores. Access such as direct SSH to the production database servers and direct access to data objects in production S3 buckets are prohibited.</p></li>
+<li><p>Access to customer data is granted on a per-account basis.</p></li>
+<li><p>Access requests follow the same production access processes. Access must be approved by both the data owner and the security team.</p></li>
+<li><p>Access to production data is granted only through an approved platform with strong centralised access control, with MFA.</p></li>
+<li><p>An audit list of who has access to which customer data is maintained and reviewed monthly. Access is revoked when no longer needed.</p></li>
+</ul>
+</section>
+<section id="password-reset-and-other-helpdesk-requests" class="level3">
+<h3 class="anchored" data-anchor-id="password-reset-and-other-helpdesk-requests">Password Reset and other Helpdesk Requests</h3>
+<p>CloudCore employees have the ability to obtain self-service support directly from supported business applications, such as password reset via the SSO/IdP tool.</p>
+<p>If needed, users may use our internal service desk or email request to obtain IT and Security support.</p>
+<p>A ticket is opened in for each support request and assigned to the appropriate personnel. The person assigned must verify the identity of the requester and ensure the ticket has appropriate approval before implementing or providing support. The verification step and confirmation of “User identity verified” should be included as a comment in the ticket by the support personnel. Additionally, if a password or security credential has been created or supplied, confirm user has received it via another channel like slack/email/phone/zoom and document receipt in the ticket.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

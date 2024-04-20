@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - Configuration and Change Management</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#configuration-management-processes" id="toc-configuration-management-processes" class="nav-link" data-scroll-target="#configuration-management-processes">Configuration Management Processes</a></li>
+  <li><a href="#configuration-monitoring-and-auditing" id="toc-configuration-monitoring-and-auditing" class="nav-link" data-scroll-target="#configuration-monitoring-and-auditing">Configuration Monitoring and Auditing</a></li>
+  <li><a href="#production-systems-provisioning" id="toc-production-systems-provisioning" class="nav-link" data-scroll-target="#production-systems-provisioning">Production Systems Provisioning</a></li>
+  <li><a href="#user-endpoint-security-controls-and-configuration" id="toc-user-endpoint-security-controls-and-configuration" class="nav-link" data-scroll-target="#user-endpoint-security-controls-and-configuration">User Endpoint Security Controls and Configuration</a></li>
+  <li><a href="#server-hardening-guidelines-and-processes" id="toc-server-hardening-guidelines-and-processes" class="nav-link" data-scroll-target="#server-hardening-guidelines-and-processes">Server Hardening Guidelines and Processes</a></li>
+  <li><a href="#configuration-and-provisioning-of-management-systems" id="toc-configuration-and-provisioning-of-management-systems" class="nav-link" data-scroll-target="#configuration-and-provisioning-of-management-systems">Configuration and Provisioning of Management Systems</a></li>
+  <li><a href="#configuration-and-management-of-network-controls" id="toc-configuration-and-management-of-network-controls" class="nav-link" data-scroll-target="#configuration-and-management-of-network-controls">Configuration and Management of Network Controls</a></li>
+  <li><a href="#provisioning-aws-accounts" id="toc-provisioning-aws-accounts" class="nav-link" data-scroll-target="#provisioning-aws-accounts">Provisioning AWS Accounts</a></li>
+  <li><a href="#automated-change-management-for-deploys-to-aws" id="toc-automated-change-management-for-deploys-to-aws" class="nav-link" data-scroll-target="#automated-change-management-for-deploys-to-aws">Automated change management for deploys to AWS</a></li>
+  <li><a href="#patch-management-procedures" id="toc-patch-management-procedures" class="nav-link" data-scroll-target="#patch-management-procedures">Patch Management Procedures</a></li>
+  <li><a href="#production-deploy-code-promotion-processes" id="toc-production-deploy-code-promotion-processes" class="nav-link" data-scroll-target="#production-deploy-code-promotion-processes">Production Deploy / Code Promotion Processes</a></li>
+  <li><a href="#emergency-change" id="toc-emergency-change" class="nav-link" data-scroll-target="#emergency-change">Emergency Change</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Configuration and Change Management</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CloudCore standardises and automates configuration management through the use of automation scripts as well as documentation of all changes to production systems and networks. Automation tools such as Chef, Salt, and Terraform automatically configure all CloudCore systems according to established and tested policies, and are used as part of our Disaster Recovery plan and process.</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li><p>All production changes, including but not limited to software deployment, feature toggle enablement, network infrastructure changes, and access control authorisation updates, must be invoked through approved change management process.</p></li>
+<li><p>Each production change must maintain complete traceability to fully document the request, including requestor, date/time of change, actions taken and results.</p></li>
+<li><p>Each production change must be fully tested prior to implementation.</p></li>
+<li><p>Each production change must include a rollback plan to back out the change in the event of failure.</p></li>
+<li><p>Each production change must include proper approval.</p></li>
+</ol>
+<ul>
+<li>The approvers are determined based on the type of change.</li>
+<li>Approvers must be someone other than the author/executor of the change.</li>
+<li>Approvals may be automatically granted if certain criteria is met. The auto-approval criteria must be pre-approved by the Security Officer and fully documented and validated for each request.</li>
+</ul>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="configuration-management-processes" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-management-processes">Configuration Management Processes</h3>
+<ol type="1">
+<li><p>Configuration management is automated using industry-recognised tools like Chef, Salt and Terraform to enforce secure configuration standards.</p></li>
+<li><p>All changes to production systems, network devices, and firewalls are reviewed and approved by Security team before they are implemented to assure they comply with business and security requirements.</p></li>
+<li><p>All changes to production systems are tested before they are implemented in production.</p></li>
+<li><p>Implementation of approved changes are only performed by authorised personnel.</p></li>
+<li><p>Tooling is used to generate an up to date system inventory.</p>
+<ul>
+<li>All systems are categorised and labeled by their corresponding environment, such as <em>dev</em>, <em>test</em>, and <em>prod</em>.</li>
+<li>All systems are classified and labeled based on the data they store or process, according to <a href="assets/data-classification-and-handling.pdf">CloudCore data classification model</a>.</li>
+<li>The Security team maintains automation which monitors all changes to IT assets, generates inventory lists, using automatic IT assets discovery, and services provided by each cloud provider.</li>
+<li>IT assets database is used to generate the diagrams and asset lists required by the Risk Assessment phase of CloudCore’s <a href="../../docs/policies/risk-mgmt.html">Risk Management procedures</a></li>
+<li>CloudCore Change Management process ensures that all asset inventory created by automation is reconciled against real changes to production systems. This process includes periodic manual audits and approvals.</li>
+<li>During each change implementation, the change is reviewed and verified by the target asset owner as needed.</li>
+</ul></li>
+<li><p>CloudCore uses the <a href="http://iase.disa.mil/stigs/">Security Technical Implementation Guides (STIGs)</a> published by the Defence Information Systems Agency as a baseline for hardening systems.</p>
+<ul>
+<li>Windows-based systems use a baseline Active Directory group policy configuration in conjunction with the DISA STIGs.</li>
+<li>Linux-based systems use Red Hat Enterprise Linux STIG as a guideline for implementation.</li>
+<li>EC2 instances in AWS are provisioned using only hardened and approved Amason Machine Images (AMIs).</li>
+<li>Docker containers are launched using only approved Docker images that have been through security testing.</li>
+</ul></li>
+<li><p>All IT assets in CloudCore have time synchronised to a single authoritative source.</p>
+<ul>
+<li>On-premise systems are configured to point to an internal NTP server.</li>
+<li>The internal NTP server and all AWS instances are pointing to the same set of ntp.org servers.</li>
+</ul></li>
+<li><p>All frontend functionality (e.g.&nbsp;user dashboards and portals) is separated from backend (e.g.&nbsp;database and app servers) systems by being deployed on separate servers or containers.</p></li>
+<li><p>All software and systems are required to complete full-scale testing before being promoted to production.</p></li>
+<li><p>All code changes are reviewed to assure software code quality, while in development, to proactively detect potential security issues using pull-requests and static code analysis tools. More details can be found in the <em>Software Release / Code Promotion</em> section.</p></li>
+</ol>
+</section>
+<section id="configuration-monitoring-and-auditing" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-monitoring-and-auditing">Configuration Monitoring and Auditing</h3>
+<p>All infrastructure and system configurations, including all software-defined sources, are centrally aggregated to a configuration management database (CMDB) – JupiterOne.</p>
+<p>Configuration auditing rules are created according to established baseline, approved configuration standards and control policies. Deviations, misconfigurations, or configuration drifts are detected by these rules and alerted to the security team.</p>
+</section>
+<section id="production-systems-provisioning" class="level3">
+<h3 class="anchored" data-anchor-id="production-systems-provisioning">Production Systems Provisioning</h3>
+<ol type="1">
+<li><p>Before provisioning any systems, a request must be created and approved in the Production Change Management (PRODCM) project.</p>
+<ul>
+<li>access requires authenticated users.</li>
+<li>Security grants access to the PRODCM project following the procedures covered in the <a href="../../docs/policies/access.html">Access Establishment and Modification section</a>.</li>
+</ul></li>
+<li><p>The security team must approve the provisioning request before any new system can be provisioned, unless a pre-approved automation process is followed.</p></li>
+<li><p>Once provisioning has been approved, the implementer must configure the new system according to the standard baseline chosen for the system’s role.</p></li>
+<li><p>If the system will be used to store sensitive information, the implementer must ensure the volume containing this sensitive data is encrypted.</p></li>
+<li><p>Sensitive data in motion must always be encrypted.</p></li>
+<li><p>A security analysis is conducted once the system has been provisioned. This can be achieved either via automated configuration/vulnerability scans or manual inspection by the security team. Verifications include, but is not limited to:</p>
+<ul>
+<li>Removal of default users used during provisioning.</li>
+<li>Network configuration for system.</li>
+<li>Data volume encryption settings.</li>
+<li>Intrusion detection and virus scanning software installed.</li>
+</ul></li>
+<li><p>The new system is fully promoted into production upon successful verification against corresponding CloudCore standards and change request approvals.</p></li>
+</ol>
+</section>
+<section id="user-endpoint-security-controls-and-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="user-endpoint-security-controls-and-configuration">User Endpoint Security Controls and Configuration</h3>
+<ol type="1">
+<li><p>Employee laptops, including Windows, Mac, and Linux systems, are configured either</p>
+<ul>
+<li>Manually by IT or the device owner; or</li>
+<li>Automatically using a configuration management tool or equivalent scripts.</li>
+</ul></li>
+<li><p>The following security controls are applied at the minimum:</p>
+<ul>
+<li>Disk encryption</li>
+<li>Unique user accounts and strong passwords</li>
+<li>Approved NTP servers</li>
+<li>Approved security agents</li>
+<li>Locking after 2 mins of inactivity</li>
+<li>Auto-update of security patches</li>
+</ul></li>
+<li><p>The security configurations on all end-user systems are inspected by Security through either a manual periodic review or an automated compliance auditing tool.</p></li>
+</ol>
+</section>
+<section id="server-hardening-guidelines-and-processes" class="level3">
+<h3 class="anchored" data-anchor-id="server-hardening-guidelines-and-processes">Server Hardening Guidelines and Processes</h3>
+<ol type="1">
+<li><p><strong>Linux System Hardening:</strong> Linux systems have their baseline security configuration applied via automation tools. These tools cover:</p>
+<ul>
+<li>Ensuring that the machine is up-to-date with security patches and is configured to apply patches in accordance with our policies.</li>
+<li>Stopping and disabling any unnecessary OS services.</li>
+<li>Apply applicable DISA STIGs to OS and applications.</li>
+<li>Configuring 15-minute session inactivity timeouts for SSH sessions.</li>
+<li>Installing and configuring the virus scanner.</li>
+<li>Installing and configuring the NTP daemon, including ensuring that modifying system time cannot be performed by unprivileged users.</li>
+<li>Configuring disk volumes for providers that do not have native support for encrypted data volumes, including ensuring that encryption keys are protected from unauthorised access.</li>
+<li>Configuring authentication to the centralised Directory Services servers.</li>
+<li>Configuring audit logging as described in the <a href="../../docs/policies/system-audit.html">Auditing Policy section</a>.</li>
+</ul></li>
+<li><p><strong>Windows System Hardening:</strong> Windows systems have their baseline security configuration applied via the combination of Group Policy settings and/or automation scripts. These baseline settings cover:</p>
+<ul>
+<li>Joining the Windows Domain Controller and applying the Active Directory Group Policy configuration (for AD-managed systems only).</li>
+<li>Ensuring that the machine is up-to-date with security patches and is configured to apply patches in accordance with our policies.</li>
+<li>Apply applicable DISA STIGs to OS and applications.</li>
+<li>Stopping and disabling any unnecessary OS services.</li>
+<li>Configuring session inactivity timeouts.</li>
+<li>Installing and configuring security protection agents such as anti-virus scanner.</li>
+<li>Configuring transport encryption according to the requirements described in the <a href="../../docs/policies/mdm.html">Mobile Device Security and Disposable Media Management section</a>.</li>
+<li>Configuring the system clock to point to approved NTP servers and ensuring that modifying system time cannot be performed by unprivileged users.</li>
+<li>Configuring audit logging as described in the <a href="../../docs/policies/system-audit.html">Auditing Policy section</a>.</li>
+</ul></li>
+<li><p>Any additional configuration changes applied to hardened Windows systems must be clearly documented by the implementer and reviewed by the Security team.</p></li>
+</ol>
+</section>
+<section id="configuration-and-provisioning-of-management-systems" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-and-provisioning-of-management-systems">Configuration and Provisioning of Management Systems</h3>
+<ol type="1">
+<li><p>Provisioning management systems such as configuration management servers, remote access infrastructure, directory services, or monitoring systems follows the same procedure as provisioning a production system.</p></li>
+<li><p>Critical infrastructure roles applied to new systems must be clearly documented by the implementer in the change request.</p></li>
+</ol>
+</section>
+<section id="configuration-and-management-of-network-controls" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-and-management-of-network-controls">Configuration and Management of Network Controls</h3>
+<p>All network devices and controls on a sensitive network are configured such that:</p>
+<ul>
+<li><p>Vendor provided default configurations are modified securely, including</p>
+<ul>
+<li>default encryption keys,</li>
+<li>default SNMP community strings, if applicable,</li>
+<li>default passwords/passphrases, and</li>
+<li>other security-related vendor defaults, if applicable.</li>
+</ul></li>
+<li><p>Encryption keys and passwords are changed anytime anyone with knowledge of the keys or passwords leaves the company or changes positions.</p></li>
+<li><p>Traffic filtering (e.g.&nbsp;firewall rules) and inspection (e.g.&nbsp;Network IDS/IPS or AWS VPC flow logs) are enabled.</p></li>
+<li><p>An up-to-date network diagram is maintained.</p></li>
+</ul>
+<p>In AWS, network controls are implemented using Virtual Private Clouds (VPCs) and Security Groups. The configurations are managed as code and stored in approved repos. All changes to the configuration follow the defined code review, change management and production deployment approval process.</p>
+</section>
+<section id="provisioning-aws-accounts" class="level3">
+<h3 class="anchored" data-anchor-id="provisioning-aws-accounts">Provisioning AWS Accounts</h3>
+<section id="aws-account-structure-organisation" class="level4">
+<h4 class="anchored" data-anchor-id="aws-account-structure-organisation">AWS Account Structure / Organisation</h4>
+<p>CloudCore maintains a single Organisation in AWS, maintained in a top-level AWS account (master). Sub-accounts are connected that each hosts separate workloads and resources in its own sandboxed environment. The master account itself handles aggregated billing for all connected sub-accounts but does not host any workload, service or resource, with the exception of DNS records for CloudCore root domain, using AWS Route53 service. DNS records for subdomains are maintained in the corresponding sub-accounts.</p>
+<p>Access to each account is funneled through our designated SSO provider, which establishes a trust relationship to a set of predefined roles in the master account. Once authenticated, a user then leverages AWS IAM Assume Role capability to switch to a sub-account to access services and resources.</p>
+<p>The account and network structure looks like the following:</p>
+<pre><code>SSO/IdP ── CloudCore-master
+            │  └── billing and root DNS records only
+            │
+            ├── CloudCore-dev
+            │&nbsp;&nbsp;  └── VPC
+            │        └── Subnets
+            │             └── Security-Groups
+            │                  └── EC2 instances
+            │                       └── Docker containers
+            │            
+            ├── CloudCore-test
+            │&nbsp;&nbsp;  └── VPC
+            │         └── Subnets
+            │              └── Security-Groups
+            │                   └── EC2 instances
+            │                        └── Docker containers
+            │
+            ├── CloudCore-infra
+            │&nbsp;&nbsp;  └── VPC
+            │         └── Subnets
+            │              └── Security-Groups
+            │                   └── EC2 instances
+            │                        └── Docker containers
+            │
+            ├── CloudCore-prod-us1
+            │&nbsp;&nbsp;  └── VPC
+            │         └── Subnets
+            │              └── Security-Groups
+            │                   └── EC2 instances
+            │                        └── Docker containers
+            │
+            ├── CloudCore-prod-us2
+            │
+            ...</code></pre>
+</section>
+<section id="infrastructure-as-code" class="level4">
+<h4 class="anchored" data-anchor-id="infrastructure-as-code">Infrastructure-as-Code</h4>
+<p>CloudCore AWS environments and infrastructure are managed as code. Provisioning is accomplished using a set of automation scripts and Terraform code. Each new environment is created as a sub-account connected to <code>CloudCore-master</code>. The creation and provisioning of a new account follows the instructions documented in the Bootstrap a new AWS environment page of the development wiki.</p>
+</section>
+</section>
+<section id="automated-change-management-for-deploys-to-aws" class="level3">
+<h3 class="anchored" data-anchor-id="automated-change-management-for-deploys-to-aws">Automated change management for deploys to AWS</h3>
+<p>The CloudCore Continuous Delivery Pipeline automates creation and validation of change requests. This is done in a 3-step process:</p>
+<ol type="1">
+<li><p><strong>Create/Validate Change Request Ticket</strong></p>
+<p>is used for continuous delivery (build and deploy), and we employ</p>
+<ul>
+<li><p>automation such that:</p></li>
+<li><p>Whenever deployment to a controlled environment (e.g.&nbsp;production accounts and infrastructure account) is requested, the job will check for an approved PRODCM ticket, or create a new ticket if not found.</p></li>
+<li><p>The automation code will attempt to automatically populate the required data for the PRODCM ticket (see list above).</p></li>
+<li><p>If the data cannot be automatically populated, may pause the job and prompt the user for manual input.</p></li>
+<li><p>Job will be paused until the request is approved or canceled (rejected). Before continuing to deployment, will validate the change request’s build job identifier, build number and source code branch.</p></li>
+</ul></li>
+<li><p><strong>Detect Change Details and Obtain Approval</strong></p>
+<p>A separate <code>change-management-bot</code> is implemented to provide additional details to assist/automate the ticket approval process:</p>
+<ul>
+<li><p>Whenever a PRODCM ticket is created, the bot is triggered via a webhook.</p></li>
+<li><p>The bot is configured to examine the following:</p>
+<ul>
+<li>Look for all the code changes since the last approved PRODCM ticket.</li>
+<li>Check that all code commits have been approved by a reviewer other than the author, except for a version bump.</li>
+<li>Ensure that security scanning has been completed for this build and no blocking issue is found.</li>
+</ul>
+<p>!!! attention</p>
+<pre><code>  The following practices will fail this validation and result in
+  manual processing, therefore should be avoided:
+
+  - squashing commits on PR merges
+  - commits after PR approval without re-approval</code></pre></li>
+<li><p>Details of the analysis are posted to the PRODCM ticket.</p></li>
+<li><p>When all the required checks pass validation, the bot recommends approval. The cm-bot may be configured to automatically approve the ticket if all of the required conditions above (and future ones) are met. Additionally, a manual review / approval is always required in the following conditions:</p>
+<ul>
+<li>This is the first prod deploy with no prior approval history</li>
+<li>A related CM ticket / deploy of the same project is pending</li>
+</ul></li>
+<li><p>If human approvals are needed, the required approvers will review the details and approve/decline accordingly.</p></li>
+<li><p>Random inspections of automatically approved tickets are performed by the security team monthly to ensure the automation functions properly.</p></li>
+</ul>
+<p>!!! important</p>
+<pre><code>1. Note that the above flow does not catch weaknesses in design, and
+therefore does not replace the need for threat modeling and security
+review in the design phase.
+2. Additional requirements may be added later as the process continues
+to mature.</code></pre></li>
+<li><p><strong>Detect Risky Changes, Deploy and Close</strong></p>
+<p>job proceeds only with an approved and validated PRODCM ticket.</p>
+<ul>
+<li><p>During production deploys, a <code>terraform plan</code> is always performed first to detect risky changes.</p></li>
+<li><p>Examples of security-related or risky changes include:</p>
+<ul>
+<li>Change to “policy” attribute of resource (aws_s3_bucket.policy, aws_kms_key.policy)</li>
+<li>Change to IAM policy, role, user or group</li>
+<li>Attach/detach policy</li>
+<li>Change/delete to security group</li>
+<li>Anything is deleted (in prod, deletes should be unusual so they should be manually reviewed)</li>
+</ul></li>
+<li><p>If risky changes are detected, the deploy is paused and the PRODCM ticket is updated to require manual review before continuing.</p></li>
+<li><p>Once a deploy is completed, the PRODCM ticket is automatically resolved and closed.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="patch-management-procedures" class="level3">
+<h3 class="anchored" data-anchor-id="patch-management-procedures">Patch Management Procedures</h3>
+<p><strong>Local Systems</strong></p>
+<p>CloudCore uses automated tooling to ensure systems are up-to-date with the latest security patches.</p>
+<ul>
+<li><p>On local Linux and Windows systems, the unattended-upgrades tool is used to apply security patches in phases.</p>
+<ul>
+<li>High Risk security patches are automatically applied as they are released</li>
+<li>Monthly system patching for regular applications are applied as needed.</li>
+<li>Snapshotting of a system will take place before an update is applied.</li>
+<li>Once the update is deemed stable the snapshot will be removed.</li>
+<li>In case of failure of the update the snapshot will be rolled back.</li>
+<li>If the staging systems function properly after the two-week testing period, the security team will promote that snapshot into the mirror used by all production systems. These patches will be applied to all production systems during the next nightly patch run.</li>
+<li>The patching process may be expedited by the Security team</li>
+<li>On Windows systems, the baseline Group Policy setting configures Windows Update to implement the patching policy.</li>
+</ul></li>
+</ul>
+<p><strong>Cloud Resources</strong></p>
+<p>CloudCore follows a “cattle-vs-pets” methodology to keep the resources in the cloud environments immutable and up-to-date with security patches.</p>
+<ul>
+<li><p>AWS Elastic Container Service (ECS) is used to dynamically manage container resources based on demand.</p></li>
+<li><p>Engineering team builds security-approved AMI from the latest AWS optimised Amason Machine Image (AMI) to include required security agent.</p></li>
+<li><p>The security agents installed on the security-approved AMIs continuously scan for and report new vulnerabilities.</p></li>
+<li><p>The custom AMIs are automatically rebuilt from the latest AWS AMIs weekly to include the latest security patches.</p></li>
+</ul>
+<p><strong>User Endpoints</strong></p>
+<p>CloudCore requires auto-update for security patches to be enabled for all user endpoints, including laptops and workstations.</p>
+<ul>
+<li>The auto-update configuration and update status on all end-user systems are inspected by Security through either manual periodic audits or automated compliance auditing agents installed on the endpoints.</li>
+</ul>
+</section>
+<section id="production-deploy-code-promotion-processes" class="level3">
+<h3 class="anchored" data-anchor-id="production-deploy-code-promotion-processes">Production Deploy / Code Promotion Processes</h3>
+<p>In order to promote changes into Production, a valid and approved Change Request (CR) is required. It can be created in the <a href="">Change Management System/Portal</a> which implements the CloudCore Change Management workflow, using the Production Change Management (PRODCM) project to manage changes and approvals.</p>
+<ul>
+<li><p>At least two approvals are required for each PRODCM ticket. By default, the approvers are</p>
+<ul>
+<li>Security Lead and</li>
+<li>Engineering Lead.</li>
+</ul></li>
+<li><p>Additional approver(s) may be added depending on the impacted component(s). For example,</p>
+<ul>
+<li>the IT Manager is added as an approver for IT/network changes; and</li>
+<li>the DevOps Lead is added as an approver for changes to <code>aws-CloudCore-infra</code> account in AWS.</li>
+</ul></li>
+<li><p>Each PRODCM ticket requires the following information at a minimum:</p>
+<ul>
+<li>Summary of the change</li>
+<li>Component(s) impacted</li>
+<li>Justification</li>
+<li>Rollback plan</li>
+</ul></li>
+<li><p>Additional details are required for a code deploy, including:</p>
+<ul>
+<li>Build job name</li>
+<li>Build ID and/or number</li>
+<li>Deploy action (e.g.&nbsp;plan, apply)</li>
+<li>Deploy branch (e.g.&nbsp;master)</li>
+<li>Target environment (e.g.&nbsp;<code>aws-CloudCore-infra</code>, <code>aws-CloudCore-prod-us</code>, <code>datacenter-hq</code>)</li>
+<li>Links to pull requests and/or issues</li>
+<li>Security scan status and results</li>
+</ul></li>
+</ul>
+</section>
+<section id="emergency-change" class="level3">
+<h3 class="anchored" data-anchor-id="emergency-change">Emergency Change</h3>
+<p>In the event of an emergency, the person or team on call is notified. This may include a combination or Development, IT, and Security.</p>
+<p>If an emergency change must be made, such as patching of a zero-day security vulnerability or recovering from a system downtime, and that the standard change management process cannot be followed due to time constraint or personnel availability or other unforeseen issues, the change can be made by:</p>
+<ul>
+<li><p><strong>Notification:</strong> The Engineering Lead, Security Lead, and/or IT Lead must be notified by email, Slack, or phone call prior to the change . Depending on the nature of the emergency, the leads may choose to inform members of the executive team.</p></li>
+<li><p><strong>Access and Execution:</strong> Manually access of the production system or manual deploy of software, using one of the following access mechanisms as defined in <a href="../../docs/policies/access.html">Access Control policy and procedures</a>:</p>
+<ol type="1">
+<li>Support/Troubleshooting access</li>
+<li>Root account or root user access</li>
+<li>Local system access (for on-premise environment)</li>
+</ol></li>
+<li><p><strong>Post-emergency Documentation:</strong> A PRODCM ticket should be created within 24 hours following the emergency change. The ticket should contains all details related to the change, including:</p>
+<ul>
+<li>Reason for emergency change</li>
+<li>Method of emergency access used</li>
+<li>Steps and details of the change that was made</li>
+<li>Sign-off/approvals must be obtained per the type of change as defined by the standard CM process</li>
+</ul></li>
+<li><p><strong>Prevention and Improvement:</strong> The change must be fully reviewed by Security and Engineering together with the person/team responsible for the change. Any process improvement and/or preventative measures should be documented and an implementation plan should be developed.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

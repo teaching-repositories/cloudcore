@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - Incident Response</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#security-incident-response-team-sirt" id="toc-security-incident-response-team-sirt" class="nav-link" data-scroll-target="#security-incident-response-team-sirt">Security Incident Response Team (SIRT)</a></li>
+  <li><a href="#incident-management-process" id="toc-incident-management-process" class="nav-link" data-scroll-target="#incident-management-process">Incident Management Process</a></li>
+  <li><a href="#incident-categories-and-playbooks" id="toc-incident-categories-and-playbooks" class="nav-link" data-scroll-target="#incident-categories-and-playbooks">Incident Categories and Playbooks</a></li>
+  <li><a href="#emergency-operations-mode" id="toc-emergency-operations-mode" class="nav-link" data-scroll-target="#emergency-operations-mode">Emergency Operations Mode</a></li>
+  <li><a href="#tabletop-exercise" id="toc-tabletop-exercise" class="nav-link" data-scroll-target="#tabletop-exercise">Tabletop Exercise</a></li>
+  <li><a href="#incident-tracking-and-records" id="toc-incident-tracking-and-records" class="nav-link" data-scroll-target="#incident-tracking-and-records">Incident Tracking and Records</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Incident Response</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CloudCore implements an information security incident response process to consistently detect, respond, and report incidents, minimise loss and destruction, mitigate the weaknesses that were exploited, and restore information system functionality and business continuity as soon as possible.</p>
+<p>The incident response process addresses:</p>
+<ul>
+<li>Continuous monitoring of threats through intrusion detection systems (IDS) and other monitoring applications;</li>
+<li>Establishment of an information security incident response team;</li>
+<li>Establishment of procedures to respond to media inquiries;</li>
+<li>Establishment of clear procedures for identifying, responding, assessing, analysing, and follow-up of information security incidents;</li>
+<li>Workforce training, education, and awareness on information security incidents and required responses; and</li>
+<li>Facilitation of clear communication of information security incidents with internal, as well as external, stakeholders</li>
+</ul>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li>All computing environments and systems must be monitored in accordance to the policies and procedures specified in the following CloudCore policies and procedures:</li>
+</ol>
+<ul>
+<li>Auditing</li>
+<li>System Access</li>
+<li>End-user Computing and Acceptable Use</li>
+</ul>
+<ol start="2" type="a">
+<li><p>All alerts must be reviewed to identify security incidents.</p></li>
+<li><p>Incident response procedures are invoked upon discovery of a valid security incident.</p></li>
+<li><p>Incident response team and management must comply with any additional requests by law enforcement in the event of criminal investigation or national security, including but not limited to warranted data requests, subpoenas, and breach notifications.</p></li>
+</ol>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="security-incident-response-team-sirt" class="level3">
+<h3 class="anchored" data-anchor-id="security-incident-response-team-sirt">Security Incident Response Team (SIRT)</h3>
+<p>The Security Incident Response Team (SIRT) is responsible for:</p>
+<ul>
+<li>Review, analyse and log of all received reports and track their statuses.</li>
+<li>Performing investigations, creating and executing action plans, post-incident activities.</li>
+<li>Collaboration with law enforcement agencies.</li>
+</ul>
+<p>Current members of the CloudCore SIRT:</p>
+<ul>
+<li>Security and Privacy Officer</li>
+<li>Security Engineers</li>
+<li>Head of Engineering</li>
+<li>DevOps and Production Support Team</li>
+</ul>
+</section>
+<section id="incident-management-process" class="level3">
+<h3 class="anchored" data-anchor-id="incident-management-process">Incident Management Process</h3>
+<p>The CloudCore incident response process follows the process recommended by <a href="https://www.sans.org">SANS</a>, an industry leader in security. Process flows are a direct representation of the SANS process which can be found in <a href="sections/incident-flowchart.pdf">this document</a>.</p>
+<p>CloudCore’s incident response classifies security-related events into the following categories:</p>
+<ul>
+<li><p><strong>Events</strong> - Any observable computer security-related occurrence in a system or network with a negative consequence. Examples:</p>
+<ul>
+<li>Hardware component failing causing service outages.</li>
+<li>Software error causing service outages.</li>
+<li>General network or system instability.</li>
+</ul></li>
+<li><p><strong>Precursors</strong> - A sign that an incident may occur in the future. Examples:</p>
+<ul>
+<li><p>Monitoring system showing unusual behaviour.</p></li>
+<li><p>Audit log alerts indicated several failed login attempts.</p></li>
+<li><p>Suspicious emails targeting specific CloudCore staff members with administrative access to production systems.</p></li>
+<li><p>Alerts raised from a security control source based on its monitoring policy, such as</p>
+<ul>
+<li>Okta (user authentication activities)</li>
+<li>Threat Stack (AWS Cloudtrail events or system agent activities)</li>
+<li>Dome9 (cloud services configuration or access alerts)</li>
+<li>Carbon Black Cb Defence (malware and endpoint events)</li>
+<li>Syslog events from servers</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Indications</strong> - A sign that an incident may have occurred or may be occurring at the present time. Examples:</p>
+<ul>
+<li>Alerts for modified system files or unusual system accesses.</li>
+<li>Antivirus alerts for infected files or devices.</li>
+<li>Excessive network traffic directed at unexpected geographic locations.</li>
+</ul></li>
+<li><p><strong>Incidents</strong> - A confirmed attack / indicator of compromise or a validated violation of computer security policies or acceptable use policies, often resulting in data breaches. Examples:</p>
+<ul>
+<li>Unauthorised disclosure of sensitive data.</li>
+<li>Unauthorised change or destruction of sensitive data.</li>
+<li>A data breach accomplished by an internal or external entity.</li>
+<li>A Denial-of-Service (DoS) attack causing a critical service to become unreachable.</li>
+</ul></li>
+</ul>
+<p>CloudCore employees must report any unauthorised or suspicious activity seen on production systems or associated with related communication systems (such as email or Slack). In practice this means keeping an eye out for security events, and letting the Security team know about any observed precursors or indications as soon as they are discovered.</p>
+<p>!!! Attention</p>
+<pre><code>Incidents of a severity/impact rating higher than **MINOR** shall trigger the
+following response process, or as defined more specifically in the **Incident
+Categories and Playbooks** section.</code></pre>
+<section id="i---identification-and-triage" class="level4">
+<h4 class="anchored" data-anchor-id="i---identification-and-triage">I - Identification and Triage</h4>
+<ol type="1">
+<li><p>Immediately upon observation CloudCore members report suspected and known Events, Precursors, Indications, and Incidents in one of the following ways:</p>
+<ol type="1">
+<li>Direct report to management, the Security Officer, Privacy Officer, or other;</li>
+<li>Email;</li>
+<li>Phone call;</li>
+<li>Submit an incident report online via <a href="">CloudCore Internal ServiceDesk</a>;</li>
+<li>Secure chat; or</li>
+<li>Anonymously through workforce members desired channels.</li>
+</ol></li>
+<li><p>The individual receiving the report facilitates the collection of additional information about the incident, as needed, and notifies the Security Officer (if not already done).</p></li>
+<li><p>The Security Officer determines if the issue is an Event, Precursor, Indication, or Incident.</p>
+<ol type="1">
+<li><p>If the issue is an event, indication, or precursor the Security Officer forwards it to the appropriate resource for resolution.</p>
+<ol type="1">
+<li>Non-Technical Event (minor infringement): the Security Officer of designee creates an appropriate issue in and further investigates the incident as needed.</li>
+<li>Technical Event: Assign the issue to an technical resource for resolution. This resource may also be a contractor or outsourced technical resource, in the event of a lack of resource or expertise in the area.</li>
+</ol></li>
+<li><p>If the issue is a security incident the Security Officer activates the Security Incident Response Team (SIRT) and notifies senior leadership by email.</p>
+<ol type="1">
+<li><p>If a non-technical security incident is discovered the SIRT completes the investigation, implements preventative measures, and resolves the security incident.</p></li>
+<li><p>Once the investigation is completed, progress to Phase V, Follow-up.</p></li>
+<li><p>If the issue is a technical security incident, commence to Phase II: Containment.</p></li>
+<li><p>The Containment, Eradication, and Recovery Phases are highly technical. It is important to have them completed by a highly qualified technical security resource with oversight by the SIRT team.</p></li>
+<li><p>Each individual on the SIRT and the technical security resource document all measures taken during each phase, including the start and end times of all efforts.</p></li>
+<li><p>The lead member of the SIRT team facilitates initiation of an Incident ticket in Security Project and documents all findings and details in the ticket.</p>
+<ul>
+<li>The intent of the Incident ticket is to provide a summary of all events, efforts, and conclusions of each Phase of this policy and procedures.</li>
+<li>Each Incident ticket should contain sufficient details following the <a href="https://www.sans.org/score/incident-forms/">SANS Security Incident Forms templates</a>, as appropriate.</li>
+</ul></li>
+</ol></li>
+</ol></li>
+<li><p>The Security Officer, Privacy Officer, or CloudCore representative appointed notifies any affected Customers and Partners. If no Customers and Partners are affected, notification is at the discretion of the Security and Privacy Officer.</p></li>
+<li><p>In the case of a threat identified, the Security Officer is to form a team to investigate and involve necessary resources, both internal to CloudCore and potentially external.</p></li>
+</ol>
+</section>
+<section id="ii---containment-technical" class="level4">
+<h4 class="anchored" data-anchor-id="ii---containment-technical">II - Containment (Technical)</h4>
+<p>In this Phase, CloudCore’s engineers and security team attempts to contain the security incident. It is extremely important to take detailed notes during the security incident response process. This provides that the evidence gathered during the security incident can be used successfully during prosecution, if appropriate.</p>
+<ol type="1">
+<li><p>Review any information that has been collected by the Security team or any other individual investigating the security incident.</p></li>
+<li><p>Secure the blast radius (i.e.&nbsp;a physical or logical network perimeter or access sone).</p></li>
+<li><p>Perform the following forensic analysis preparation, as needed:</p>
+<ol type="1">
+<li>Securely connect to the affected system over a trusted connection.</li>
+<li>Retrieve any volatile data from the affected system.</li>
+<li>Determine the relative integrity and the appropriateness of backing the system up.</li>
+<li>As necessary, take a snapshot of the disk image for further forensic; and if appropriate, back up the system.</li>
+<li>Change the password(s) to the affected system(s).</li>
+<li>Determine whether it is safe to continue operations with the affect system(s).</li>
+<li>If it is safe, allow the system to continue to function; and move to Phase V, Post Incident Analysis and Follow-up.</li>
+<li>If it is NOT safe to allow the system to continue operations, discontinue the system(s) operation and move to Phase III, Eradication.</li>
+<li>The individual completing this phase provides written communication to the SIRT.</li>
+</ol></li>
+<li><p>Complete any documentation relative to the security incident containment on the Incident ticket, using <a href="https://www.sans.org/media/score/incident-forms/IH-Containment.pdf">SANS IH Containment Form</a> as a template.</p></li>
+<li><p>Continuously apprise Senior Management of progress.</p></li>
+<li><p>Continue to notify affected Customers and Partners with relevant updates as needed.</p></li>
+</ol>
+</section>
+<section id="iii---eradication-technical" class="level4">
+<h4 class="anchored" data-anchor-id="iii---eradication-technical">III - Eradication (Technical)</h4>
+<p>The Eradication Phase represents the SIRT’s effort to remove the cause, and the resulting security exposures, that are now on the affected system(s).</p>
+<ol type="1">
+<li><p>Determine symptoms and cause related to the affected system(s).</p></li>
+<li><p>Strengthen the defences surrounding the affected system(s), where possible (a risk assessment may be needed and can be determined by the Security Officer). This may include the following:</p>
+<ol type="1">
+<li>An increase in network perimeter defences.</li>
+<li>An increase in system monitoring defences.</li>
+<li>Remediation (“fixing”) any security issues within the affected system, such as removing unused services/general host hardening techniques.</li>
+</ol></li>
+<li><p>Conduct a detailed vulnerability assessment to verify all the holes/gaps that can be exploited have been addressed.</p>
+<ol type="1">
+<li>If additional issues or symptoms are identified, take appropriate preventative measures to eliminate or minimise potential future compromises.</li>
+</ol></li>
+<li><p>Update the Incident ticket with Eradication details, using <a href="https://www.sans.org/media/score/incident-forms/IH-Eradication.pdf">SANS IH Eradication Form</a> as a template.</p></li>
+<li><p>Update the documentation with the information learned from the vulnerability assessment, including the cause, symptoms, and the method used to fix the problem with the affected system(s).</p></li>
+<li><p>Apprise Senior Management of the progress.</p></li>
+<li><p>Continue to notify affected Customers and Partners with relevant updates as needed.</p></li>
+<li><p>Move to Phase IV, Recovery.</p></li>
+</ol>
+</section>
+<section id="iv---recovery-technical" class="level4">
+<h4 class="anchored" data-anchor-id="iv---recovery-technical">IV - Recovery (Technical)</h4>
+<p>The Recovery Phase represents the SIRT’s effort to restore the affected system(s) back to operation after the resulting security exposures, if any, have been corrected.</p>
+<ol type="1">
+<li><p>The technical team determines if the affected system(s) have been changed in any way.</p>
+<ol type="1">
+<li>If they have, the technical team restores the system to its proper, intended functioning (“last known good”).</li>
+<li>Once restored, the team validates that the system functions the way it was intended/had functioned in the past. This may require the involvement of the business unit that owns the affected system(s).</li>
+<li>If operation of the system(s) had been interrupted (i.e., the system(s) had been taken offline or dropped from the network while triaged), restart the restored and validated system(s) and monitor for behaviour.</li>
+<li>If the system had not been changed in any way, but was taken offline (i.e., operations had been interrupted), restart the system and monitor for proper behaviour.</li>
+<li>Update the documentation with the detail that was determined during this phase.</li>
+<li>Apprise Senior Management of progress.</li>
+<li>Continue to notify affected Customers and Partners with relevant updates as needed.</li>
+<li>Move to Phase V, Follow-up.</li>
+</ol></li>
+</ol>
+</section>
+<section id="v---post-incident-analysis-technical-and-non-technical" class="level4">
+<h4 class="anchored" data-anchor-id="v---post-incident-analysis-technical-and-non-technical">V - Post-Incident Analysis (Technical and Non-Technical)</h4>
+<p>The Follow-up phase represents the review of the security incident to look for “lessons learned” and to determine whether the process that was taken could have been improved in any way. It is recommended all security incidents be reviewed shortly after resolution to determine where response could be improved. Timeframes may extend to one to two weeks post-incident.</p>
+<ol type="1">
+<li><p>Responders to the security incident (SIRT Team and technical security resource) meet to review the documentation collected during the security incident.</p></li>
+<li><p>A “lessons learned” section is written and attached to Incident ticket.</p>
+<ol type="1">
+<li><p>Evaluate the cost and impact of the security incident to CloudCore using the documents provided by the SIRT and the technical security resource.</p></li>
+<li><p>Determine what could be improved. This may include:</p>
+<ul>
+<li>Systems and processes adjustments</li>
+<li>Awareness training and documentation</li>
+<li>Implementation of additional controls</li>
+</ul></li>
+<li><p>Communicate these findings to Senior Management for approval and for implementation of any recommendations made post-review of the security incident.</p></li>
+<li><p>Carry out recommendations approved by Senior Management; sufficient budget, time and resources should be committed to this activity.</p></li>
+</ol></li>
+<li><p>Ensure all incident related information is recorded and retained as described in CloudCore Auditing requirements and Data Retention standards.</p></li>
+<li><p>Close the security incident.</p></li>
+</ol>
+</section>
+<section id="periodic-evaluation" class="level4">
+<h4 class="anchored" data-anchor-id="periodic-evaluation">Periodic Evaluation</h4>
+<p>It is important to note that the processes surrounding security incident response should be periodically reviewed and evaluated for effectiveness. This also involves appropriate training of resources expected to respond to security incidents, as well as the training of the general population regarding the CloudCore’s expectation for them, relative to security responsibilities. The incident response plan is tested annually.</p>
+</section>
+</section>
+<section id="incident-categories-and-playbooks" class="level3">
+<h3 class="anchored" data-anchor-id="incident-categories-and-playbooks">Incident Categories and Playbooks</h3>
+<ul>
+<li>The IRT reviews and analyses on the security events on as part of its daily operations.</li>
+<li>Based on the initial analysis, an event may be dismissed due to false positives, normal business operations, exceptions that are already in place, permitted per policy, or duplicates. An audit trail will be kept for event dismissal.</li>
+<li>A valid security event may be upgrade to a security incident. Upon which, an incident classification and severity is assigned as specified below.</li>
+<li>Record of the decision must be stored with details on date(s), name(s) of the person(s) conducted assessment.</li>
+<li>A containment, eradication and recovery procedure is triggered based on the Category classification of the incident.</li>
+<li>In addition to the general incident management procedures previously described, one or more of the following playbooks are consulted based on the classification of a particular incident.</li>
+</ul>
+<section id="classification" class="level4">
+<h4 class="anchored" data-anchor-id="classification">Classification</h4>
+<ul>
+<li><p><strong>Category 1</strong> – General Incidents, including physical security incidents</p></li>
+<li><p><strong>Category 2</strong> – Attacks on internal corporate infrastructure, including network, hardware, software</p></li>
+<li><p><strong>Category 3</strong> – Malware</p></li>
+<li><p><strong>Category 4</strong> – Attacks on external facing assets, such as website, web applications, web services. Including denial of service attacks.</p></li>
+<li><p><strong>Category 5</strong> – Human targets, social engineering, phishing, etc.</p></li>
+<li><p><strong>Category 6</strong> – Breach/leakage of critical or confidential data</p></li>
+</ul>
+</section>
+<section id="severity-levels" class="level4">
+<h4 class="anchored" data-anchor-id="severity-levels">Severity Levels:</h4>
+<ul>
+<li><p><strong>Critical</strong> – incident that involves immediate and significant interruption to business operations and/or breach of critical or confidential data</p></li>
+<li><p><strong>Major</strong> – incident that involves immediate interruption to business operations but will not likely result in immediate data breach</p></li>
+<li><p><strong>Minor</strong> – all other confirmed incidents</p></li>
+</ul>
+</section>
+<section id="response-procedures-cat-1-general-incident" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-cat-1-general-incident">Response Procedures: Cat 1 – General Incident</h4>
+<ul>
+<li><p>Prioritise handling the incident based on functional impact, informational effort, recoverability efforts and other relevant factors</p></li>
+<li><p>Report the incident to the appropriate internal personnel and external organisations</p></li>
+<li><p>Acquire, preserve, secure, and document evidence</p></li>
+<li><p>Contain the incident</p></li>
+<li><p>Eradicate the incident</p>
+<ul>
+<li>Identify and mitigate all factors that enabled the incident to occur</li>
+<li>Remove any results of malicious activity</li>
+</ul></li>
+<li><p>Recover from the incident</p>
+<ul>
+<li>Restore affected systems and business functions</li>
+<li>Implement additional preventive measures</li>
+</ul></li>
+</ul>
+</section>
+<section id="response-procedures-cat-2-internal-infrastructure-incident-response" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-cat-2-internal-infrastructure-incident-response">Response Procedures: Cat 2 – Internal Infrastructure Incident Response</h4>
+<p>Depending on the type of event, use the following incident response playbooks:</p>
+<ul>
+<li><a href="https://incidentresponse.com/playbooks/unauthorised-access">Unauthorised Access</a></li>
+<li><a href="https://incidentresponse.com/playbooks/root-access">Root Access</a></li>
+<li><a href="https://incidentresponse.com/playbooks/elevation-of-privilege">Elevation of Privilege</a></li>
+<li><a href="https://incidentresponse.com/playbooks/improper-computer-usage">Improper Usage</a></li>
+</ul>
+</section>
+<section id="response-procedures-cat-3-malware-outbreak" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-cat-3-malware-outbreak">Response Procedures: Cat 3 – Malware outbreak</h4>
+<p>Depending on the agent type, follow these incident response playbooks:</p>
+<ul>
+<li><a href="https://incidentresponse.com/playbooks/malware-outbreak">Malware</a></li>
+<li><a href="https://incidentresponse.com/playbooks/virus-outbreak">Virus</a></li>
+</ul>
+</section>
+<section id="response-procedures-cat-4-external-web-attacks-and-dosddos-attacks" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-cat-4-external-web-attacks-and-dosddos-attacks">Response Procedures: Cat 4 – External web attacks and DoS/DDoS attacks</h4>
+<ul>
+<li>Mobilise the Engineering team to secure systems and ensure Business Continuity</li>
+<li>Conduct a thorough investigation of the incident</li>
+<li>Manage public relationships</li>
+<li>Address legal and regulatory requirements</li>
+<li>For a DDOS attack, follow the <a href="https://incidentresponse.com/playbooks/ddos">DDOS playbook</a></li>
+<li>Trigger BCDR if necessary</li>
+</ul>
+</section>
+<section id="response-procedures-cat-5-social-engineering" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-cat-5-social-engineering">Response Procedures: Cat 5 – Social Engineering</h4>
+<p>Follow the <a href="https://incidentresponse.com/playbooks/phishing">Phishing incident response playbook</a></p>
+</section>
+<section id="response-procedures-cat-6-data-leakage" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-cat-6-data-leakage">Response Procedures: Cat 6 – Data Leakage</h4>
+<p><a href="https://incidentresponse.com/playbooks/data-theft">Data Theft incident response playbook</a> outlines the response instructions</p>
+</section>
+<section id="response-procedures-special-cases" class="level4">
+<h4 class="anchored" data-anchor-id="response-procedures-special-cases">Response Procedures: Special Cases</h4>
+<p>At least the following two special cases are considered when responding to an incident:</p>
+<p><strong>PHI/ePHI:</strong></p>
+<p>When a data breach occurs that involves unsecured PHI or ePHI, breach notifications must be performed according to HIPAA regulation requirements, including each individual impacted and as applicable, the covered entity and OCR (see Appendix for additional details).</p>
+<p>If the breach or potential breach impacts PHI/ePHI that belongs to a Covered Entity to which CloudCore is a Business Associate of, the IRT and management team will inform the Covered Entity per the timeframe and contact method established in the Business Associate Agreement or as described in <a href="../../docs/policies/breach.html">§Breach Notification</a>. HIPAA §164.410(b)</p>
+<p><strong>Criminal Activities:</strong></p>
+<p>In the event of an attack that involves suspected criminal activities, the IRT and management team will inform law enforcement.</p>
+<p><strong>Insider Threat:</strong></p>
+<p>Members of the cross-discipline insider threat incident handling team include:</p>
+<ul>
+<li>Security and Privacy Officer,</li>
+<li>COO, and</li>
+<li>Head of Engineering as appropriate.</li>
+</ul>
+</section>
+</section>
+<section id="emergency-operations-mode" class="level3">
+<h3 class="anchored" data-anchor-id="emergency-operations-mode">Emergency Operations Mode</h3>
+<p>If an incident constitutes an emergency – for example, a detected cyberattack that impacts production systems – CloudCore plans to operate in a “read-only” mode, to continue to provide customers access to their data. All write access is temporarily blocked and data upload is paused until the emergency is resolved. This is accomplished by updating the access policy in production AWS environments.</p>
+<p>In emergency operations mode, temporary access may be granted to security and/or engineering team to access the production environments to perform forensics, root cause analysis, eradication/remediation, or other necessary activities for incident recovery.</p>
+</section>
+<section id="tabletop-exercise" class="level3">
+<h3 class="anchored" data-anchor-id="tabletop-exercise">Tabletop Exercise</h3>
+<p>At least once per year, CloudCore security and engineering teams jointly performs a Red Team exercise and/or a simulated “drill” of an emergency cyberattack that results in one or more <strong>CRITICAL</strong> incidents. Depending on the type of exercise, the duration may range from 2-4 hours (simulated “drill”) to a couple of weeks (full Red Teaming exercise).</p>
+<p>The exercise will follow a cyberattack playbook. It may be conducted with all internal resources or with the help of an external security consulting firm. The goal of the exercise is to ensure all parties involved receive proper training to handle an actual incident and to test out the documented procedures in order to identify gaps ahead of a real event. Senior leadership team may be invited to participate in the “drill” depending on the nature of the exercise or receive a readout of the outcome.</p>
+</section>
+<section id="incident-tracking-and-records" class="level3">
+<h3 class="anchored" data-anchor-id="incident-tracking-and-records">Incident Tracking and Records</h3>
+<p>A record is created for each reported incident in Jira. Each incident record contains details about the incident capturing the incident attributes and progression, including the following as applicable:</p>
+<ul>
+<li>Summary</li>
+<li>Description</li>
+<li>Impact</li>
+<li>Priority / Urgency</li>
+<li>Categorisation</li>
+<li>Analysis Notes and Comments</li>
+<li>Cause / Determination</li>
+<li>Outcome / Resolution</li>
+<li>Lessons Learned</li>
+</ul>
+<p>If a more detailed post-mortem is applicable, the Security and/or DevOps team will create the write-up and link it in the incident record.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

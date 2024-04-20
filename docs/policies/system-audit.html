@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - System Audits, Monitoring and Assessments</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#types-of-system-audits" id="toc-types-of-system-audits" class="nav-link" data-scroll-target="#types-of-system-audits">Types of System Audits</a></li>
+  <li><a href="#security-events-analysis" id="toc-security-events-analysis" class="nav-link" data-scroll-target="#security-events-analysis">Security Events Analysis</a></li>
+  <li><a href="#internalmanual-auditing-activities" id="toc-internalmanual-auditing-activities" class="nav-link" data-scroll-target="#internalmanual-auditing-activities">Internal/Manual Auditing Activities</a></li>
+  <li><a href="#audit-requests" id="toc-audit-requests" class="nav-link" data-scroll-target="#audit-requests">Audit Requests</a></li>
+  <li><a href="#review-and-reporting-of-audit-findings" id="toc-review-and-reporting-of-audit-findings" class="nav-link" data-scroll-target="#review-and-reporting-of-audit-findings">Review and Reporting of Audit Findings</a></li>
+  <li><a href="#remediation-of-control-deficiencies" id="toc-remediation-of-control-deficiencies" class="nav-link" data-scroll-target="#remediation-of-control-deficiencies">Remediation of Control Deficiencies</a></li>
+  <li><a href="#audit-trails-and-application-security-events-logging-standard" id="toc-audit-trails-and-application-security-events-logging-standard" class="nav-link" data-scroll-target="#audit-trails-and-application-security-events-logging-standard">Audit Trails and Application Security Events Logging Standard</a></li>
+  <li><a href="#audit-trail-integrity---security-controls-and-log-retention" id="toc-audit-trail-integrity---security-controls-and-log-retention" class="nav-link" data-scroll-target="#audit-trail-integrity---security-controls-and-log-retention">Audit Trail Integrity - Security Controls and Log Retention</a></li>
+  <li><a href="#auditing-customer-and-partner-activity" id="toc-auditing-customer-and-partner-activity" class="nav-link" data-scroll-target="#auditing-customer-and-partner-activity">Auditing Customer and Partner Activity</a></li>
+  <li><a href="#auditing-and-assessment-tools" id="toc-auditing-and-assessment-tools" class="nav-link" data-scroll-target="#auditing-and-assessment-tools">Auditing and Assessment Tools</a></li>
+  <li><a href="#training-education-awareness-and-responsibilities" id="toc-training-education-awareness-and-responsibilities" class="nav-link" data-scroll-target="#training-education-awareness-and-responsibilities">Training, Education, Awareness and Responsibilities</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">System Audits, Monitoring and Assessments</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CloudCore shall audit, monitor, and assess the access and activity of systems and applications that process or store production and/or sensitive data such as personally identifiable information (PII) and electronic protected health information (ePHI) in order to ensure compliance.</p>
+<p>It is required by the HIPAA Security Rule, that healthcare organisations to implement reasonable hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use ePHI.</p>
+<p>Audit activities may be limited by application, system, and/or network auditing capabilities and resources. CloudCore shall make reasonable and good-faith efforts to safeguard information privacy and security through a well-thought-out approach to auditing that is consistent with available resources.</p>
+<p>It is the policy of CloudCore to safeguard the confidentiality, integrity, and availability of applications, systems, and networks. To ensure that appropriate safeguards are in place and effective, CloudCore shall audit access and activity to detect, report, and guard against:</p>
+<ul>
+<li>Network vulnerabilities and intrusions;</li>
+<li>Breaches in confidentiality and security of sensitive information;</li>
+<li>Performance problems and flaws in applications;</li>
+<li>Improper alteration or destruction of sensitive information;</li>
+<li>Out of date software and/or software known to have vulnerabilities.</li>
+</ul>
+<p>This policy applies to all CloudCore systems that store, transmit, or process sensitive information.</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li><p>All critical computing systems and software, both virtual and physical, must enable audit logging.</p></li>
+<li><p>Audit logs must include sufficient information to identify who did what, when, where.</p></li>
+<li><p>An annual audit of CloudCore security controls must be conducted, either by a designated internal audit team or a qualified external audit firm.</p></li>
+</ol>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="types-of-system-audits" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-system-audits">Types of System Audits</h3>
+<p>CloudCore’s auditing processes include the following.</p>
+<ol type="1">
+<li><p><strong>Configuration and Activity Monitoring:</strong> This refers to the logging, monitoring, scanning and alerting of a system, account, or environment, which may be achieved using real-time automated scripts/software or a manual review/testing. This type of auditing is performed <em>continuously</em> as part of CloudCore operations.</p>
+<p>!!! tip “Examples include:”</p>
+<pre><code> * User: User and account-level audit trails generally monitor and log all commands directly initiated by the user, all identification and authentication attempts, and data and services accessed.
+ * Application: Application-level audit trails generally monitor and log all user activities, including data accessed and modified and specific actions.
+ * System: System-level audit trails generally monitor and log user activities, applications accessed, file integrity, and other system-defined specific actions.
+ * Network: Network-level scans or audit trails generally monitor information on what is operating, perform penetrations, and identify vulnerabilities.
+ * Traffic: Traffic refers to the incoming and outgoing traffic into and out of production/restricted environments. For example, firewall logs or VPC flow logs in AWS.
+ * Data: Data includes all successful and failed attempts at production data access and editing.
+
+ *Data associated with above events will include origin, destination, action performed, timestamp, and other relevant details available.*</code></pre></li>
+<li><p><strong>Access Review:</strong> This refers to the review of all user and service accounts and permissions across CloudCore operational environments, including on-premise systems, cloud environments such as AWS accounts, and other applications such as collaboration software, ticketing system and code repos.</p>
+<ul>
+<li>CloudCore developed an internal tool to automatically pull configurations from our cloud based environments, including
+<ul>
+<li>AWS access configuration from IAM policies, EC2 VPC and security group settings, S3 bucket policies, Lambda and API Gateway resources, etc.;</li>
+<li>Users, groups, application access from Okta IdP;</li>
+<li>Network access settings from Cisco Meraki, etc.</li>
+</ul></li>
+<li>The data is collected either on demand triggered by security team or by changes in the operational environment.</li>
+<li>The data is used by the tool to aggregate and analyse user and application access.</li>
+<li>Access to other systems and applications that are not covered by this automated tool are reviewed manually on a quarterly basis or with any significant change to the target environment.</li>
+<li>As a result of each review, unused or invalid access will be removed.</li>
+</ul></li>
+<li><p><strong>Compliance and Controls Audit:</strong> This refers to the audit performed against the Technical, Administrative, and/or Physical controls as defined in CloudCore policies and procedures, to measure their adoption and effectiveness. This type of auditing is typically performed by either a designated internal audit team or an external audit firm, at <em>defined intervals</em> or prompted by a <em>trigger event</em>.</p>
+<p>!!! tip “Potential trigger events include:”</p>
+<pre><code> * Scheduled compliance audit/assessment (e.g. annual risk assessment)
+ * High risk or problem prone incidents or events, or as part of post-incident activities
+ * Business associate, customer, or partner complaints
+ * Identification of significant security vulnerabilities
+ * Atypical patterns of activity
+ * Failed authentication attempts
+ * Remote access use and activity
+ * Activity post termination
+ * Random audits</code></pre></li>
+</ol>
+</section>
+<section id="security-events-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="security-events-analysis">Security Events Analysis</h3>
+<p>Security logs, events, and audit trails are reviewed by the security team with the assistance of automated systems and processes.</p>
+<ul>
+<li>Auditing logs are automatically analysed and correlated by the monitoring solutions and/or a centralised security information and event management system.</li>
+<li>The systems are configured with rules/policies to identify suspicious activities, vulnerabilities and misconfigurations.<br>
+</li>
+<li>Alerts are triggered upon identification of an issue based on the policy configuration.<br>
+</li>
+<li>The alerts are sent immediately to the responsible staff (e.g.&nbsp;security team) for analysis. The alerts may be sent via email, Slack messaging, or as notification on the monitoring dashboard.</li>
+<li>Analysis is prioritised based on alert severity. High severity alerts are typically reviewed within 24 hours.</li>
+<li>Incident response process is followed, as needed.</li>
+<li>Patches and updates will be applied to all systems in a timely manner.</li>
+</ul>
+</section>
+<section id="internalmanual-auditing-activities" class="level3">
+<h3 class="anchored" data-anchor-id="internalmanual-auditing-activities">Internal/Manual Auditing Activities</h3>
+<p>Additional manual reviews, such as user accounts and access auditing, may be necessary from time to time. These activities may be triggered by the events listed above.</p>
+<ul>
+<li><p>Responsibility for audit activity is assigned to CloudCore’s Security Officer. The Security Officer shall:</p>
+<ul>
+<li>Assign the task of generating reports for audit activities to the workforce member responsible for the application, system, or network;</li>
+<li>Assign the task of reviewing the audit reports to the workforce member responsible for the application, system, or network, the Privacy Officer, or any other individual determined to be appropriate for the task;</li>
+<li>Organise and provide oversight to a team structure charged with audit compliance activities (e.g., parameters, frequency, sample sises, report formats, evaluation, follow-up, etc.).</li>
+<li>All connections to CloudCore are monitored. Access is limited to certain services, ports, and destinations. Exceptions to these rules, if created, are reviewed on an annual basis.</li>
+</ul></li>
+<li><p>The manual review process shall define and include:</p>
+<ul>
+<li>Description of the activity as well as rationale for performing the audit.</li>
+<li>Identification of personnel to perform the review (workforce members shall not review audit logs that pertain to their own system activity).</li>
+<li>Frequency of the auditing process.</li>
+<li>Determination of significant events requiring further review and follow-up.</li>
+<li>Identification of appropriate reporting channels for audit results and required follow-up.</li>
+</ul></li>
+<li><p>Manual audits and reviews activities are tracked in .</p></li>
+<li><p>Auditing, reviews and testing may be carried out internally or provided through an external third-party vendor. Whenever possible, a third party auditing vendor should not be providing the organisation IT oversight services (e.g., vendors providing IT services should not be auditing their own services to ensure separation of duties).</p></li>
+</ul>
+</section>
+<section id="audit-requests" class="level3">
+<h3 class="anchored" data-anchor-id="audit-requests">Audit Requests</h3>
+<ol type="1">
+<li><p>A request may be made for an audit for a specific cause. The request may come from a variety of sources including, but not limited to, Privacy Officer, Security Officer, Customer, Partner, or an Application owner or application user.</p></li>
+<li><p>A request for an audit for specific cause must include time frame, frequency, and nature of the request.</p></li>
+<li><p>A request for an audit must be reviewed and approved by CloudCore’s Privacy Officer and/or Security Officer before proceeding. Under no circumstances shall detailed audit information be shared with parties without proper permissions and access to see such data.</p>
+<ul>
+<li>Should the audit disclose that a workforce member has accessed sensitive data inappropriately, the minimum necessary/least privileged information shall be shared with CloudCore’s Security Officer to determine appropriate sanction/corrective disciplinary action.</li>
+<li>Only de-identified information shall be shared with Customer or Partner regarding the results of the investigative audit process. This information will be communicated to the appropriate personnel by CloudCore’s Privacy Officer or designee. Prior to communicating with customers and partners regarding an audit, it is recommended that CloudCore consider seeking guidance from risk management and/or legal counsel.</li>
+</ul></li>
+</ol>
+</section>
+<section id="review-and-reporting-of-audit-findings" class="level3">
+<h3 class="anchored" data-anchor-id="review-and-reporting-of-audit-findings">Review and Reporting of Audit Findings</h3>
+<ol type="1">
+<li><p>Audit information that is routinely gathered must be reviewed in a timely manner, at least monthly, by the responsible workforce member(s). Additional reviews are performed as needed to assure the proper data is being captured and retained.</p></li>
+<li><p>The reporting process shall allow for meaningful communication of the audit findings to relevant workforce members, Customers, or Partners.</p>
+<ul>
+<li>Significant findings shall be reported immediately in a written format. CloudCore’s security incident response form may be utilised to report a single event.</li>
+<li>Routine findings shall be reported to the sponsoring leadership structure in a written report format.</li>
+</ul></li>
+<li><p>Reports of audit results shall be limited to internal use on a minimum necessary/need-to-know basis. Audit results shall not be disclosed externally without administrative and/or legal counsel approval.</p></li>
+<li><p>Security audits constitute an internal, confidential monitoring practice that may be included in CloudCore’s performance improvement activities and reporting. Care shall be taken to ensure that the results of the audits are disclosed to administrative-level oversight structures only and that information which may further expose organisational risk is shared with extreme caution. Generic security audit information may be included in organisational reports (individually-identifiable information shall not be included in the reports).</p></li>
+<li><p>Whenever indicated through evaluation and reporting, appropriate corrective actions must be undertaken. These actions shall be documented and shared with the responsible workforce members, Customers, and/or Partners.</p></li>
+</ol>
+</section>
+<section id="remediation-of-control-deficiencies" class="level3">
+<h3 class="anchored" data-anchor-id="remediation-of-control-deficiencies">Remediation of Control Deficiencies</h3>
+<p>Most controls are continuously monitored and reported via automation on the JupiterOne platform.</p>
+<p>Control deficiencies identified as a result of an internal or external system audit are documented and reviewed with management.</p>
+<p>Security team works with the corresponding control owner to prioritise and mitigate the control deficiency, including applying corrective actions, implementating additional controls or adjusting existing controls as needed.</p>
+</section>
+<section id="audit-trails-and-application-security-events-logging-standard" class="level3">
+<h3 class="anchored" data-anchor-id="audit-trails-and-application-security-events-logging-standard">Audit Trails and Application Security Events Logging Standard</h3>
+<p>CloudCore logging standards requires application and system logs to contain sufficient information to determine <strong>who did what, when, where</strong> to ensure recording of security and audit events and to generate evidence for unauthorised activities.</p>
+<p>All systems and software developed at CloudCore must have the following security events logging enabled as part of or in addition to standard application logging.</p>
+<ol type="1">
+<li><p>All security log events must have the following attributes at minimum:</p>
+<ul>
+<li>Timestamp of the event (synchronised to approved time server)</li>
+<li>Identifier of the principal performing the action (such as user ID)</li>
+<li>Location including both origin (such as hostname/IP) and target (such as host/service/resource)</li>
+<li>Activity or action (such as log in, log out, create, read, update, delete of a resource)
+<ul>
+<li>the action may be logged as and determined by the HTTP request method and the API endpoint</li>
+</ul></li>
+<li>Event description and additional details may be logged depending on the system or application</li>
+</ul></li>
+<li><p>The following types of security events must be logged at minimum:</p>
+<ul>
+<li>User and group administration activities (user or group added, updated, deleted, access granted/revoked)</li>
+<li>All login attempts, successful and unsuccessful including the source IP address</li>
+<li>All interactive logoffs</li>
+<li>Privileged actions (configuration changes, application shutdown/restart, software update etc)</li>
+<li>Major application events (e.g.&nbsp;application failure, start and restart, shutdown)</li>
+<li>Any and all actions performed on critical resources such as production data</li>
+</ul></li>
+<li><p>All application and system logs must not include (removed or masked):</p>
+<ul>
+<li><p>Any sensitive information, including protected health information (PHI), personally identifiable information (PII)</p>
+<ul>
+<li>except for IP addresses</li>
+<li>usernames/logins may/should be logged as part of authentication logging</li>
+<li>for user action auditing, opaque IDs should be used instead of usernames/logins whenever possible</li>
+</ul></li>
+<li><p>Authentication and session tokens, user credentials</p></li>
+</ul></li>
+<li><p>Security events and audit logs must be:</p>
+<ul>
+<li>Always accessible to the monitoring system/team</li>
+<li>Protected from any changes</li>
+<li>Monitored with alerting mechanism in place (including alert for not receiving log events for a certain period of time)</li>
+</ul></li>
+<li><p>All CloudCore IT infrastructure must have system clock synchronised</p></li>
+</ol>
+<p><em>Examples of recommended application events for logging and their auditing purpose:</em></p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Events</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Client requests and server responses</td>
+<td>forensics and debugging - details level is defined by application</td>
+</tr>
+<tr class="even">
+<td>Successful and unsuccessful login attempts</td>
+<td>authentication</td>
+</tr>
+<tr class="odd">
+<td>Successful and failed access to application resources</td>
+<td>authorisation, escalation of privileges</td>
+</tr>
+<tr class="even">
+<td>Excessive amount of requests from the client</td>
+<td>brute-forcing, malicious bots, denial of service attacks</td>
+</tr>
+<tr class="odd">
+<td>E-mails sent by an application</td>
+<td>spamming, social engineering</td>
+</tr>
+</tbody>
+</table>
+<p><em>Details of the logging configuration is documented at</em></p>
+<ul>
+<li><a href="">Application Logging - documented on the Engineering Wiki</a></li>
+<li><a href="https://developer.okta.com/docs/api/resources/system_log">Identity and Access Activity Logs via Okta</a></li>
+<li><a href="https://docs.aws.amason.com/awscloudtrail/latest/userguide/cloudtrail-log-file-examples.html">AWS Cloudtrail</a></li>
+<li><a href="https://docs.aws.amason.com/AmasonS3/latest/dev/ServerLogs.html">AWS S3 Server Access Logs</a></li>
+</ul>
+</section>
+<section id="audit-trail-integrity---security-controls-and-log-retention" class="level3">
+<h3 class="anchored" data-anchor-id="audit-trail-integrity---security-controls-and-log-retention">Audit Trail Integrity - Security Controls and Log Retention</h3>
+<ol type="1">
+<li><p>Audit logs shall be protected from unauthorised access or modification, so the information they contain will be made available only if needed to evaluate a security incident or for routine audit activities as outlined in this policy.</p></li>
+<li><p>All audit logs are protected in transit and encrypted at rest to control access to the content of the logs.</p></li>
+<li><p>Whenever possible, audit logs shall be stored on a separate system to minimise the impact auditing may have on the privacy system and to prevent access to audit trails by those with system administrator privileges.</p>
+<ul>
+<li>Separate systems are used to apply the security principle of “separation of duties” to protect audit trails from hackers.</li>
+<li>CloudCore logging servers may include Elasticsearch, Logstash, and Kibana (ELK) as part of their baseline configuration to ease reviewing of audit log data. The ELK toolkit provides message summarisation, reduction, and reporting functionality.</li>
+</ul></li>
+<li><p>Reports summarising audit activities shall be retained for a period of seven years.</p></li>
+<li><p>Audit log data is retained locally on the audit log server or in the source environment for a period of one month. Beyond that, log data is encrypted and moved to warm storage (currently S3) using automated scripts, and is retained for a minimum of one year.</p></li>
+<li><p>Raw event data may be purged after one month / 30 days as long as the required details are sufficiently covered in aggregated audit logs/reports.</p></li>
+</ol>
+</section>
+<section id="auditing-customer-and-partner-activity" class="level3">
+<h3 class="anchored" data-anchor-id="auditing-customer-and-partner-activity">Auditing Customer and Partner Activity</h3>
+<ol type="1">
+<li><p>Periodic monitoring of Customer and Partner activity shall be carried out to ensure that access and activity is appropriate for privileges granted and necessary to the arrangement between CloudCore and the 3rd party. CloudCore will make every effort to assure Customers and Partners do not gain access to data outside of their own environments.</p></li>
+<li><p>If it is determined that the Customer or Partner has exceeded the scope of access privileges, CloudCore’s management and security must remedy the problem immediately.</p></li>
+<li><p>If it is determined that a Customer or Partner has violated the terms of the HIPAA business associate agreement or any terms within the HIPAA regulations, CloudCore must take immediate action to remediate the situation. Continued violations may result in discontinuation of the business relationship.</p></li>
+</ol>
+</section>
+<section id="auditing-and-assessment-tools" class="level3">
+<h3 class="anchored" data-anchor-id="auditing-and-assessment-tools">Auditing and Assessment Tools</h3>
+<p>CloudCore’s Security Officer is authorised to select and use assessment tools that are designed to detect vulnerabilities and intrusions. Use of such tools against CloudCore systems and environments are prohibited by others, including Customers and Partners, without the explicit authorisation of the Security Officer. These tools may include, but are not limited to:</p>
+<ul>
+<li>Scanning tools and devices;</li>
+<li>Password cracking utilities;</li>
+<li>Network “sniffers”;</li>
+<li>Security agents installed locally on servers and endpoints;</li>
+<li>Passive and active intrusion detection systems; and</li>
+<li>Penetration testing tools.</li>
+</ul>
+<p>Vulnerability testing software may be used to probe the network to identify what is running (e.g., operating system or product versions in place), whether publicly-known vulnerabilities have been corrected, and evaluate whether the system can withstand attacks aimed at circumventing security controls.</p>
+</section>
+<section id="training-education-awareness-and-responsibilities" class="level3">
+<h3 class="anchored" data-anchor-id="training-education-awareness-and-responsibilities">Training, Education, Awareness and Responsibilities</h3>
+<ol type="1">
+<li><p>CloudCore workforce members are provided training, education, and awareness on safeguarding the privacy and security of business and data. CloudCore’s commitment to auditing access and activity of the information applications, systems, and networks is communicated through new employee orientation, ongoing training opportunities and events, and applicable policies. CloudCore workforce members are made aware of responsibilities with regard to privacy and security of information as well as applicable sanctions/corrective disciplinary actions should the auditing process detect a workforce member’s failure to comply with organisational policies.</p></li>
+<li><p>CloudCore Customers are provided with necessary information to understand CloudCore auditing capabilities. Platform Customers are responsible for the logging, auditing and retention of any application hosted outside of CloudCore environments, even though the applications may integrate with CloudCore Platform API. Customer applications hosted within the CloudCore environments will follow the auditing standards and procedures defined in this document.</p></li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

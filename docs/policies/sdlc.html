@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CloudCore - Secure Software Development and Product Security</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">CloudCore</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-docs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Docs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
+        <li>
+    <a class="dropdown-item" href="../../docs/interviews.html">
+ <span class="dropdown-text">Interviews</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/policies.html">
+ <span class="dropdown-text">Policies</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../docs/support.html">
+ <span class="dropdown-text">Other</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact US</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#policy-statements" id="toc-policy-statements" class="nav-link active" data-scroll-target="#policy-statements">Policy Statements</a></li>
+  <li><a href="#controls-and-procedures" id="toc-controls-and-procedures" class="nav-link" data-scroll-target="#controls-and-procedures">Controls and Procedures</a>
+  <ul class="collapse">
+  <li><a href="#software-development-process" id="toc-software-development-process" class="nav-link" data-scroll-target="#software-development-process">Software Development Process</a></li>
+  <li><a href="#source-code-management" id="toc-source-code-management" class="nav-link" data-scroll-target="#source-code-management">Source Code Management</a></li>
+  <li><a href="#high-level-application-security-requirements" id="toc-high-level-application-security-requirements" class="nav-link" data-scroll-target="#high-level-application-security-requirements">High Level Application Security Requirements</a></li>
+  <li><a href="#secure-design-and-application-threat-modeling" id="toc-secure-design-and-application-threat-modeling" class="nav-link" data-scroll-target="#secure-design-and-application-threat-modeling">Secure Design and Application Threat Modeling</a></li>
+  <li><a href="#access-control-of-the-application-identification-authentication-authorisation-accounting" id="toc-access-control-of-the-application-identification-authentication-authorisation-accounting" class="nav-link" data-scroll-target="#access-control-of-the-application-identification-authentication-authorisation-accounting">Access Control of the Application (Identification, Authentication, Authorisation, Accounting)</a></li>
+  <li><a href="#free-and-open-source-software-foss-security" id="toc-free-and-open-source-software-foss-security" class="nav-link" data-scroll-target="#free-and-open-source-software-foss-security">Free and Open Source Software (FOSS) Security</a></li>
+  <li><a href="#static-application-security-testing-sast" id="toc-static-application-security-testing-sast" class="nav-link" data-scroll-target="#static-application-security-testing-sast">Static Application Security Testing (SAST)</a></li>
+  <li><a href="#dynamic-application-security-testing-dast" id="toc-dynamic-application-security-testing-dast" class="nav-link" data-scroll-target="#dynamic-application-security-testing-dast">Dynamic Application Security Testing (DAST)</a></li>
+  <li><a href="#penetration-testing" id="toc-penetration-testing" class="nav-link" data-scroll-target="#penetration-testing">Penetration Testing</a></li>
+  <li><a href="#responsible-disclore-and-bug-bounty-program" id="toc-responsible-disclore-and-bug-bounty-program" class="nav-link" data-scroll-target="#responsible-disclore-and-bug-bounty-program">Responsible Disclore and Bug Bounty Program</a></li>
+  <li><a href="#outsourced-software-development" id="toc-outsourced-software-development" class="nav-link" data-scroll-target="#outsourced-software-development">Outsourced Software Development</a></li>
+  <li><a href="#hipaa-best-practices-for-software-development" id="toc-hipaa-best-practices-for-software-development" class="nav-link" data-scroll-target="#hipaa-best-practices-for-software-development">HIPAA Best Practices for Software Development</a></li>
+  <li><a href="#production-system-monitoring-and-paging" id="toc-production-system-monitoring-and-paging" class="nav-link" data-scroll-target="#production-system-monitoring-and-paging">Production System Monitoring and Paging</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Secure Software Development and Product Security</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>CloudCore development team follows the latest security best practices when developing software, and automates security testing throughout development lifecycle whenever possible.</p>
+<p>Security is integrated into all phases of CloudCore product development lifecycle, including:</p>
+<ul>
+<li><p>Secure Design:</p>
+<ul>
+<li>App Risk classification</li>
+<li>Security req definition</li>
+<li>Secure application design / RFC</li>
+<li>Threat modeling</li>
+<li>App data flow analysis</li>
+</ul></li>
+<li><p>Secure Development and Testing:</p>
+<ul>
+<li><p>Secure coding guidelines</p></li>
+<li><p>Peer review</p></li>
+<li><p>Security testing that includes:</p>
+<ul>
+<li>Linting with security rules</li>
+<li>Open source security analysis</li>
+<li>Static secure code analysis</li>
+<li>Dynamic security analysis</li>
+<li>Penetration testing</li>
+</ul></li>
+<li><p>Responsible vulnerability disclosure / bug bounty program</p></li>
+</ul></li>
+<li><p>Remediation:</p>
+<ul>
+<li>Follows defined vulnerability management lifecycle</li>
+<li>Ensures no high risk security vulnerability is in production</li>
+</ul></li>
+</ul>
+<p>Details about the CloudCore software application architecture and security are documented on the <a href="">product development / engineering wiki</a>.</p>
+<section id="policy-statements" class="level2">
+<h2 class="anchored" data-anchor-id="policy-statements">Policy Statements</h2>
+<p>CloudCore policy requires that:</p>
+<ol type="a">
+<li><p>CloudCore software engineering and product development is required to follow security best practices. Product should be “Secure by Design” and “Secure by Default”.</p></li>
+<li><p>Quality assurance activities must be performed. This may include</p></li>
+</ol>
+<ul>
+<li>peer code reviews prior to merging new code into the main development branch (e.g.&nbsp;master branch); and</li>
+<li>thorough product testing before releasing to production (e.g.&nbsp;unit testing and integration testing).</li>
+</ul>
+<ol start="3" type="a">
+<li><p>Risk assessment activities (i.e.&nbsp;threat modeling) must be performed for a new product or major changes to an existing product.</p></li>
+<li><p>Security requirements must be defined, tracked, and implemented.</p></li>
+<li><p>Security analysis must be performed for any open source software and/or third-party components and dependencies included in CloudCore software products.</p></li>
+<li><p>Static application security testing (SAST) must be performed throughout development and prior to each release.</p></li>
+<li><p>Dynamic application security testing (DAST) must be performed prior to each release.</p></li>
+<li><p>All critical or high severity security findings must be remediated prior to each release.</p></li>
+<li><p>All critical or high severity vulnerabilities discovered post release must be remediated in the next release or within 30 days, whichever is sooner.</p></li>
+<li><p>Any exception to the remediation of a finding must be documented and approved by the security team.</p></li>
+</ol>
+</section>
+<section id="controls-and-procedures" class="level2">
+<h2 class="anchored" data-anchor-id="controls-and-procedures">Controls and Procedures</h2>
+<section id="software-development-process" class="level3">
+<h3 class="anchored" data-anchor-id="software-development-process">Software Development Process</h3>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>Software development at CloudCore follows a release strategy that provides traceability for production software changes. Features, enhancements, and bugs are written up as Issues in . An engineer on a small team proposes changes necessary and creates a review for the team (). Continuous integration () kicks off unit and functional tests which pass before changes are merged into the repository. Once the review is complete, the changes are now deployed to the development environment where regression and end-to-end tests are run before the new code replaces the existing in-service code (test then deploy model). Small teams can decide to follow a source-control branching strategy that makes sense: git-flow, github flow.</p>
+<p>CloudCore practices continuous delivery of code into production through multiple environments: development, testing, production. The deploy process and infrastructure roll-out are written as code (using technologies such as Terraform and AWS Cloudformation) and managed under source control.</p>
+<p>CloudCore’s multiple lower environments (dev, test) provide an ecosystem of sample data sets that exercise the application and services when test automation is run. The test environment is where the system is stressed for performance and scalability. Performance and scalability changes are driven by metric data captured through monitoring and logging (metrics before and after change – typically captured as part of the issue description/writeup).</p>
+<p>Deployments to production are gated by change control process where an issue is opened which identify what is new/changed (). Sign-offs are recorded by development, testing, security, and product management. Production roll-outs happen on a regular basis without impact to service. This continuous process allows for security updates to roll out regularly and with urgency. If there is impact to production, a rollback is performed to restore service and whatever caused the problem is reverted from source. This restarts the re-proposal approval process of source changes. This process keeps the set of differences between the development environment and the production environment as low as possible.</p>
+<p>In the continuous delivery mindset, features are not released by the deployment of code into production, instead features are enabled in production at the appropriate time (dark launching). Feature toggle enablement in production is gated by a change control ticket () that follows the software roll-out approval process. Feature toggle enablement in production can have a few more dependencies than code. Those dependencies include things like external documentation, early access programs, and internal playbooks for supporting the feature.</p>
+</section>
+<section id="secure-development-standards" class="level4">
+<h4 class="anchored" data-anchor-id="secure-development-standards">Secure Development Standards</h4>
+<p><a href="https://en.wikipedia.org/wiki/Traceability">Traceability</a> of code changes allow for our software to be a living entity. Our current system for documenting changes is . Every commit and/or Pull-Request, should have a supplied that describes contextually why this change is necessary and reasonable. These artifacts over time allow for one to trace the lineage of why our production software and services change over time.</p>
+<p>All CloudCore <code>git</code> repositories have a company standard configuration from a perspective. This standard is a guideline and can be relaxed, but socialise when those exceptions are needed. One example of an exception, is the <code>wiki</code> repository, as editing a wiki and always requiring a PR in this setting slows down ‘flow’.</p>
+<ul>
+<li><p>Code: &lt;#&gt;</p></li>
+<li><p>Repo settings: &lt;#&gt;</p></li>
+<li><p>Build: &lt;#&gt;</p></li>
+</ul>
+<p><strong>NOTE</strong>: The Sandbox project (and repos) do not follow this standard. And certain projects might be excluded (e.g.&nbsp;<code>wiki</code>).</p>
+<p><strong>Developers follow the branch strategy and code review process below:</strong></p>
+<ol type="1">
+<li><p>All development uses feature branches based on the main branch used for the current release. Any changes required for a new feature or defect fix are committed to that feature branch.</p>
+<ul>
+<li>These changes must be covered under 1) a unit test where possible, or 2) integration tests.</li>
+<li>Integration tests are <em>required</em> if unit tests cannot reliably exercise all facets of the change.</li>
+</ul></li>
+<li><p>Developers are strongly encouraged to follow the <a href="https://github.com/blog/926-shiny-new-commit-styles">commit message conventions suggested by GitHub</a>.</p>
+<ul>
+<li>Commit messages should be wrapped to 72 characters.</li>
+<li>Commit messages should be written in the present tense. This convention matches up with commit messages generated by commands like git merge and git revert.</li>
+<li>Additionally, the commit messages should start with the Issue ID when applicable.</li>
+</ul></li>
+<li><p>Once the feature and corresponding tests are complete, a pull request (PR) will be created using the web interface. The pull request should indicate which feature or defect is being addressed and should provide a high-level description of the changes made.</p></li>
+<li><p>Code reviews are performed as part of the pull request procedure. Once a change is ready for review, the author(s) will notify other engineers using an appropriate mechanism, typically by adding reviewers as PR approvers.</p>
+<ul>
+<li>Other engineers will review the changes, using the guidelines above.</li>
+<li>Engineers should note all potential issues with the code; it is the responsibility of the author(s) to address those issues or explain why they are not applicable.</li>
+<li>If changes/commits are made to a PR, it should reset previous approvals and require review and approvals again before the PR can be merged.</li>
+<li>Once the review process finishes, each reviewer should approve the PR, at which point the original author(s) may merge their change into the main branch (i.e.&nbsp;master).</li>
+<li>PR can only be merged with at least one approval from a reviewer other than the author.</li>
+</ul></li>
+<li><p>If the feature or defect interacts with sensitive data, or controls access to sensitive data, or contains security/risky infrastructure changes to the target environment, the code changes must be reviewed by the Security team before the feature is marked as complete.</p>
+<ul>
+<li>This review must include a security analysis for potential vulnerabilities such as those listed in the <a href="https://www.owasp.org/index.php/Top10">OWASP Top 10</a>.</li>
+<li>This review must also verify that any actions performed by authenticated users will generate appropriate audit log entries.</li>
+</ul></li>
+</ol>
+</section>
+<section id="release-strategy" class="level4">
+<h4 class="anchored" data-anchor-id="release-strategy">Release Strategy</h4>
+<p>Features, enhancements, and bugs are written up as issues (). An engineer on a small team proposes changes necessary and creates a review for the team (). Continuous integration () kicks off unit and functional tests which pass before changes are merged into the repository. Once the review is complete, the changes are now deployed to the development environment where regression and end-to-end tests are run before the new code replaces the existing in-service code (test then deploy model). Small teams can decide to follow a source-control branching strategy that makes sense: git-flow, github flow.</p>
+<p>CloudCore practices continuous delivery of code into production through multiple environments: development, testing, production. The deploy process and infrastructure roll-out are written as code (Terraform) and managed under source control.</p>
+<p>CloudCore’s multiple lower environments (dev, test) provide an ecosystem of sample data sets that can be used to exercise the application and services when test automation is run. The test environment is where the system is stressed for performance and scalability. Performance and scalability changes are driven by metric data captured through monitoring and logging (metrics before and after change - typically captured as part of the issue description/writeup).</p>
+<p>Deployments to production are gated by change management process where an issue is opened which identify what is new/changed (). Sign-offs are recorded by development, testing, security, and product management. Production roll-outs happen on a regular basis without impact to service. This continuous process allows for security updates to roll out regularly and with urgency. If there is impact to production, a rollback is performed to restore service and whatever caused the problem is reverted from source. This restarts the re-proposal approval process of source changes.</p>
+<p>This process keeps set of differences between the development environment and the production environment as low as possible.</p>
+<p>Features may be released via code deployments or features may be enabled in production at an appropriate time (dark launching). Feature toggle enablement in production is gated by the same change management ticket () that follows the software roll-out approval process. Feature toggle enablement in production can have a few more dependencies than code. Those dependencies include things like external documentation, early access programs, and internal playbooks for supporting the feature.</p>
+<p><strong>Detailed process and procedures for code promotion and production release:</strong> See <a href="../../docs/policies/ccm.html">Configuration and Change Management</a>.</p>
+</section>
+</section>
+<section id="source-code-management" class="level3">
+<h3 class="anchored" data-anchor-id="source-code-management">Source Code Management</h3>
+<p>CloudCore development/engineering team uses for source code management. Access to and its configuration standards include:</p>
+<ul>
+<li><p>All developers must authenticate to gain access to and code repos hosted on according to standards and procedures defined in the <a href="../../docs/policies/access.html">Access Policy</a>:</p>
+<ul>
+<li><p>Access control to the web interface must be enabled, via SSO and/or MFA if applicable</p></li>
+<li><p>SSH public/private key access may be used for command line or <code>git</code> access to the code repos</p></li>
+</ul></li>
+<li><p>All code repos in follow these configuration standards:</p>
+<ul>
+<li><p>All repos must have an owner identified and listed</p></li>
+<li><p>All repos are by default <code>private</code></p></li>
+</ul></li>
+<li><p>Certain branch restrictions are enabled, including:</p>
+<ul>
+<li><p>The <code>master</code> branch cannot be rebased</p></li>
+<li><p>Restrict direct commits into <code>master</code></p></li>
+<li><p>Restrict history rewrites of <code>master</code></p></li>
+<li><p>Restrict deletion of <code>master</code></p></li>
+</ul></li>
+<li><p>Certain pull request (PR) requirements are enforced before merging, including:</p>
+<ul>
+<li><p>Must have at least 1 review approval to merge</p></li>
+<li><p>Must have at least 1 successful build to merge</p></li>
+<li><p>all PR tasks must be completed</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="high-level-application-security-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="high-level-application-security-requirements">High Level Application Security Requirements</h3>
+<p>All CloudCore software must be developed to include the following general application security principles and requirements. Web applications must also protect itself against the <a href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project#tab=OWASP_Top_10_for_2017_Release_Candidate">OWASP Top 10</a> vulnerabilities.</p>
+<ol type="1">
+<li><p>Protect sensitive customer data such as PHI, PII and account passwords. Encrypt data stored (at rest).</p></li>
+<li><p>Secure data in transit and customer communications via TLS.</p></li>
+<li><p>Provision strong access control (authentication and authorisation). Prevent and report unauthorised access.</p></li>
+<li><p>Log all transactions and activities to be able to tell who did what, when, where, and how. Mask or remove sensitive data in logs.</p></li>
+<li><p>Implement client security at application endpoints (e.g.&nbsp;browser, mobile app).</p></li>
+<li><p>Communicate securely across application endpoints and between service consumers/producers.</p></li>
+<li><p>Use secure defaults to ensure security when in all error conditions.</p></li>
+<li><p>Check and maintain the security of all third party and open source libraries/components/dependencies.</p></li>
+<li><p>Validate all data inputs; encode data outputs when appropriate.</p></li>
+<li><p>Deploy and configure applications securely to production.</p></li>
+<li><p>Perform regular vulnerability analysis and apply security patches promptly.</p></li>
+<li><p>Secure privileged access to production environments and ensure ongoing application monitoring.</p></li>
+</ol>
+<p>All software code must complete a set of security scans/testing prior to being deployed to production, including open source dependency scanning, static and dynamic application security testing, as well as periodic penetration testing.</p>
+<p>Pre-production testing is performed with nonproduction data in nonproduction environments. Health checks are performed regularly or automated in production.</p>
+<p>Software vulnerability identified through any of the above processes shall be reported and tracked following CloudCore Vulnerability Management process as defined in the <a href="../../docs/policies/vuln-mgmt.html">Vulnerability Management Policy and Procedures</a>.</p>
+</section>
+<section id="secure-design-and-application-threat-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="secure-design-and-application-threat-modeling">Secure Design and Application Threat Modeling</h3>
+<p>CloudCore Security Team in collaboration with development team performs full Application Threat Modeling and Risk Assessment on per-application basis using a custom approach that relies on industry standards and best practices.</p>
+<p>Major application updates are captured via an <strong>RFC</strong> process. The RFC template includes <strong>Security Consideration</strong> as a required section. This section is used to document abuse cases including:</p>
+<ul>
+<li>risks identified,</li>
+<li>attack vectors, and</li>
+<li>mitigating controls.</li>
+</ul>
+<p>Each RFC is required to capture sufficient details of the feature/component to be developed, including use cases, motivation and outcome, and the following design details as applicable:</p>
+<ul>
+<li>authentication/authorisation mechanisms,</li>
+<li>network communications,</li>
+<li>data encryption,</li>
+<li>cloud services used,</li>
+<li>logging/auditing,</li>
+<li>data flow diagram/description,</li>
+<li>edge cases, drawbacks, and alternatives.</li>
+</ul>
+<p>The RFC must be approved prior to implementation. Security team is included in RFC reviews via the pull request process.</p>
+<section id="platform-design-and-devops-security-details" class="level4">
+<h4 class="anchored" data-anchor-id="platform-design-and-devops-security-details">Platform Design and DevOps Security Details</h4>
+<p>Documentation on the CloudCore <a href="">Engineering Wiki</a> may include additional security specifications as well as the security design and implementation details of the CloudCore Platform and its supporting operations.</p>
+</section>
+</section>
+<section id="access-control-of-the-application-identification-authentication-authorisation-accounting" class="level3">
+<h3 class="anchored" data-anchor-id="access-control-of-the-application-identification-authentication-authorisation-accounting">Access Control of the Application (Identification, Authentication, Authorisation, Accounting)</h3>
+<p>CloudCore external software application that is customer facing with access to customer specific data, including sensitive information such as PII and ePHI, implements strong access control, covering the Identification, Authentication, Authorisation, and Accounting/Auditing (IAAA) of access and user activity.</p>
+<p>The implementation ensures that</p>
+<ul>
+<li><p>the user requesting access is the one claimed (Identification and Authentication);</p></li>
+<li><p>only users authorised to access specific data (such as ePHI) are allowed to (Authorisation); and</p></li>
+<li><p>their access activities are logs (Accounting/Auditing) according to the CloudCore auditing standards.</p></li>
+</ul>
+<p>The current implementation leverages AWS Cognito for user identity management and access.</p>
+<p>The backend platform implements granular Attribute-Based Access Control (ABAC) for granting access to specific services and data based on the attribute(s) of a principal (i.e.&nbsp;user requesting access – an attribute could be the role or group membership or organisation the user belongs to) and the attribute(s) of the requested resource (i.e.&nbsp;data or service – an attribute could be the project this data belongs to).</p>
+<p>More implementation details are documented on the internal Engineering wiki.</p>
+</section>
+<section id="free-and-open-source-software-foss-security" class="level3">
+<h3 class="anchored" data-anchor-id="free-and-open-source-software-foss-security">Free and Open Source Software (FOSS) Security</h3>
+<p>CloudCore security and development team implemented a process to</p>
+<ul>
+<li>Inventory all software dependencies;</li>
+<li>Scan software dependencies for known security vulnerability;</li>
+<li>Fix any and all high risk findings prior to production; and</li>
+<li>Review and identify licensing issues of the 3rd party software and libraries.</li>
+</ul>
+<p>The current tool in use is Snyk. Snyk supports Node.js, Ruby, and Java. Documentation can be found at the Snyk website.</p>
+<p>Snyk also enables automatic license analysis for dependencies, and this functionality is embedded into the <code>securityScan()</code> pipeline step.</p>
+<p>Snyk can be leveraged in local development environment to scan locally and/or at every build for dev to include dev dependencies.</p>
+</section>
+<section id="static-application-security-testing-sast" class="level3">
+<h3 class="anchored" data-anchor-id="static-application-security-testing-sast">Static Application Security Testing (SAST)</h3>
+<p>Tools:</p>
+<ul>
+<li><p>The Lint and GitLeaks Platform - static and dynamic code analysis. Together with the FOSS security tool, the SAST testing was made available to use via the automated <code>security-scan</code> docker image, as well as integrated into CloudCore pipeline library via the <code>securityScan()</code> step</p></li>
+<li><p>Manual code security reviews are periodically performed by the Security team as follows:</p>
+<ul>
+<li><p>Periodic review as part of weekly activities</p></li>
+<li><p>Every pull request which includes security team as approvers</p></li>
+<li><p>By request - issue created on the Security project/board</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="dynamic-application-security-testing-dast" class="level3">
+<h3 class="anchored" data-anchor-id="dynamic-application-security-testing-dast">Dynamic Application Security Testing (DAST)</h3>
+<p>Dynamic testing is available by request to the Security team and is performed using OWASP ZAP. Security team is currently looking into automation of this type of scanning.</p>
+<p>Additionally, manual baseline dynamic testing is available by request to the Security team.</p>
+<section id="integration-of-dynamic-testing-into-automatic-tests" class="level4">
+<h4 class="anchored" data-anchor-id="integration-of-dynamic-testing-into-automatic-tests">Integration of Dynamic testing into automatic tests</h4>
+<p>Upon availability of automatic UI tests for applications being developed internally, an extension based on <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">OWASP ZAP</a> is used to transparently work with any UI tests available and automatically add basic dynamic tests into build pipeline.</p>
+</section>
+</section>
+<section id="penetration-testing" class="level3">
+<h3 class="anchored" data-anchor-id="penetration-testing">Penetration Testing</h3>
+<section id="external-penetration-testing" class="level4">
+<h4 class="anchored" data-anchor-id="external-penetration-testing">External Penetration Testing</h4>
+<p>An external penetration testing is performed at least once a year by a qualified security researcher / ethical hacker on the security team internally and/or with an external security consulting firm.</p>
+</section>
+</section>
+<section id="responsible-disclore-and-bug-bounty-program" class="level3">
+<h3 class="anchored" data-anchor-id="responsible-disclore-and-bug-bounty-program">Responsible Disclore and Bug Bounty Program</h3>
+<section id="public-vulnerability-disclosure-bug-bounty-program" class="level4">
+<h4 class="anchored" data-anchor-id="public-vulnerability-disclosure-bug-bounty-program">Public Vulnerability Disclosure / Bug Bounty Program</h4>
+<p>All technology contains bugs, including both functional defects and security vulnerability.</p>
+<p>CloudCore uses a third party platform to maintain a public vulnerability disclosure / bug bounty program. This program takes advantage of crowd-sourced security researchers to perform penetration testing of CloudCore’s platform and its public facing resources.</p>
+<p>The current program provider is HackerOne.</p>
+</section>
+</section>
+<section id="outsourced-software-development" class="level3">
+<h3 class="anchored" data-anchor-id="outsourced-software-development">Outsourced Software Development</h3>
+<p>CloudCore requires all outsourced software development to follow the same rigor and process as internal engineering. Outsourced developers must develop in our secure environment, accept and follow our security policies and procedures, and comply with the same secure coding standards, including:</p>
+<ul>
+<li><p>Receive regular OWASP or equivalent secure coding training.</p></li>
+<li><p>Follow the same source control, code review, and security code scanning procedures as defined.</p></li>
+<li><p>Install endpoint compliance agent that checks to make sure firewall, encryption, patching, password policy, screensaver password, and other required protection is properly configured.</p></li>
+</ul>
+<p>Additionally, the third party firm providing outsourced development services must demonstrate that they have conducted the appropriate screening during hiring.</p>
+</section>
+<section id="hipaa-best-practices-for-software-development" class="level3">
+<h3 class="anchored" data-anchor-id="hipaa-best-practices-for-software-development">HIPAA Best Practices for Software Development</h3>
+<section id="use-only-hipaa-eligible-services-in-the-cloud-aws" class="level4">
+<h4 class="anchored" data-anchor-id="use-only-hipaa-eligible-services-in-the-cloud-aws">Use only HIPAA eligible services in the Cloud (AWS)</h4>
+<p>Because we use the services provided by AWS for our production environment with contains electronic protected health information (ePHI), AWS is a “business associate” of ours. It is required by HIPAA for CloudCore and AWS to enter into a <a href="https://aws.amason.com/blogs/security/tag/aws-business-associate-agreement/">“business associate agreement” (BAA)</a>.</p>
+<p>Our fully executed BAA with AWS can be found on the internal document repository.</p>
+<p>We must only used HIPAA-eligible services covered under the BAA to process and store ePHI. Non-eligible services may be used in support of our cloud infrastructure as long as it does not have access to ePHI.</p>
+<p>A list of HIPAA eligible services can be found <a href="https://aws.amason.com/compliance/hipaa-eligible-services-reference/">here</a>. AWS regularly updates its services to meet HIPAA compliance requirements. Check the page once in a while to find out if new services have been added.</p>
+<p>Additional References:</p>
+<ul>
+<li><a href="https://aws.amason.com/health/healthcare-compliance/hipaa/">Architecting for HIPAA in the Cloud</a></li>
+<li><a href="https://aws.amason.com/compliance/shared-responsibility-model/">AWS Shared Responsibility Model</a></li>
+<li><a href="https://aws.amason.com/compliance/hipaa-compliance/">AWS HIPAA Compliance</a></li>
+<li><a href="https://d0.awsstatic.com/whitepapers/compliance/AWS_HIPAA_Compliance_Whitepaper.pdf">AWS HIPAA Compliance Whitepaper</a></li>
+</ul>
+</section>
+<section id="separate-access-and-data-between-prod-and-non-prod-accounts" class="level4">
+<h4 class="anchored" data-anchor-id="separate-access-and-data-between-prod-and-non-prod-accounts">Separate access and data between prod and non-prod accounts</h4>
+<p>It is a compliance requirement of multiple regulations to ensure separation of duties between production and non-production environments, including both access and data. Additionally, we should not use production data for dev or test, unless the data has been properly sanitised/masked.</p>
+<p>Examples of regulations and certifications that have this explicit requirement include HIPAA, SAS70/SSAE-17, SOC, PCI, and ISO 27001/27002, many of which are on our target list to be compliant with or certified to.</p>
+</section>
+<section id="do-not-log-ephi" class="level4">
+<h4 class="anchored" data-anchor-id="do-not-log-ephi">Do not log ePHI</h4>
+<p>Not only it is a security best practice to avoid sensitive data such as ePHI in application logging, it may be a contract violation (per AWS BAA) to do so. We must not send any ePHI to non HIPAA eligible services in AWS, such as CloudTrail.</p>
+</section>
+<section id="include-the-right-language-in-notices" class="level4">
+<h4 class="anchored" data-anchor-id="include-the-right-language-in-notices">Include the right language in notices</h4>
+<p>Specific language must be included in terms, consents, and notices. For example, we must collect email addresses from patients when they sign up for the PHC, and specify in the terms that we may use the email address provided as a formal method of communication, including breach notification, should a breach occurs that impact their PHI.</p>
+</section>
+<section id="data-protection" class="level4">
+<h4 class="anchored" data-anchor-id="data-protection">Data protection</h4>
+<p>Follow the requirements listed in the following documents:</p>
+<ul>
+<li><a href="../../docs/policies/data-mgmt.html#data-classification-model">Data Classification Model</a>;</li>
+<li><a href="../../docs/policies/data-mgmt.html#data-handling-requirements-matrix">Data Handling Requirements</a>;</li>
+<li><a href="../../docs/policies/data-protection.html">Data Protection Policy and Procedures</a>; and</li>
+<li><a href="../../docs/policies/data-mgmt.html#backup-and-recovery">Backup and Recovery Process</a>.</li>
+</ul>
+</section>
+<section id="risk-analysis-and-compliance-assessment" class="level4">
+<h4 class="anchored" data-anchor-id="risk-analysis-and-compliance-assessment">Risk Analysis and Compliance Assessment</h4>
+<p>Read the <a href="assessments/hipaa-latest.md">latest assessment report</a> for more details on CloudCore’s HIPAA compliance.</p>
+</section>
+</section>
+<section id="production-system-monitoring-and-paging" class="level3">
+<h3 class="anchored" data-anchor-id="production-system-monitoring-and-paging">Production System Monitoring and Paging</h3>
+<p>Software and systems deployed in production are monitored 24/7 for health check and other major/critical error conditions. The on call team is paged via PagerDuty in the event an error or failure is detected.</p>
+<p>Notifications via additional channels such as Slack and email are also configured.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>4 Millrose Dr, Malaga, WA 6090 and 11 Newcastle St, Perth, WA 6000<br>
+cloudcore@serveur.au, +61 (8) 4587 899<br>
+Copyright 2021, CloudCore</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
