@@ -1,5 +1,9 @@
 ---
-title: Transcript of nterview with ISM
+title: Transcript of interview with ISM
+categories:
+      - "Security Management"
+      - "Training"
+      - "Incident Response"
 ---
 
 Auditor: Thanks for meeting with me today. I'd like to discuss your security awareness training program for employees. Can you walk me through the current training curriculum?

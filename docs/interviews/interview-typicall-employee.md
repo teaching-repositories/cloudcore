@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with Typical Employee
+categories:
+      - "Training"
+      - "Operational Security"
+      - "Data Security"
 ---
 
 Auditor: I'd like to understand the security culture from an individual contributor perspective. In your experience, how well does security awareness permeate through the organisation?

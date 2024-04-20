@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with DPO
+categories:
+      - "Privacy"
+      - "Data Protection"
+      - "Compliance"
 ---
 
 Auditor: Thank you for meeting with me today. I'd like to understand your organisation's data protection strategy and controls. Could you give me an overview of your data privacy policies?

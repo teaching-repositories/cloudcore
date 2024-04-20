@@ -1,5 +1,10 @@
 ---
 title: Transcript of interview with Help Desk
+categories:
+      - "Operational Security"
+      - "Incident Response"
+      - "Training"
+
 ---
 
 Auditor: I'd like to understand the helpdesk's role in information security. How are user security incidents and requests handled?

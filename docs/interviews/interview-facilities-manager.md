@@ -1,5 +1,10 @@
 ---
 title: Transcript of interview with Facilities Manager
+categories:
+      - "Physical Security"
+      - "Facility Management"
+      - "Compliance"
+
 ---
 
 

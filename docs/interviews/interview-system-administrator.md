@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with System Administrator
+categories:
+      - "IT Management"
+      - "Security Architecture"
+      - "Access Control"
 ---
 
 Auditor: Thanks for taking the time to speak with me today. I'd like to discuss the controls you have in place for managing system security configurations. Could you walk me through your configuration hardening standards?

@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with Network Engineer
+categories:
+      - "Network Management"
+      - "Security Architecture"
+      - "Operational Security"
 ---
 
 Auditor: I'd like to discuss the network security controls you have in place. Could you give me an overview of your network architecture?

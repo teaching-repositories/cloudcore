@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with DBA
+categories:
+      - "Data Security"
+      - "IT Management"
+      - "Risk Assessment"
 ---
 
 Auditor: I'd like to understand how database security is handled here. Could you give me an overview of your database architecture?

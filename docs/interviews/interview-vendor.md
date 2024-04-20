@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with Vendor Partner
+categories:
+      - "Vendor Management"
+      - "Compliance"
+      - "Risk Management"
 ---
 
 Auditor: I'd like to discuss how security considerations are handled in your relationship with our organisation. Could you describe the policies and controls your organisation has in place?

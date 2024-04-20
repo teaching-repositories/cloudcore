@@ -1,5 +1,10 @@
 ---
 title: Transcript of interview with CISO
+categories:
+      - "Security Management"
+      - "Access Control"
+      - "Vulnerability Management"
+
 ---
 
 Auditor: Thank you for taking the time to meet with me today. As part of the ISO 27001 audit, I'd like to discuss how your organisation handles access controls for information systems. Could you walk me through the key controls in place?

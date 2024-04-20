@@ -1,5 +1,9 @@
 ---
 title: Transcript of interview with Legal
+categories:
+      - "Compliance"
+      - "Data Protection"
+      - "Risk Management"
 ---
 
 Auditor: I'd like to discuss how legal considerations relate to information security. How are security requirements incorporated into client & vendor contracts?
