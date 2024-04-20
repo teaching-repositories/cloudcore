@@ -164,7 +164,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Business Continuity and Disaster Recovery</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Risk Management</div>
+    <div class="quarto-category">Operational Continuity</div>
+    <div class="quarto-category">Disaster Recovery</div>
+  </div>
+  </div>
 
 
 
@@ -361,7 +366,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="production-environments-and-data-recovery">Production Environments and Data Recovery</h3>
 <p>Production data is to be synchronised across multiple S3 buckets in AWS. Additionally, it is backed up to AWS Glacier for long term storage and recovery. In an event that requires data to be recovered, it will be retrieved from Glacier.</p>
 <p>CloudCore assumes that in the worst-case scenario, that one of the production environments suffers a complete data loss, the account will be reconstructed from code, and the data restored from Glacier that is hosted within a different AWS account and geolocation.</p>
-<p>Recovery of production Environments and data should follow the procedures listed above and in <a href="../../docs/policies/data-mgmt.html#cp-data-backup">Data Management - Backup and Recovery</a></p>
+<p>Recovery of production Environments and data should follow the procedures listed above and in <a href="data-mgmt.md#cp-data-backup">Data Management - Backup and Recovery</a></p>
 
 
 </section>
@@ -449,7 +454,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

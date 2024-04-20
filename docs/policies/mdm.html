@@ -161,7 +161,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Mobile Device Security and Storage Media Management</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">IT Management</div>
+    <div class="quarto-category">Device Security</div>
+    <div class="quarto-category">Data Protection</div>
+  </div>
+  </div>
 
 
 
@@ -184,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <p>CloudCore policy requires that:</p>
 <ol type="a">
 <li><p>All media, including mobile and removable media, storing CloudCore company data must be encrypted.</p></li>
-<li><p>Critical data as defined in <a href="../../docs/policies/data-mgmt.html">CloudCore data classification model data-management</a> may not be stored on mobile devices or removable media such as USB flash drives.</p></li>
+<li><p>Critical data as defined in <a href="data-mgmt.md">CloudCore data classification model data-management</a> may not be stored on mobile devices or removable media such as USB flash drives.</p></li>
 <li><p>All destruction/disposal of sensitive data storage media will be done in accordance with federal and state laws and regulations and pursuant to the CloudCore’s written retention policy/schedule.</p></li>
 </ol>
 <ul>
@@ -322,7 +327,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

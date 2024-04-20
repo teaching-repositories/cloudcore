@@ -170,7 +170,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Configuration and Change Management</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">IT Management</div>
+    <div class="quarto-category">Change Management</div>
+    <div class="quarto-category">Operational Security</div>
+  </div>
+  </div>
 
 
 
@@ -217,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 <li>All systems are categorised and labeled by their corresponding environment, such as <em>dev</em>, <em>test</em>, and <em>prod</em>.</li>
 <li>All systems are classified and labeled based on the data they store or process, according to <a href="assets/data-classification-and-handling.pdf">CloudCore data classification model</a>.</li>
 <li>The Security team maintains automation which monitors all changes to IT assets, generates inventory lists, using automatic IT assets discovery, and services provided by each cloud provider.</li>
-<li>IT assets database is used to generate the diagrams and asset lists required by the Risk Assessment phase of CloudCore’s <a href="../../docs/policies/risk-mgmt.html">Risk Management procedures</a></li>
+<li>IT assets database is used to generate the diagrams and asset lists required by the Risk Assessment phase of CloudCore’s <a href="risk-mgmt.md">Risk Management procedures</a></li>
 <li>CloudCore Change Management process ensures that all asset inventory created by automation is reconciled against real changes to production systems. This process includes periodic manual audits and approvals.</li>
 <li>During each change implementation, the change is reviewed and verified by the target asset owner as needed.</li>
 </ul></li>
@@ -298,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Installing and configuring the NTP daemon, including ensuring that modifying system time cannot be performed by unprivileged users.</li>
 <li>Configuring disk volumes for providers that do not have native support for encrypted data volumes, including ensuring that encryption keys are protected from unauthorised access.</li>
 <li>Configuring authentication to the centralised Directory Services servers.</li>
-<li>Configuring audit logging as described in the <a href="../../docs/policies/system-audit.html">Auditing Policy section</a>.</li>
+<li>Configuring audit logging as described in the <a href="system-audit.md">Auditing Policy section</a>.</li>
 </ul></li>
 <li><p><strong>Windows System Hardening:</strong> Windows systems have their baseline security configuration applied via the combination of Group Policy settings and/or automation scripts. These baseline settings cover:</p>
 <ul>
@@ -310,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Installing and configuring security protection agents such as anti-virus scanner.</li>
 <li>Configuring transport encryption according to the requirements described in the <a href="../../docs/policies/mdm.html">Mobile Device Security and Disposable Media Management section</a>.</li>
 <li>Configuring the system clock to point to approved NTP servers and ensuring that modifying system time cannot be performed by unprivileged users.</li>
-<li>Configuring audit logging as described in the <a href="../../docs/policies/system-audit.html">Auditing Policy section</a>.</li>
+<li>Configuring audit logging as described in the <a href="system-audit.md">Auditing Policy section</a>.</li>
 </ul></li>
 <li><p>Any additional configuration changes applied to hardened Windows systems must be clearly documented by the implementer and reviewed by the Security team.</p></li>
 </ol>
@@ -619,7 +624,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -162,7 +162,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Third Party Security, Vendor Risk Management and Systems/Services Acquisition</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Vendor Management</div>
+    <div class="quarto-category">Risk Management</div>
+    <div class="quarto-category">Compliance</div>
+  </div>
+  </div>
 
 
 
@@ -213,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="vendor-contractual-agreements" class="level3">
 <h3 class="anchored" data-anchor-id="vendor-contractual-agreements">Vendor Contractual Agreements</h3>
-<p><strong>HIPAA.</strong> If the vendor needs access to PHI/ePHI, the vendor must be HIPAA compliant and a <a href="../../docs/policies/hipaa-baa.html">Business Associate Agreement (BAA)</a> is required.</p>
+<p><strong>HIPAA.</strong> If the vendor needs access to PHI/ePHI, the vendor must be HIPAA compliant and a <a href="hipaa-baa.md">Business Associate Agreement (BAA)</a> is required.</p>
 <p><strong>SLA for Service Providers.</strong> For network and infrastructure service providers that support production and/or critical operations at CloudCore, a Service Level Agreement (SLA) is defined and included in the service contract.</p>
 <p>As appropriate, the executed agreement(s) are linked or attached to the vendor on the <a href="approved-software.md">approved vendors list</a>.</p>
 </section>
@@ -315,7 +320,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

@@ -181,7 +181,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Access</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Access Control</div>
+    <div class="quarto-category">Security</div>
+    <div class="quarto-category">Authentication and Authorization</div>
+  </div>
+  </div>
 
 
 
@@ -320,8 +325,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>All system and application passwords must be stored and transmitted securely.</p>
 <ul>
 <li>Where possible, passwords should be stored in a hashed format using a salted cryptographic hash function (SHA-256 or stronger NIST compliant standard).</li>
-<li>Passwords that must be stored in non-hashed format must be encrypted at rest pursuant to the requirements in <a href="../../docs/policies/data-protection.html">Data Protection</a>.</li>
-<li>Transmitted passwords must be encrypted in flight pursuant to the requirements in <a href="../../docs/policies/data-protection.html">Data Protection</a>.</li>
+<li>Passwords that must be stored in non-hashed format must be encrypted at rest pursuant to the requirements in <a href="data-protection.md">Data Protection</a>.</li>
+<li>Transmitted passwords must be encrypted in flight pursuant to the requirements in <a href="data-protection.md">Data Protection</a>.</li>
 </ul></li>
 <li><p>Each information system automatically requires users to change passwords at a pre-determined interval as determined by the system owner and/or Security, based on the criticality and sensitivity of the data contained within the network, system, application, and/or database.</p></li>
 <li><p>Passwords are inactivated immediately upon an employee’s termination (refer to the <a href="../../docs/policies/hr.html">Employee Termination Procedures in HR policy</a>).</p></li>
@@ -506,7 +511,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Employee existing/termination, as defined by the process in <a href="../../docs/policies/hr.html">HR &amp; Employee Security</a>;</li>
 <li>Employee access to a system is no longer required as a result of job role change or similar event, in which case a access termination request may be submitted by the employee or his/her manager via the Internal Help portal or an email request to Security team;</li>
-<li>As the result of a Access Review, as defined in <a href="../../docs/policies/system-audit.html">System Auditing</a>.</li>
+<li>As the result of a Access Review, as defined in <a href="system-audit.md">System Auditing</a>.</li>
 <li>Non-standard access is revoked by default after 30 days of inactivity, unless an exception/extension is requested and approved.</li>
 </ul>
 </section>
@@ -514,7 +519,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="access-reviews" class="level3">
 <h3 class="anchored" data-anchor-id="access-reviews">Access Reviews</h3>
 <ul>
-<li>All access to CloudCore systems and services are reviewed and updated following the procedures specified in <a href="../../docs/policies/system-audit.html">System Auditing</a> to ensure proper authorisations are in place commensurate with job functions.</li>
+<li>All access to CloudCore systems and services are reviewed and updated following the procedures specified in <a href="system-audit.md">System Auditing</a> to ensure proper authorisations are in place commensurate with job functions.</li>
 <li>In cases of increased risk or known attempted unauthorised access, immediate steps are taken by the Security and Privacy Officer to limit access and reduce risk of unauthorised access.</li>
 </ul>
 </section>
@@ -682,7 +687,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

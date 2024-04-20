@@ -171,7 +171,12 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Secure Software Development and Product Security</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">IT Management</div>
+    <div class="quarto-category">Security Architecture</div>
+    <div class="quarto-category">Secure Development</div>
+  </div>
+  </div>
 
 
 
@@ -351,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>All software code must complete a set of security scans/testing prior to being deployed to production, including open source dependency scanning, static and dynamic application security testing, as well as periodic penetration testing.</p>
 <p>Pre-production testing is performed with nonproduction data in nonproduction environments. Health checks are performed regularly or automated in production.</p>
-<p>Software vulnerability identified through any of the above processes shall be reported and tracked following CloudCore Vulnerability Management process as defined in the <a href="../../docs/policies/vuln-mgmt.html">Vulnerability Management Policy and Procedures</a>.</p>
+<p>Software vulnerability identified through any of the above processes shall be reported and tracked following CloudCore Vulnerability Management process as defined in the <a href="vuln-mgmt.md">Vulnerability Management Policy and Procedures</a>.</p>
 </section>
 <section id="secure-design-and-application-threat-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="secure-design-and-application-threat-modeling">Secure Design and Application Threat Modeling</h3>
@@ -485,10 +490,10 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="data-protection">Data protection</h4>
 <p>Follow the requirements listed in the following documents:</p>
 <ul>
-<li><a href="../../docs/policies/data-mgmt.html#data-classification-model">Data Classification Model</a>;</li>
-<li><a href="../../docs/policies/data-mgmt.html#data-handling-requirements-matrix">Data Handling Requirements</a>;</li>
-<li><a href="../../docs/policies/data-protection.html">Data Protection Policy and Procedures</a>; and</li>
-<li><a href="../../docs/policies/data-mgmt.html#backup-and-recovery">Backup and Recovery Process</a>.</li>
+<li><a href="data-mgmt.md#data-classification-model">Data Classification Model</a>;</li>
+<li><a href="data-mgmt.md#data-handling-requirements-matrix">Data Handling Requirements</a>;</li>
+<li><a href="data-protection.md">Data Protection Policy and Procedures</a>; and</li>
+<li><a href="data-mgmt.md#backup-and-recovery">Backup and Recovery Process</a>.</li>
 </ul>
 </section>
 <section id="risk-analysis-and-compliance-assessment" class="level4">
@@ -587,7 +592,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
