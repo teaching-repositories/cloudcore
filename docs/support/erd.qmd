@@ -1,0 +1,63 @@
+---
+title: "Entity Relationship Diagram"
+categories: ["Data", "IT Management", "Software"]
+---
+
+This schema offers a comprehensive view of operational data, supporting both
+transactional processing and analytical queries for educational purposes.
+
+```{mermaid}
+erDiagram
+    USERS ||--o{ SERVICES : uses
+    USERS {
+        int userId PK
+        string username
+        string password
+        string email
+        string role
+    }
+    SERVICES ||--o{ TRANSACTIONS : "triggers"
+    SERVICES {
+        int serviceId PK
+        string serviceName
+        string description
+        float price
+        string status
+    }
+    TRANSACTIONS {
+        int transactionId PK
+        int userId FK
+        int serviceId FK
+        dateTime transactionDate
+        string transactionType
+        float amount
+    }
+    USERS ||--o{ TICKETS : files
+    TICKETS {
+        int ticketId PK
+        int userId FK
+        dateTime creationDate
+        string status
+        text description
+    }
+    USERS ||--o{ LOGS : generates
+    LOGS {
+        int logId PK
+        int userId FK
+        dateTime logDate
+        string logType
+        text logDescription
+    }
+```
+
+### Explanation:
+- **Users Table**: Manages user credentials and roles. Each user can use
+  multiple services.
+- **Services Table**: Lists the services offered by CloudCore Networks. Services
+  can trigger multiple transactions.
+- **Transactions Table**: Logs financial transactions or service changes linked
+  to users and services.
+- **Tickets Table**: Manages support tickets created by users, providing a
+  connection for customer support activities.
+- **Logs Table**: Keeps records of activities, which could be system-generated
+  or user-generated, providing audit trails or system operation insights.

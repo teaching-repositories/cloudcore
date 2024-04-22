@@ -1,5 +1,5 @@
 ---
-title: "Interviews"
+title: "Transcripts"
 listing:
   contents: interviews
   sort: "date desc"
