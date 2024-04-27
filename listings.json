@@ -27,6 +27,7 @@
       "/docs/policies/privacy_policy.html",
       "/docs/policies/privacy.html",
       "/docs/policies/hipaa_baa.html",
+      "/docs/policies/document_numbering.html",
       "/docs/policies/model.html"
     ]
   },
@@ -56,18 +57,23 @@
   {
     "listing": "/docs/support.html",
     "items": [
+      "/docs/support/erd.html",
+      "/docs/support/budget.html",
       "/docs/support/risk_register.html",
       "/docs/support/ISMS.html",
       "/docs/support/approved_software.html",
       "/docs/support/hipaa_mapping.html",
       "/docs/support/nist_mapping.html",
+      "/docs/support/document_register.html",
       "/docs/support/org_chart.html",
       "/docs/support/approved_vendors.html",
       "/docs/support/employee_handbook.html",
       "/docs/support/preparing ISO27001.html",
       "/docs/support/network_logical.html",
+      "/docs/support/forecast.html",
       "/docs/support/program.html",
       "/docs/support/definitions.html",
+      "/docs/support/cost_analysis.html",
       "/docs/support/training.html"
     ]
   }
