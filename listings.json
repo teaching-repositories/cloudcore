@@ -1,5 +1,51 @@
 [
   {
+    "listing": "/docs/support.html",
+    "items": [
+      "/docs/support/erd.html",
+      "/docs/support/budget.html",
+      "/docs/support/risk_register.html",
+      "/docs/support/ISMS.html",
+      "/docs/support/approved_software.html",
+      "/docs/support/hipaa_mapping.html",
+      "/docs/support/nist_mapping.html",
+      "/docs/support/document_register.html",
+      "/docs/support/org_chart.html",
+      "/docs/support/approved_vendors.html",
+      "/docs/support/employee_handbook.html",
+      "/docs/support/preparing ISO27001.html",
+      "/docs/support/network_logical.html",
+      "/docs/support/forecast.html",
+      "/docs/support/program.html",
+      "/docs/support/definitions.html",
+      "/docs/support/cost_analysis.html",
+      "/docs/support/training.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/post-with-code/index.html",
+      "/blog/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/interviews.html",
+    "items": [
+      "/docs/interviews/interview_CISO.html",
+      "/docs/interviews/interview_vendor.html",
+      "/docs/interviews/interview_typical_employee.html",
+      "/docs/interviews/interview_database_administrator.html",
+      "/docs/interviews/interview_helpdesk.html",
+      "/docs/interviews/interview_system_administrator.html",
+      "/docs/interviews/interview_legal.html",
+      "/docs/interviews/interview_infromation_security_manager.html",
+      "/docs/interviews/interview_facilities_manager.html",
+      "/docs/interviews/interview_data_protection_officer.html",
+      "/docs/interviews/interview_network_engineer.html"
+    ]
+  },
+  {
     "listing": "/docs/policies.html",
     "items": [
       "/docs/policies/gdpr_dpa.html",
@@ -32,49 +78,14 @@
     ]
   },
   {
-    "listing": "/docs/interviews.html",
+    "listing": "/chatbots/index.html",
     "items": [
-      "/docs/interviews/interview_CISO.html",
-      "/docs/interviews/interview_vendor.html",
-      "/docs/interviews/interview_typical_employee.html",
-      "/docs/interviews/interview_database_administrator.html",
-      "/docs/interviews/interview_helpdesk.html",
-      "/docs/interviews/interview_system_administrator.html",
-      "/docs/interviews/interview_legal.html",
-      "/docs/interviews/interview_infromation_security_manager.html",
-      "/docs/interviews/interview_facilities_manager.html",
-      "/docs/interviews/interview_data_protection_officer.html",
-      "/docs/interviews/interview_network_engineer.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/posts/post-with-code/index.html",
-      "/blog/posts/welcome/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/support.html",
-    "items": [
-      "/docs/support/erd.html",
-      "/docs/support/budget.html",
-      "/docs/support/risk_register.html",
-      "/docs/support/ISMS.html",
-      "/docs/support/approved_software.html",
-      "/docs/support/hipaa_mapping.html",
-      "/docs/support/nist_mapping.html",
-      "/docs/support/document_register.html",
-      "/docs/support/org_chart.html",
-      "/docs/support/approved_vendors.html",
-      "/docs/support/employee_handbook.html",
-      "/docs/support/preparing ISO27001.html",
-      "/docs/support/network_logical.html",
-      "/docs/support/forecast.html",
-      "/docs/support/program.html",
-      "/docs/support/definitions.html",
-      "/docs/support/cost_analysis.html",
-      "/docs/support/training.html"
+      "/chatbots/bots/elna_hui/index.html",
+      "/chatbots/bots/jessica_lin/index.html",
+      "/chatbots/bots/samantha_wong/index.html",
+      "/chatbots/bots/samuel_torres/index.html",
+      "/chatbots/bots/dr_mina_chowdhury/index.html",
+      "/chatbots/bots/martin_nugyen/index.html"
     ]
   }
 ]
