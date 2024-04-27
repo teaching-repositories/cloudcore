@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/pricing.html</loc>
-    <lastmod>2024-04-20T14:27:00.775Z</lastmod>
+    <lastmod>2024-04-27T14:02:47.197Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/dr_mina_chowdhury/index.html</loc>
@@ -141,6 +141,14 @@
     <lastmod>2024-04-20T14:27:00.759Z</lastmod>
   </url>
   <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/fullstack-development/index.html</loc>
+    <lastmod>2024-04-27T13:38:14.024Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/post-with-code/index.html</loc>
+    <lastmod>2024-04-20T14:27:00.755Z</lastmod>
+  </url>
+  <url>
     <loc>https://teaching-repositories.github.io/cloudcore/blog/index.html</loc>
     <lastmod>2024-04-20T14:27:00.755Z</lastmod>
   </url>
@@ -150,7 +158,7 @@
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/index.html</loc>
-    <lastmod>2024-04-20T14:27:00.775Z</lastmod>
+    <lastmod>2024-04-27T14:18:25.135Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/about.html</loc>
@@ -161,8 +169,16 @@
     <lastmod>2024-04-22T11:21:33.342Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/post-with-code/index.html</loc>
-    <lastmod>2024-04-20T14:27:00.755Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/essential-data-structures-algorithms/index.html</loc>
+    <lastmod>2024-04-27T13:28:59.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/markdown_examples/index.html</loc>
+    <lastmod>2024-04-27T13:38:36.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/how-to-become-frontend-master/index.html</loc>
+    <lastmod>2024-04-27T13:38:26.060Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/CODE_OF_CONDUCT.html</loc>
@@ -286,7 +302,7 @@
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/chatbots/index.html</loc>
-    <lastmod>2024-04-27T12:43:09.449Z</lastmod>
+    <lastmod>2024-04-27T13:39:19.379Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/jessica_lin/index.html</loc>

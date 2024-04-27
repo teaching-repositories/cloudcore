@@ -26,7 +26,11 @@
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/post-with-code/index.html",
-      "/blog/posts/welcome/index.html"
+      "/blog/posts/welcome/index.html",
+      "/blog/posts/fullstack-development/index.html",
+      "/blog/posts/how-to-become-frontend-master/index.html",
+      "/blog/posts/essential-data-structures-algorithms/index.html",
+      "/blog/posts/markdown_examples/index.html"
     ]
   },
   {
