@@ -1,7 +1,18 @@
 ---
-title: "Network Diagram"
-categories: ["IT Infrastructure", "Network Management"]
+categories:
+- IT Infrastructure
+- Network Management
+description: Welcome to our visual representation of the CloudCore Network, designed
+  to provide a clear overview of our cloud infrastructure's architecture.
+title: Network Diagram
 ---
+
+|              |                                     |
+|--------------|-------------------------------------|
+| **Title**    | Network Diagram             |
+| **Doc#**     | DOC-ITIN-002 |
+| **Version**  | 1.0                                 |
+| **Date**     | 08-03-2023                              |
 
 Welcome to our visual representation of the CloudCore Network, designed to
 provide a clear overview of our cloud infrastructure's architecture. This

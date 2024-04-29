@@ -1,7 +1,19 @@
 ---
-title: "Breach Investigation and Notification"
-categories: ["Incident Response", "Privacy", "Regulatory Compliance"]
+categories:
+- Incident Response
+- Privacy
+- Regulatory Compliance
+description: To provide guidance for breach notification when impressive or unauthorised
+  access, acquisition, use and/or disclosure of the ePHI occurs.
+title: Breach Investigation and Notification
 ---
+
+|              |                                     |
+|--------------|-------------------------------------|
+| **Title**    | Breach Investigation and Notification             |
+| **Doc#**     | POL-COMP-006 |
+| **Version**  | 1.0                                 |
+| **Date**     | 20-10-2023                              |
 
 To provide guidance for breach notification when impressive or unauthorised
 access, acquisition, use and/or disclosure of the ePHI occurs.  In the case of a

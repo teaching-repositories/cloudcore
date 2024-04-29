@@ -1,7 +1,19 @@
 ---
-title: "Entity Relationship Diagram"
-categories: ["Data", "IT Management", "Software"]
+categories:
+- Data
+- IT Management
+- Software
+description: This schema offers a comprehensive view of operational data, supporting
+  both transactional processing and analytical queries for educational purposes.
+title: Entity Relationship Diagram
 ---
+
+|              |                                     |
+|--------------|-------------------------------------|
+| **Title**    | Entity Relationship Diagram             |
+| **Doc#**     | DOC-DATA-001 |
+| **Version**  | 1.0                                 |
+| **Date**     | 18-02-2023                              |
 
 This schema offers a comprehensive view of operational data, supporting both
 transactional processing and analytical queries for educational purposes.

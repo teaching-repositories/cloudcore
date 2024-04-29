@@ -1,7 +1,20 @@
 ---
-title: "Approved Software"
-categories: ["IT Management", "Software", "Compliance"]
+categories:
+- IT Management
+- Software
+- Compliance
+description: At CloudCore Networks, our commitment to delivering exceptional service
+  and maintaining the highest standards of security and performance is reflected in
+  our meticulously curated list of Approved Software.
+title: Approved Software
 ---
+
+|              |                                     |
+|--------------|-------------------------------------|
+| **Title**    | Approved Software             |
+| **Doc#**     | DOC-ITMA-003 |
+| **Version**  | 1.0                                 |
+| **Date**     | 06-02-2023                              |
 
 At CloudCore Networks, our commitment to delivering exceptional service and
 maintaining the highest standards of security and performance is reflected in
