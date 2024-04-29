@@ -2,7 +2,7 @@
 title: "Transcripts"
 listing:
   contents: interviews
-  sort: "date desc"
+  sort: "title"
   type: grid
   categories: true
   sort-ui: false
