@@ -181,7 +181,7 @@ Paste this script at the bottom of your HTML before the </body> tag.
 See more style and config options on our docs
 https://github.com/Mintplex-Labs/anything-llm/tree/master/embed/README.md
 -->
-<script data-embed-id="23babe57-ca59-4d0e-8bc9-0206bf0f7b06" data-base-api-url="https://chat.serveur.au/api/embed" src="https://chat.serveur.au/embed/anythingllm-chat-widget.min.js">
+<script data-embed-id="23babe57-ca59-4d0e-8bc9-0206bf0f7b06" data-base-api-url="https://chat.serveur.au/api/embed" data-brand-image-url="https://cloudcore.serveur.au/assets/cloudcore_networks.png" data-assistant-name="Elena Hui" data-assistant-icon="elena_hui.webp" src="https://chat.serveur.au/embed/anythingllm-chat-widget.min.js">
 </script>
 <!-- AnythingLLM (https://useanything.com) -->
 
@@ -263,7 +263,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/teaching-repositories\.github\.io\/cloudcore\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

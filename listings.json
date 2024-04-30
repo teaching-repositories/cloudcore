@@ -84,11 +84,11 @@
   {
     "listing": "/chatbots/index.html",
     "items": [
-      "/chatbots/bots/elna_hui/index.html",
       "/chatbots/bots/jessica_lin/index.html",
       "/chatbots/bots/samantha_wong/index.html",
       "/chatbots/bots/samuel_torres/index.html",
       "/chatbots/bots/dr_mina_chowdhury/index.html",
+      "/chatbots/bots/elena_hui/index.html",
       "/chatbots/bots/martin_nugyen/index.html"
     ]
   }
