@@ -1,78 +1,20 @@
 [
   {
-    "listing": "/chatbots/index.html",
+    "listing": "/docs/interviews.html",
     "items": [
-      "/chatbots/bots/jessica_lin/index.html",
-      "/chatbots/bots/raj_patel/index.html",
-      "/chatbots/bots/summaries.html",
-      "/chatbots/bots/jamal_al_sayed/index.html",
-      "/chatbots/bots/samantha_wong/index.html",
-      "/chatbots/bots/carlos_mendes/index.html",
-      "/chatbots/bots/michael_thompson/index.html",
-      "/chatbots/bots/sophia_martines/index.html",
-      "/chatbots/bots/aisha_rahman/index.html",
-      "/chatbots/bots/david_wilson/index.html",
-      "/chatbots/bots/samuel_torres/index.html",
-      "/chatbots/bots/emily_chen/index.html",
-      "/chatbots/bots/natalie_fischer/index.html",
-      "/chatbots/bots/karen_lee/index.html",
-      "/chatbots/bots/dr_mina_chowdhury/index.html",
-      "/chatbots/bots/elena_hui/index.html",
-      "/chatbots/bots/martin_nugyen/index.html"
-    ]
-  },
-  {
-    "listing": "/docs/policies.html",
-    "items": [
-      "/docs/policies/access.html",
-      "/docs/policies/asset_mgmt.html",
-      "/docs/policies/breach.html",
-      "/docs/policies/bcdr.html",
-      "/docs/policies/compliance_audit.html",
-      "/docs/policies/ccm.html",
-      "/docs/policies/cookie_policy.html",
-      "/docs/policies/data_mgmt.html",
-      "/docs/policies/data_protection.html",
-      "/docs/policies/document_numbering.html",
-      "/docs/policies/facility.html",
-      "/docs/policies/gdpr_dpa.html",
-      "/docs/policies/hipaa_baa.html",
-      "/docs/policies/hr.html",
-      "/docs/policies/ir.html",
-      "/docs/policies/mdm.html",
-      "/docs/policies/policy_mgmt.html",
-      "/docs/policies/privacy_policy.html",
-      "/docs/policies/privacy.html",
-      "/docs/policies/risk_mgmt.html",
-      "/docs/policies/rar.html",
-      "/docs/policies/sdlc.html",
-      "/docs/policies/model.html",
-      "/docs/policies/system_audit.html",
-      "/docs/policies/vendor.html",
-      "/docs/policies/threat.html",
-      "/docs/policies/vuln_mgmt.html"
-    ]
-  },
-  {
-    "listing": "/docs/articles.html",
-    "items": [
-      "/docs/articles/data_breach_risk_analysis.html",
-      "/docs/articles/data-breach_industry_analysis.html",
-      "/docs/articles/data_breach_technical_analysis.html",
-      "/docs/articles/data_breach_customer_reactions.html",
-      "/docs/articles/data_breach_recommendations_post_breach.html",
-      "/docs/articles/data_breach_initial_report.html"
-    ]
-  },
-  {
-    "listing": "/blog/index.html",
-    "items": [
-      "/blog/posts/post-with-code/index.html",
-      "/blog/posts/welcome/index.html",
-      "/blog/posts/fullstack-development/index.html",
-      "/blog/posts/how-to-become-frontend-master/index.html",
-      "/blog/posts/essential-data-structures-algorithms/index.html",
-      "/blog/posts/markdown_examples/index.html"
+      "/docs/interviews/interview_CISO.html",
+      "/docs/interviews/interview_data_breach_csio.html",
+      "/docs/interviews/interview_database_administrator.html",
+      "/docs/interviews/interview_data_protection_officer.html",
+      "/docs/interviews/interview_facilities_manager.html",
+      "/docs/interviews/interview_helpdesk.html",
+      "/docs/interviews/interview_infromation_security_manager.html",
+      "/docs/interviews/interview_data_breach_it_manager.html",
+      "/docs/interviews/interview_legal.html",
+      "/docs/interviews/interview_network_engineer.html",
+      "/docs/interviews/interview_system_administrator.html",
+      "/docs/interviews/interview_typical_employee.html",
+      "/docs/interviews/interview_vendor.html"
     ]
   },
   {
@@ -112,21 +54,78 @@
     ]
   },
   {
-    "listing": "/docs/interviews.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/docs/interviews/interview_CISO.html",
-      "/docs/interviews/interview_data_breach_csio.html",
-      "/docs/interviews/interview_database_administrator.html",
-      "/docs/interviews/interview_data_protection_officer.html",
-      "/docs/interviews/interview_facilities_manager.html",
-      "/docs/interviews/interview_helpdesk.html",
-      "/docs/interviews/interview_infromation_security_manager.html",
-      "/docs/interviews/interview_data_breach_it_manager.html",
-      "/docs/interviews/interview_legal.html",
-      "/docs/interviews/interview_network_engineer.html",
-      "/docs/interviews/interview_system_administrator.html",
-      "/docs/interviews/interview_typical_employee.html",
-      "/docs/interviews/interview_vendor.html"
+      "/blog/posts/post-with-code/index.html",
+      "/blog/posts/welcome/index.html",
+      "/blog/posts/fullstack-development/index.html",
+      "/blog/posts/how-to-become-frontend-master/index.html",
+      "/blog/posts/essential-data-structures-algorithms/index.html",
+      "/blog/posts/markdown_examples/index.html"
+    ]
+  },
+  {
+    "listing": "/docs/articles.html",
+    "items": [
+      "/docs/articles/data_breach_risk_analysis.html",
+      "/docs/articles/data-breach_industry_analysis.html",
+      "/docs/articles/data_breach_technical_analysis.html",
+      "/docs/articles/data_breach_customer_reactions.html",
+      "/docs/articles/data_breach_recommendations_post_breach.html",
+      "/docs/articles/data_breach_initial_report.html"
+    ]
+  },
+  {
+    "listing": "/docs/policies.html",
+    "items": [
+      "/docs/policies/access.html",
+      "/docs/policies/asset_mgmt.html",
+      "/docs/policies/breach.html",
+      "/docs/policies/bcdr.html",
+      "/docs/policies/compliance_audit.html",
+      "/docs/policies/ccm.html",
+      "/docs/policies/cookie_policy.html",
+      "/docs/policies/data_mgmt.html",
+      "/docs/policies/data_protection.html",
+      "/docs/policies/document_numbering.html",
+      "/docs/policies/facility.html",
+      "/docs/policies/gdpr_dpa.html",
+      "/docs/policies/hipaa_baa.html",
+      "/docs/policies/hr.html",
+      "/docs/policies/ir.html",
+      "/docs/policies/mdm.html",
+      "/docs/policies/policy_mgmt.html",
+      "/docs/policies/privacy_policy.html",
+      "/docs/policies/privacy.html",
+      "/docs/policies/risk_mgmt.html",
+      "/docs/policies/rar.html",
+      "/docs/policies/sdlc.html",
+      "/docs/policies/model.html",
+      "/docs/policies/system_audit.html",
+      "/docs/policies/vendor.html",
+      "/docs/policies/threat.html",
+      "/docs/policies/vuln_mgmt.html"
+    ]
+  },
+  {
+    "listing": "/chatbots/index.html",
+    "items": [
+      "/chatbots/bots/jessica_lin/index.html",
+      "/chatbots/bots/raj_patel/index.html",
+      "/chatbots/bots/jamal_al_sayed/index.html",
+      "/chatbots/bots/samantha_wong/index.html",
+      "/chatbots/bots/carlos_mendes/index.html",
+      "/chatbots/bots/michael_thompson/index.html",
+      "/chatbots/bots/sophia_martines/index.html",
+      "/chatbots/bots/aisha_rahman/index.html",
+      "/chatbots/bots/david_wilson/index.html",
+      "/chatbots/bots/samuel_torres/index.html",
+      "/chatbots/bots/emily_chen/index.html",
+      "/chatbots/bots/natalie_fischer/index.html",
+      "/chatbots/bots/karen_lee/index.html",
+      "/chatbots/bots/dr_mina_chowdhury/index.html",
+      "/chatbots/bots/elena_hui/index.html",
+      "/chatbots/bots/martin_nugyen/index.html"
     ]
   }
 ]
