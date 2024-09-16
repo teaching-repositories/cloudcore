@@ -9,12 +9,36 @@
     <lastmod>2024-04-30T00:42:05.944Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/samuel_torres/index.html</loc>
-    <lastmod>2024-04-30T00:34:27.447Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/karen_lee/index.html</loc>
+    <lastmod>2024-09-16T01:00:46.942Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/jessica_lin/index.html</loc>
-    <lastmod>2024-04-30T00:32:42.708Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/emily_chen/index.html</loc>
+    <lastmod>2024-09-16T01:01:12.166Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/david_wilson/index.html</loc>
+    <lastmod>2024-09-16T01:01:19.458Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/sophia_martines/index.html</loc>
+    <lastmod>2024-09-16T01:00:24.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/carlos_mendes/index.html</loc>
+    <lastmod>2024-09-16T01:01:25.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/jamal_al_sayed/index.html</loc>
+    <lastmod>2024-09-16T01:00:57.446Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/raj_patel/index.html</loc>
+    <lastmod>2024-09-16T01:00:16.062Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/index.html</loc>
+    <lastmod>2024-04-29T22:37:57.362Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_network_engineer.html</loc>
@@ -33,20 +57,52 @@
     <lastmod>2024-04-20T16:18:46.496Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_typical_employee.html</loc>
-    <lastmod>2024-04-20T16:20:58.119Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_database_administrator.html</loc>
+    <lastmod>2024-04-20T16:17:52.825Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_CISO.html</loc>
-    <lastmod>2024-04-20T16:08:22.388Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_vendor.html</loc>
+    <lastmod>2024-04-20T16:22:28.507Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/training.html</loc>
-    <lastmod>2024-04-29T23:52:15.338Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles/data_breach_technical_analysis.html</loc>
+    <lastmod>2024-09-15T03:27:48.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles/data_breach_initial_report.html</loc>
+    <lastmod>2024-09-15T03:30:06.972Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles/data_breach_recommendations_post_breach.html</loc>
+    <lastmod>2024-09-15T03:29:12.325Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/policies.html</loc>
+    <lastmod>2024-04-29T23:53:56.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/letter_internal_eployees.html</loc>
+    <lastmod>2024-09-15T04:27:35.908Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/support/definitions.html</loc>
     <lastmod>2024-04-29T23:48:10.961Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/logs/edr_logs.html</loc>
+    <lastmod>2024-09-15T04:11:14.692Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/logs/application_server_logs.html</loc>
+    <lastmod>2024-09-15T04:06:51.454Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/logs/firewall_logs.html</loc>
+    <lastmod>2024-09-15T04:10:16.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/program.html</loc>
+    <lastmod>2024-04-29T23:51:50.771Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/support/forecast.html</loc>
@@ -65,6 +121,10 @@
     <lastmod>2024-04-29T23:48:29.221Z</lastmod>
   </url>
   <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/security_posture.html</loc>
+    <lastmod>2024-09-15T04:29:08.075Z</lastmod>
+  </url>
+  <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/support/hipaa_mapping.html</loc>
     <lastmod>2024-04-29T23:50:54.079Z</lastmod>
   </url>
@@ -73,8 +133,12 @@
     <lastmod>2024-04-29T23:51:03.547Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/budget.html</loc>
-    <lastmod>2024-04-29T23:49:03.304Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/incident_report.html</loc>
+    <lastmod>2024-09-15T03:38:36.105Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/erd.html</loc>
+    <lastmod>2024-04-29T23:48:35.956Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/policies/model.html</loc>
@@ -133,56 +197,60 @@
     <lastmod>2024-04-29T23:43:01.075Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/support.html</loc>
-    <lastmod>2024-04-29T23:47:28.941Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles.html</loc>
+    <lastmod>2024-09-15T03:32:01.143Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/welcome/index.html</loc>
-    <lastmod>2024-04-20T14:27:00.759Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/fullstack-development/index.html</loc>
-    <lastmod>2024-04-27T13:38:14.024Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/post-with-code/index.html</loc>
-    <lastmod>2024-04-20T14:27:00.755Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/index.html</loc>
-    <lastmod>2024-04-20T14:27:00.755Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/CONTRIBUTING.html</loc>
+    <loc>https://teaching-repositories.github.io/cloudcore/CODE_OF_CONDUCT.html</loc>
     <lastmod>2024-04-20T14:27:00.747Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/index.html</loc>
-    <lastmod>2024-04-29T22:15:32.645Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/about.html</loc>
-    <lastmod>2024-04-27T11:22:02.144Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/contact.html</loc>
-    <lastmod>2024-04-22T11:21:33.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/essential-data-structures-algorithms/index.html</loc>
-    <lastmod>2024-04-27T13:28:59.139Z</lastmod>
-  </url>
-  <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/markdown_examples/index.html</loc>
-    <lastmod>2024-04-27T13:38:36.548Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/how-to-become-frontend-master/index.html</loc>
     <lastmod>2024-04-27T13:38:26.060Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/CODE_OF_CONDUCT.html</loc>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/markdown_examples/index.html</loc>
+    <lastmod>2024-04-27T13:38:36.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/essential-data-structures-algorithms/index.html</loc>
+    <lastmod>2024-04-27T13:28:59.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/contact.html</loc>
+    <lastmod>2024-04-22T11:21:33.342Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/about.html</loc>
+    <lastmod>2024-04-27T11:22:02.144Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/index.html</loc>
+    <lastmod>2024-07-02T11:36:40.736Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/CONTRIBUTING.html</loc>
     <lastmod>2024-04-20T14:27:00.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/index.html</loc>
+    <lastmod>2024-04-20T14:27:00.755Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/post-with-code/index.html</loc>
+    <lastmod>2024-04-20T14:27:00.755Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/fullstack-development/index.html</loc>
+    <lastmod>2024-04-27T13:38:14.024Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/blog/posts/welcome/index.html</loc>
+    <lastmod>2024-04-20T14:27:00.759Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support.html</loc>
+    <lastmod>2024-04-29T23:47:28.941Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews.html</loc>
@@ -241,8 +309,12 @@
     <lastmod>2024-04-29T21:34:49.788Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/erd.html</loc>
-    <lastmod>2024-04-29T23:48:35.956Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/letter_notification_customers.html</loc>
+    <lastmod>2024-09-15T04:27:28.188Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/budget.html</loc>
+    <lastmod>2024-04-29T23:49:03.304Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/support/risk_register.html</loc>
@@ -257,6 +329,10 @@
     <lastmod>2024-04-29T23:51:25.367Z</lastmod>
   </url>
   <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/legal_compliance_obligations.html</loc>
+    <lastmod>2024-09-15T04:35:21.121Z</lastmod>
+  </url>
+  <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/support/org_chart.html</loc>
     <lastmod>2024-04-29T23:51:31.247Z</lastmod>
   </url>
@@ -269,24 +345,56 @@
     <lastmod>2024-04-29T23:51:10.947Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/program.html</loc>
-    <lastmod>2024-04-29T23:51:50.771Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/letter_exec_summary_board_of_directors.html</loc>
+    <lastmod>2024-09-15T04:26:41.073Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/threat-intellegiance-feed.html</loc>
+    <lastmod>2024-09-15T04:31:05.703Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/logs/seim_alerts.html</loc>
+    <lastmod>2024-09-15T04:11:34.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/logs/database_access_logs.html</loc>
+    <lastmod>2024-09-15T04:07:09.562Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/logs/vpn_access_log.html</loc>
+    <lastmod>2024-09-15T04:07:20.498Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/support/cost_analysis.html</loc>
     <lastmod>2024-04-29T21:16:49.458Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/policies.html</loc>
-    <lastmod>2024-04-29T23:53:56.229Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/support/training.html</loc>
+    <lastmod>2024-04-29T23:52:15.338Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_vendor.html</loc>
-    <lastmod>2024-04-20T16:22:28.507Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles/data-breach_industry_analysis.html</loc>
+    <lastmod>2024-09-15T03:26:59.917Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_database_administrator.html</loc>
-    <lastmod>2024-04-20T16:17:52.825Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles/data_breach_customer_reactions.html</loc>
+    <lastmod>2024-09-15T03:30:56.532Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/articles/data_breach_risk_analysis.html</loc>
+    <lastmod>2024-09-15T03:28:16.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_CISO.html</loc>
+    <lastmod>2024-04-20T16:08:22.388Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_typical_employee.html</loc>
+    <lastmod>2024-04-20T16:20:58.119Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_data_breach_csio.html</loc>
+    <lastmod>2024-09-15T03:11:35.579Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_system_administrator.html</loc>
@@ -301,12 +409,36 @@
     <lastmod>2024-04-20T16:09:38.092Z</lastmod>
   </url>
   <url>
-    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/index.html</loc>
-    <lastmod>2024-04-29T22:37:57.362Z</lastmod>
+    <loc>https://teaching-repositories.github.io/cloudcore/docs/interviews/interview_data_breach_it_manager.html</loc>
+    <lastmod>2024-09-15T03:11:51.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/jessica_lin/index.html</loc>
+    <lastmod>2024-04-30T00:32:42.708Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/summaries.html</loc>
+    <lastmod>2024-09-16T00:38:06.970Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/samantha_wong/index.html</loc>
     <lastmod>2024-04-30T00:33:53.659Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/michael_thompson/index.html</loc>
+    <lastmod>2024-09-16T01:00:40.042Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/aisha_rahman/index.html</loc>
+    <lastmod>2024-09-16T01:01:34.878Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/samuel_torres/index.html</loc>
+    <lastmod>2024-04-30T00:34:27.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/natalie_fischer/index.html</loc>
+    <lastmod>2024-09-16T01:00:08.362Z</lastmod>
   </url>
   <url>
     <loc>https://teaching-repositories.github.io/cloudcore/chatbots/bots/dr_mina_chowdhury/index.html</loc>
