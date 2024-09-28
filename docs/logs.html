@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CloudCore - Customers Voice Frustration Over CloudCore Networks Data Breach</title>
+<title>CloudCore - Logs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,19 +68,77 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../../styles.css">
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">CloudCore</span>
     </a>
   </div>
@@ -89,23 +149,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../pricing.html"> 
+    <a class="nav-link" href="../pricing.html"> 
 <span class="menu-text">Pricing</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../chatbots/index.html"> 
+    <a class="nav-link" href="../chatbots/index.html"> 
 <span class="menu-text">Staff-Clients</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -114,23 +174,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-docs">    
         <li>
-    <a class="dropdown-item" href="../../docs/interviews.html">
+    <a class="dropdown-item" href="../docs/interviews.html">
  <span class="dropdown-text">Transcripts</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../docs/policies.html">
+    <a class="dropdown-item" href="../docs/policies.html">
  <span class="dropdown-text">Policies</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../docs/support.html">
+    <a class="dropdown-item" href="../docs/support.html">
  <span class="dropdown-text">Other</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../docs/articles.html">
+    <a class="dropdown-item" href="../docs/articles.html">
  <span class="dropdown-text">In the News</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../docs/logs.html">
+    <a class="dropdown-item" href="../docs/logs.html">
  <span class="dropdown-text">Logs</span></a>
   </li>  
     </ul>
@@ -138,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact US</span></a>
   </li>  
 </ul>
@@ -149,58 +209,236 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Logs</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Alerts">Alerts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Application Server">Application Server <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Data Breach">Data Breach <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Database">Database <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Endpoint Detection and Response (EDR)">Endpoint Detection and Response (EDR) <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Firewall">Firewall <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Logs">Logs <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Security Information and Event Management (SIEM)">Security Information and Event Management (SIEM) <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VPN">VPN <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Customers Voice Frustration Over CloudCore Networks Data Breach</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Customer Reactions</div>
-    <div class="quarto-category">Data Breach</div>
-  </div>
-  </div>
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p><strong>Publication:</strong> The Digital Ledger<br>
-<strong>Date:</strong> September 15, 2024<br>
-<strong>Author:</strong> Laura King</p>
-<p><strong>CloudCore Networks is facing a growing backlash from customers following the recent data breach that exposed sensitive information belonging to 250,000 individuals.</strong> The breach has left many customers feeling vulnerable and questioning the effectiveness of CloudCore’s security measures.</p>
-<p><strong>“I’ve been a loyal customer of CloudCore for years, and this breach has shaken my confidence,”</strong> said Jessica Morgan, a small business owner who uses CloudCore’s services for data storage. <strong>“I trusted them with my information, and now I’m not sure if I can continue to rely on them.”</strong></p>
-<p>CloudCore has promised to offer credit monitoring services to affected customers and has set up a dedicated hotline to address their concerns. However, for many, these measures feel like too little, too late.</p>
-<p><strong>“The real problem is that this breach happened in the first place,”</strong> said Thomas Nguyen, another affected customer. <strong>“Offering credit monitoring doesn’t change the fact that my data was exposed. I want to know what CloudCore is doing to make sure this doesn’t happen again.”</strong></p>
-<p><strong>Impact on Business Relationships</strong></p>
-<p>The breach has also raised concerns among CloudCore’s business clients, many of whom operate in highly regulated industries such as finance and healthcare. For these clients, the potential impact of compromised data extends beyond personal inconvenience to significant regulatory and financial consequences.</p>
-<p><strong>“Our clients demand the highest levels of data security, and this incident has put us in a difficult position,”</strong> said a spokesperson for a financial services company that partners with CloudCore. <strong>“We need to be assured that CloudCore is taking every possible step to prevent future breaches, or we will have to consider alternative providers.”</strong></p>
-<p><strong>CloudCore’s Response</strong></p>
-<p>In response to the growing criticism, CloudCore has emphasized its commitment to transparency and accountability. <strong>“We understand the frustration and concerns of our customers, and we are doing everything in our power to address the situation,”</strong> said Sophia Martinez, CISO of CloudCore Networks. <strong>“Our top priority is to secure our systems and rebuild the trust of our customers.”</strong></p>
-<p>Despite these assurances, the damage to CloudCore’s reputation may take time to repair. The company has announced plans to overhaul its security protocols and invest in new technologies to enhance its defenses against future attacks.</p>
-<p><strong>A Warning for the Industry</strong></p>
-<p>As the fallout from the breach continues, industry observers note that CloudCore’s experience serves as a cautionary tale for other companies in the cloud services space. <strong>“Data security is a critical factor for any business today,”</strong> said Amanda Lewis, a technology analyst at TechVentures. <strong>“Cloud providers, in particular, must ensure that their security practices are not just adequate, but exemplary. The repercussions of failing to do so are clear for everyone to see.”</strong></p>
-<p>For CloudCore, the immediate focus will be on addressing the breach’s impact, communicating effectively with affected customers, and taking concrete steps to prevent a recurrence. Whether these efforts will be enough to restore customer confidence remains to be seen.</p>
+<script type="text/javascript" src="../scripts/password.js"></script>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Application Server,Logs,Data Breach" data-listing-file-modified-sort="1726373211454" data-listing-reading-time-sort="1" data-listing-word-count-sort="86">
+<a href="../docs/support/logs/application_server_logs.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 0;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Application Server Logs
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Application Server'); return false;">
+Application Server
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logs'); return false;">
+Logs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Breach'); return false;">
+Data Breach
+</div>
+</div>
+<div class="card-text listing-description">
+These logs include suspicious activities on the application server.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Database,Logs,Data Breach" data-listing-file-modified-sort="1726373229562" data-listing-reading-time-sort="1" data-listing-word-count-sort="124">
+<a href="../docs/support/logs/database_access_logs.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 0;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Database Access Logs
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Database'); return false;">
+Database
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logs'); return false;">
+Logs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Breach'); return false;">
+Data Breach
+</div>
+</div>
+<div class="card-text listing-description">
+These logs capture the sequence of database queries and export actions taken by the attacker.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Endpoint Detection and Response (EDR),Logs,Data Breach" data-listing-file-modified-sort="1726373474692" data-listing-reading-time-sort="1" data-listing-word-count-sort="82">
+<a href="../docs/support/logs/edr_logs.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 0;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Endpoint Detection and Response (EDR) Logs
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Endpoint Detection and Response (EDR)'); return false;">
+Endpoint Detection and Response (EDR)
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logs'); return false;">
+Logs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Breach'); return false;">
+Data Breach
+</div>
+</div>
+<div class="card-text listing-description">
+These logs indicate endpoint-level alerts and actions.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Firewall,Logs,Data Breach" data-listing-file-modified-sort="1726373416424" data-listing-reading-time-sort="1" data-listing-word-count-sort="90">
+<a href="../docs/support/logs/firewall_logs.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 0;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Firewall Logs
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Firewall'); return false;">
+Firewall
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logs'); return false;">
+Logs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Breach'); return false;">
+Data Breach
+</div>
+</div>
+<div class="card-text listing-description">
+These logs show external connections and potential unauthorised access attempts.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Security Information and Event Management (SIEM),Alerts,Logs,Data Breach" data-listing-file-modified-sort="1726373494587" data-listing-reading-time-sort="1" data-listing-word-count-sort="105">
+<a href="../docs/support/logs/seim_alerts.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 0;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Security Information and Event Management (SIEM) Alerts
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Security Information and Event Management (SIEM)'); return false;">
+Security Information and Event Management (SIEM)
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Alerts'); return false;">
+Alerts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logs'); return false;">
+Logs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Breach'); return false;">
+Data Breach
+</div>
+</div>
+<div class="card-text listing-description">
+These logs detail alerts triggered by the SIEM system.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="VPN,Logs,Data Breach" data-listing-file-modified-sort="1726373240498" data-listing-reading-time-sort="1" data-listing-word-count-sort="82">
+<a href="../docs/support/logs/vpn_access_log.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 0;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+VPN Access Logs
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('VPN'); return false;">
+VPN
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Logs'); return false;">
+Logs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Breach'); return false;">
+Data Breach
+</div>
+</div>
+<div class="card-text listing-description">
+These logs show the initial access via the VPN using compromised credentials.
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,20 +1,24 @@
 [
   {
-    "listing": "/docs/interviews.html",
+    "listing": "/docs/articles.html",
     "items": [
-      "/docs/interviews/interview_CISO.html",
-      "/docs/interviews/interview_data_breach_csio.html",
-      "/docs/interviews/interview_database_administrator.html",
-      "/docs/interviews/interview_data_protection_officer.html",
-      "/docs/interviews/interview_facilities_manager.html",
-      "/docs/interviews/interview_helpdesk.html",
-      "/docs/interviews/interview_infromation_security_manager.html",
-      "/docs/interviews/interview_data_breach_it_manager.html",
-      "/docs/interviews/interview_legal.html",
-      "/docs/interviews/interview_network_engineer.html",
-      "/docs/interviews/interview_system_administrator.html",
-      "/docs/interviews/interview_typical_employee.html",
-      "/docs/interviews/interview_vendor.html"
+      "/docs/articles/data_breach_risk_analysis.html",
+      "/docs/articles/data-breach_industry_analysis.html",
+      "/docs/articles/data_breach_technical_analysis.html",
+      "/docs/articles/data_breach_customer_reactions.html",
+      "/docs/articles/data_breach_recommendations_post_breach.html",
+      "/docs/articles/data_breach_initial_report.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/post-with-code/index.html",
+      "/blog/posts/welcome/index.html",
+      "/blog/posts/fullstack-development/index.html",
+      "/blog/posts/how-to-become-frontend-master/index.html",
+      "/blog/posts/essential-data-structures-algorithms/index.html",
+      "/blog/posts/markdown_examples/index.html"
     ]
   },
   {
@@ -54,25 +58,32 @@
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/docs/interviews.html",
     "items": [
-      "/blog/posts/post-with-code/index.html",
-      "/blog/posts/welcome/index.html",
-      "/blog/posts/fullstack-development/index.html",
-      "/blog/posts/how-to-become-frontend-master/index.html",
-      "/blog/posts/essential-data-structures-algorithms/index.html",
-      "/blog/posts/markdown_examples/index.html"
+      "/docs/interviews/interview_CISO.html",
+      "/docs/interviews/interview_data_breach_csio.html",
+      "/docs/interviews/interview_database_administrator.html",
+      "/docs/interviews/interview_data_protection_officer.html",
+      "/docs/interviews/interview_facilities_manager.html",
+      "/docs/interviews/interview_helpdesk.html",
+      "/docs/interviews/interview_infromation_security_manager.html",
+      "/docs/interviews/interview_data_breach_it_manager.html",
+      "/docs/interviews/interview_legal.html",
+      "/docs/interviews/interview_network_engineer.html",
+      "/docs/interviews/interview_system_administrator.html",
+      "/docs/interviews/interview_typical_employee.html",
+      "/docs/interviews/interview_vendor.html"
     ]
   },
   {
-    "listing": "/docs/articles.html",
+    "listing": "/docs/logs.html",
     "items": [
-      "/docs/articles/data_breach_risk_analysis.html",
-      "/docs/articles/data-breach_industry_analysis.html",
-      "/docs/articles/data_breach_technical_analysis.html",
-      "/docs/articles/data_breach_customer_reactions.html",
-      "/docs/articles/data_breach_recommendations_post_breach.html",
-      "/docs/articles/data_breach_initial_report.html"
+      "/docs/support/logs/application_server_logs.html",
+      "/docs/support/logs/database_access_logs.html",
+      "/docs/support/logs/edr_logs.html",
+      "/docs/support/logs/firewall_logs.html",
+      "/docs/support/logs/seim_alerts.html",
+      "/docs/support/logs/vpn_access_log.html"
     ]
   },
   {
