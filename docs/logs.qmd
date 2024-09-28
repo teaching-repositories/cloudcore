@@ -1,0 +1,15 @@
+---
+title: "Logs"
+listing:
+  contents: support/logs
+  sort: "title"
+  type: grid
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  image-height: "0"
+page-layout: full
+title-block-banner: true
+---
+
+<script type="text/javascript" src="../scripts/password.js"></script>
