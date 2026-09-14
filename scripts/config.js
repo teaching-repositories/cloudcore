@@ -20,10 +20,13 @@ const CloudCoreConfig = {
     gatedHost: 'gated.cloudcore.eduserver.au',
     gatedUrl: 'https://gated.cloudcore.eduserver.au',
 
-    // Booking API server
+    // Booking API servers (campus instances)
     bookingDomain: 'booking.cloudcore.eduserver.au',
     bookingApiUrl: 'https://booking.cloudcore.eduserver.au/api',
     bookingApiLocalUrl: 'http://localhost:8080/api',
+    bookingDomainMu: 'booking-mu.cloudcore.eduserver.au',
+    bookingApiMuUrl: 'https://booking-mu.cloudcore.eduserver.au/api',
+    bookingApiMuLocalUrl: 'http://localhost:8081/api',
 
     // Brand image URL (used in chatbot embeds)
     brandImageUrl: 'https://cloudcore.eduserver.au/assets/cloudcore_networks.png'

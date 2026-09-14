@@ -75,14 +75,15 @@
             errBox.textContent = '';
             const unit = document.getElementById('unit-gate-code').value.trim().toUpperCase();
             const password = document.getElementById('unit-gate-password').value;
-            if (!unit || !password) return;
+            const badge = document.getElementById('unit-gate-badge').value.trim().toUpperCase();
+            if (!unit || !password || !badge) return;
 
             try {
                 const r = await fetch(API + '/session', {
                     method: 'POST',
                     credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ unit_code: unit, password: password })
+                    body: JSON.stringify({ unit_code: unit, password: password, badge_code: badge })
                 });
                 if (r.ok) {
                     const me = await r.json();
@@ -90,8 +91,11 @@
                     window.location.href = safeNext();
                 } else if (r.status === 429) {
                     errBox.textContent = 'Too many attempts — please wait a minute and try again.';
+                } else if (r.status === 503) {
+                    errBox.textContent = 'Cannot verify badges right now — please try again shortly.';
                 } else {
-                    errBox.textContent = 'Invalid unit code or password.';
+                    const data = await r.json().catch(() => ({}));
+                    errBox.textContent = data.detail || 'Invalid unit code, password, or badge ID.';
                 }
             } catch (e2) {
                 errBox.textContent = 'Cannot reach the access service. Please try again later.';

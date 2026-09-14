@@ -130,7 +130,7 @@
     "href": "gate.html",
     "title": "Staff Portal Access",
     "section": "",
-    "text": "Access to CloudCore’s internal documentation and staff directory is limited to authorised project teams. Enter the access details provided by your unit coordinator.\n\n\n\nUnit Code\n\n\n\nAccess Password\n\n\nEnter Portal\n\n\n\nTrouble signing in? Contact your unit coordinator. Sessions last the teaching period on this browser."
+    "text": "Access to CloudCore’s internal documentation and staff directory is limited to authorised project teams. Enter the access details provided by your unit coordinator.\n\n\n\nUnit Code\n\n\n\nAccess Password\n\n\n\nContractor Badge ID\n\nYour badge determines which office’s hours you log in under — Perth or Mauritius.\n\nEnter Portal\n\n\n\nTrouble signing in? Contact your unit coordinator. Sessions last the teaching period on this browser."
   },
   {
     "objectID": "contact.html",
@@ -270,14 +270,14 @@
     "href": "closed.html",
     "title": "Offices Closed",
     "section": "",
-    "text": "Our staff and systems are available during business hours:\nMonday – Friday, 7:00 am – 7:00 pm (Perth time) excluding WA public holidays\nPlease return during business hours to access documentation and meet with our staff.\nJust like a real client engagement — plan your document reviews and interviews within the working day."
+    "text": "Our staff and systems are available during business hours:\nMonday – Friday, 7:00 am – 7:00 pm (your campus’s local time — Perth or Mauritius, per your contractor badge) excluding public holidays\nPlease return during business hours to access documentation and meet with our staff.\nJust like a real client engagement — plan your document reviews and interviews within the working day."
   },
   {
     "objectID": "closed.html#cloudcores-offices-are-currently-closed",
     "href": "closed.html#cloudcores-offices-are-currently-closed",
     "title": "Offices Closed",
     "section": "",
-    "text": "Our staff and systems are available during business hours:\nMonday – Friday, 7:00 am – 7:00 pm (Perth time) excluding WA public holidays\nPlease return during business hours to access documentation and meet with our staff."
+    "text": "Our staff and systems are available during business hours:\nMonday – Friday, 7:00 am – 7:00 pm (your campus’s local time — Perth or Mauritius, per your contractor badge) excluding public holidays\nPlease return during business hours to access documentation and meet with our staff."
   },
   {
     "objectID": "credits.html",
