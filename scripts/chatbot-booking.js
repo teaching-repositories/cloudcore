@@ -67,7 +67,7 @@ const ChatbotBooking = {
      */
     async checkBookingAPI() {
         try {
-            const response = await fetch(BookingAPI.baseUrl + '/employees', {
+            const response = await fetch(BookingAPI.baseUrl() + '/employees', {
                 method: 'GET',
                 signal: AbortSignal.timeout(3000)
             });

@@ -4,10 +4,40 @@
  */
 
 const BookingAPI = {
-    // API base URL - switches between local dev and production
-    baseUrl: window.location.hostname === 'localhost'
+    // Campus API bases. A badge routes to its campus instance: MU- prefixed
+    // codes go to Mauritius, everything else defaults to Perth. The server
+    // can also redirect mid-flow (redirect_api) when a badge is tagged for
+    // the other campus; that override is persisted with the badge.
+    defaultBaseUrl: window.location.hostname === 'localhost'
         ? (typeof CloudCoreConfig !== 'undefined' ? CloudCoreConfig.bookingApiLocalUrl : 'http://localhost:8080/api')
         : (typeof CloudCoreConfig !== 'undefined' ? CloudCoreConfig.bookingApiUrl : 'https://booking.cloudcore.eduserver.au/api'),
+    muBaseUrl: window.location.hostname === 'localhost'
+        ? (typeof CloudCoreConfig !== 'undefined' ? CloudCoreConfig.bookingApiMuLocalUrl : 'http://localhost:8081/api')
+        : (typeof CloudCoreConfig !== 'undefined' ? CloudCoreConfig.bookingApiMuUrl : 'https://booking-mu.cloudcore.eduserver.au/api'),
+    baseOverride: null,
+
+    baseUrl() {
+        if (this.baseOverride) return this.baseOverride;
+        const student = this.getStudent();
+        if (student && student.badge && student.badge.indexOf('MU-') === 0) {
+            return this.muBaseUrl;
+        }
+        return this.defaultBaseUrl;
+    },
+
+    alternateBaseUrl() {
+        return this.baseUrl() === this.muBaseUrl ? this.defaultBaseUrl : this.muBaseUrl;
+    },
+
+    setBaseOverride(url) {
+        this.baseOverride = url;
+        const stored = localStorage.getItem('booking_badge');
+        if (stored) {
+            const data = JSON.parse(stored);
+            data.apiBase = url;
+            localStorage.setItem('booking_badge', JSON.stringify(data));
+        }
+    },
 
     // Student identification: an issued "contractor badge" code — no emails
     // or names anywhere. localStorage (not session) so it survives the tab.
@@ -20,13 +50,14 @@ const BookingAPI = {
     setStudent(badge, unitCode = null) {
         this.badgeCode = badge.trim().toUpperCase();
         this.unitCode = unitCode;
+        this.baseOverride = null;
         localStorage.setItem('booking_badge', JSON.stringify({
             badge: this.badgeCode, unitCode
         }));
     },
 
     /**
-     * Get stored badge info ({badge, unitCode} or null)
+     * Get stored badge info ({badge, unitCode, apiBase} or null)
      */
     getStudent() {
         if (this.badgeCode) {
@@ -37,6 +68,7 @@ const BookingAPI = {
             const data = JSON.parse(stored);
             this.badgeCode = data.badge;
             this.unitCode = data.unitCode;
+            this.baseOverride = data.apiBase || null;
             return data;
         }
         return null;
@@ -48,14 +80,17 @@ const BookingAPI = {
     clearStudent() {
         this.badgeCode = null;
         this.unitCode = null;
+        this.baseOverride = null;
         localStorage.removeItem('booking_badge');
     },
 
     /**
-     * Make API request with error handling
+     * Make API request with error handling. Routes to the badge's campus
+     * instance: follows a server redirect_api, or probes the peer instance
+     * once when the badge is unknown here.
      */
-    async request(endpoint, options = {}) {
-        const url = `${this.baseUrl}${endpoint}`;
+    async request(endpoint, options = {}, _allowRetry = true) {
+        const url = `${this.baseUrl()}${endpoint}`;
 
         const config = {
             headers: {
@@ -69,8 +104,33 @@ const BookingAPI = {
             const response = await fetch(url, config);
             const data = await response.json();
 
+            if (data && data.redirect_api && _allowRetry) {
+                this.setBaseOverride(data.redirect_api);
+                return this.request(endpoint, options, false);
+            }
+
             if (!response.ok) {
-                throw new Error(data.detail || data.message || 'Request failed');
+                const detail = data.detail || data.message;
+                if (_allowRetry && typeof detail === 'string' &&
+                        detail.indexOf('Badge not recognised') === 0) {
+                    const alt = this.alternateBaseUrl();
+                    if (alt && alt !== this.baseUrl()) {
+                        const prev = this.baseOverride;
+                        this.baseOverride = alt;
+                        try {
+                            const result = await this.request(endpoint, options, false);
+                            this.setBaseOverride(alt);
+                            return result;
+                        } catch (probeError) {
+                            this.baseOverride = prev;
+                            throw probeError;
+                        }
+                    }
+                }
+                if (typeof detail === 'string') {
+                    throw new Error(detail);
+                }
+                throw new Error('Request failed');
             }
 
             return data;
@@ -238,7 +298,7 @@ const BookingAPI = {
      * Get calendar invite URL for an appointment
      */
     getCalendarUrl(appointmentId) {
-        return `${this.baseUrl}/appointments/${appointmentId}/calendar`;
+        return `${this.baseUrl()}/appointments/${appointmentId}/calendar`;
     },
 
     // =========================================================================

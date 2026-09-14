@@ -14,9 +14,14 @@ coordinator.
 <label for="unit-gate-code" style="display:block; font-weight:600; margin-bottom:.4rem;">Unit Code</label>
 <input type="text" id="unit-gate-code" class="form-control" placeholder="e.g. ISYS6018" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
 </div>
-<div style="margin-bottom: 1.25rem;">
+<div style="margin-bottom: 1rem;">
 <label for="unit-gate-password" style="display:block; font-weight:600; margin-bottom:.4rem;">Access Password</label>
 <input type="password" id="unit-gate-password" class="form-control" required>
+</div>
+<div style="margin-bottom: 1.25rem;">
+<label for="unit-gate-badge" style="display:block; font-weight:600; margin-bottom:.4rem;">Contractor Badge ID</label>
+<input type="text" id="unit-gate-badge" class="form-control" placeholder="e.g. CC-4XKQ-9M2T" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+<small style="color:#64748b;">Your badge determines which office&rsquo;s hours you log in under &mdash; Perth or Mauritius.</small>
 </div>
 <button type="submit" class="btn btn-primary" style="width:100%;">Enter Portal</button>
 <p id="unit-gate-error" style="color:#dc2626; margin-top:.75rem; min-height:1.25rem;"></p>
